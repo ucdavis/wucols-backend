@@ -6,23 +6,38 @@ const baseUrl = "https://playground.sf.ucdavis.edu/jsonapi/";
 
 // Step 1: Read out SiteFarm plant type and water use lookups
 const getLookups = async (): Promise<any> => {
-  const plantTypesUrl = baseUrl + "taxonomy_term/water_use";
+  const waterUseUrl = baseUrl + "taxonomy_term/water_use";
 
-  const waterUse = await fetch(plantTypesUrl);
-  const waterUseData: any = await waterUse.json();
+  const waterUseRequest = await fetch(waterUseUrl);
+  const waterUseData: any = await waterUseRequest.json();
 
-  const plantTypes = waterUseData.data.map((item: any) => {
+  const waterUses = waterUseData.data.map((item: any) => {
     return {
       id: item.id,
       name: item.attributes.name,
     };
   });
 
-  console.log(plantTypes);
+  // TODO: same with plant types
+  const plantTypesUrl = baseUrl + "taxonomy_term/pp";
+
+  const plantTypesRequest = await fetch(plantTypesUrl);
+  const plantTypesData: any = await plantTypesRequest.json();
+
+  const plantTypes = plantTypesData.data.map((item: any) => {
+    return {
+      id: item.id,
+      name: item.attributes.name,
+    };
+  });
+
+  return {
+    plantTypes,
+    waterUses,
+  };
 };
 
 // Step 2: Read all plants from CSV file
-
 const getPlants = async (): Promise<Plant[]> => {
   const plants: any = [];
 
