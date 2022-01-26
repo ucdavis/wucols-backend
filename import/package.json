@@ -1,0 +1,24 @@
+{
+  "name": "wucols-import",
+  "version": "1.0.0",
+  "description": "Import CSV and image data into SiteFarm via JSON API",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucdavis/wucols-backend.git"
+  },
+  "author": "Scott Kirkland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ucdavis/wucols-backend/issues"
+  },
+  "homepage": "https://github.com/ucdavis/wucols-backend#readme",
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  }
+}
