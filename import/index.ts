@@ -4,6 +4,8 @@ import fetch from "node-fetch";
 const wucols = require("./WUCOLS.json");
 
 const baseUrl = "https://playground.sf.ucdavis.edu/jsonapi/";
+const apiUser = "apiuser2";
+const apiPass = "";
 
 // maps water use from spreadsheet to plant type in API
 const waterUseMapper = (waterUse: string): string => {
@@ -21,7 +23,8 @@ const waterUseMapper = (waterUse: string): string => {
     case "NA":
       return "Not Appropriate for this Region";
     default:
-      return "Unknown";
+      console.log("Unknown water use:", waterUse);
+      throw new Error("Unknown water use");
   }
 };
 
@@ -34,7 +37,7 @@ const plantTypeMapper = (plantType: string): string => {
     case "T":
       return "T (Tree)";
     default:
-      return "T (Tree)"; // TODO: remove after testing, throw instead
+      return "T (Tree)"; // TODO: remove after testing
   }
 };
 
@@ -78,6 +81,7 @@ const getPlants = (): Plant[] => {
     commonName: plant.commonName,
     types: plant.types.map(plantTypeMapper),
     waterUseByRegion: plant.waterUseByRegion.map(waterUseMapper),
+    photoUrls: plant.photos.map((photo: any) => photo.full.url),
   }));
 
   return plants;
@@ -85,114 +89,115 @@ const getPlants = (): Plant[] => {
 
 // Step 3: For each plant, upload if not already in SiteFarm
 const uploadPlants = async (plants: Plant[], lookups: Lookups) => {
-  // TODO: loop through all plants
-  const plant = plants[0];
+  // For now, only upload subset of plants for testing
+  const totalPlants = 200; // plants.length;
+  for (let i = 0; i < totalPlants; i++) {
+    const plant = plants[i];
 
-  console.log(plant);
+    console.log(plant);
 
-  const plantTypeIds = lookups.plantTypes.filter((type) =>
-    plant.types.includes(type.name)
-  );
+    // first, check if plant is already in SiteFarm
+    const plantUrl = `${baseUrl}node/plant_database_item?filter[title]=${plant.commonName}`;
 
-  const waterUse1 = lookups.waterUses.find(
-    (item: Lookup) => item.name === plant.waterUseByRegion[0]
-  );
+    const plantRequest = await fetch(plantUrl);
+    const plantData: any = await plantRequest.json();
 
-  console.log(plantTypeIds, waterUse1);
-
-  const newPlantRequest = {
-    data: {
-      type: "node--plant_database_item",
-      attributes: {
-        title: plant.commonName,
-        field_botanical_name: plant.botanicalName,
-      },
-      relationships: {
-        field_plant_type: {
-          data: [
-            {
-              type: "taxonomy_term--pp",
-              id: "e8b3a6f9-b90c-4135-8ba1-1b0471091897",
-            },
-            {
-              type: "taxonomy_term--pp",
-              id: "13bb0e90-c52e-46d3-a5f4-a6c0ccf42dd2",
-            },
-          ],
-        },
-        field_region_1_water_use: {
-          data: {
-            type: "taxonomy_term--water_use",
-            id: "c493d494-9011-47dc-b272-b3d8a3bc0de6",
-          },
-        },
-        field_region_2_water_use: {
-          data: {
-            type: "taxonomy_term--water_use",
-            id: "c493d494-9011-47dc-b272-b3d8a3bc0de6",
-          },
-        },
-        field_region_3_water_use: {
-          data: {
-            type: "taxonomy_term--water_use",
-            id: "c493d494-9011-47dc-b272-b3d8a3bc0de6",
-          },
-        },
-        field_image: {
-          data: [], // thumbnail
-        },
-        field_images: {
-          data: [], // other images
-        },
-      },
-    },
-  };
-
-  // upload plant
-  // TODO: move to config
-  const user = "apiuser2";
-  const pass = "mJmUViZ80wv2oYZhEZD7fsWbj1FB";
-  const auth = "Basic " + Buffer.from(`${user}:${pass}`).toString("base64");
-
-  const response = await fetch(
-    "https://playground.sf.ucdavis.edu/jsonapi/node/plant_database_item",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/vnd.api+json",
-        Accept: "application/vnd.api+json",
-        Authorization: auth,
-      },
-      body: JSON.stringify(newPlantRequest),
+    if (plantData.data.length > 0) {
+      console.log("Plant already in SiteFarm");
+      continue;
     }
-  );
 
-  if (response.ok && response.status === 201) {
-    const responseData = await response.json();
-    console.log(responseData);
-  } else {
-    console.log("Error uploading plant");
+    const plantTypeIds = lookups.plantTypes.filter((type) =>
+      plant.types.includes(type.name)
+    );
+
+    const plantTypeData = plant.types.map((type) => ({
+      type: "taxonomy_term--pp",
+      id: plantTypeIds.find((id) => id.name === type)?.id,
+    }));
+
+    const waterUseData = plant.waterUseByRegion.map((waterUse) => ({
+      type: "taxonomy_term--pp",
+      id: lookups.waterUses.find((item: Lookup) => item.name === waterUse)?.id,
+    }));
+
+    // console.log(plantTypeIds, waterUseData);
+
+    const newPlantRequest = {
+      data: {
+        type: "node--plant_database_item",
+        attributes: {
+          title: plant.commonName,
+          field_botanical_name: plant.botanicalName,
+        },
+        relationships: {
+          field_plant_type: {
+            data: plantTypeData,
+          },
+          field_region_1_water_use: {
+            data: waterUseData[0],
+          },
+          field_region_2_water_use: {
+            data: waterUseData[1],
+          },
+          field_region_3_water_use: {
+            data: waterUseData[2],
+          },
+          field_image: {
+            data: [], // thumbnail
+          },
+          field_images: {
+            data: [], // other images
+          },
+        },
+      },
+    };
+
+    // console.log('to upload', JSON.stringify(newPlantRequest));
+
+    // upload plant
+    const auth =
+      "Basic " + Buffer.from(`${apiUser}:${apiPass}`).toString("base64");
+
+    const response = await fetch(
+      "https://playground.sf.ucdavis.edu/jsonapi/node/plant_database_item",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/vnd.api+json",
+          Accept: "application/vnd.api+json",
+          Authorization: auth,
+        },
+        body: JSON.stringify(newPlantRequest),
+      }
+    );
+
+    if (response.ok && response.status === 201) {
+      const responseData = await response.json();
+      console.log(responseData);
+      plant.uid = responseData.data.id;
+    } else {
+      console.log("Error uploading plant");
+    }
+
+    await transferImages(plant);
   }
-
-  // TODO: upload images for plant
-  // TODO: grab images from photoRollup and figure out thumbnails
 };
 
-const transferImage = async (plant: Plant, imageUrl: string) => {
-  // TODO: For now we are just sticking a sample image on our sample plant
-  const user = "apiuser2";
-  const pass = "mJmUViZ80wv2oYZhEZD7fsWbj1FB";
-  const auth = "Basic " + Buffer.from(`${user}:${pass}`).toString("base64");
-  const plantId = "e0c10b41-ee1f-43fd-919e-717569b41286"; // TODO: get plant id from SiteFarm
+const uploadImage = async (
+  fieldName: string,
+  plantUid: string,
+  imageUrl: string
+) => {
+  const auth =
+    "Basic " + Buffer.from(`${apiUser}:${apiPass}`).toString("base64");
   // download imageUrl to buffer and upload to SiteFarm as image, then associate with plant
-
-  // Step 1: Download image
   const imageRequest = await fetch(imageUrl);
   const imageBuffer = await imageRequest.buffer();
 
   // Step 2: Upload image to SiteFarm
   const uploadRequest = await fetch(
-    `https://playground.sf.ucdavis.edu/jsonapi/node/plant_database_item/${plantId}/field_images`,
+    `https://playground.sf.ucdavis.edu/jsonapi/node/plant_database_item/${plantUid}/${fieldName}`,
     {
       method: "POST",
       headers: {
@@ -213,16 +218,28 @@ const transferImage = async (plant: Plant, imageUrl: string) => {
   }
 };
 
+const transferImages = async (plant: Plant) => {
+  const thumbnailData = wucols.photos[plant.botanicalName];
+
+  if (thumbnailData) {
+    const thumbnailUrl = thumbnailData.small.url;
+    await uploadImage("field_image", plant.uid, thumbnailUrl);
+  }
+
+  // now upload other images
+  if (plant.photoUrls.length > 0) {
+    for (let i = 0; i < plant.photoUrls.length; i++) {
+      const photoUrl = plant.photoUrls[i];
+      await uploadImage("field_images", plant.uid, photoUrl);
+    }
+  }
+};
+
 const run = async () => {
-  // const lookups = await getLookups();
+  const lookups = await getLookups();
   const plants = await getPlants();
 
-  console.log(plants[0]);
-  // // uploadPlants(plants, lookups);
-  // await transferImage(
-  //   plants[0],
-  //   "https://dl.airtable.com/.attachmentThumbnails/312dd293b4cc48c0fb71f0a6ba513b2d/2559d293" // random thumbnail
-  // );
+  await uploadPlants(plants, lookups);
 };
 
 run().then().catch();
@@ -239,10 +256,12 @@ interface Lookup {
 }
 
 interface Plant {
+  uid: string;
   botanicalName: string;
   commonName: string;
   types: string[];
   waterUseByRegion: string[];
+  photoUrls: string[];
 }
 
 module.exports = {};
