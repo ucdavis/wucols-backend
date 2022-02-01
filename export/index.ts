@@ -1,0 +1,260 @@
+import fs from "fs";
+import fetch from "node-fetch";
+import {
+  Data,
+  DataLookups,
+  Photo,
+  PhotoReference,
+  Plant,
+  WaterUseClassification,
+  WaterUseCode,
+} from "./types";
+
+/*
+https://wucolsplants.sf.ucdavis.edu/jsonapi/node/plant_database_item?fields[node--plant_database_item]=field_botanical_name,title,field_plant_type,field_thumbnail,field_image_s_,field_region_1_water_use,field_region_2_water_use,field_region_3_water_use,field_region_4_water_use,field_region_5_water_use,field_region_6_water_use&include=field_region_1_water_use,field_plant_type,field_thumbnail,field_image_s_&fields[taxonomy_term--water_use]=name
+https://wucolsplants.sf.ucdavis.edu/jsonapi/node/plant_database_item?fields[node--plant_database_item]=field_botanical_name,title,field_plant_type,field_thumbnail,field_image_s_,field_region_1_water_use,field_region_2_water_use,field_region_3_water_use,field_region_4_water_use,field_region_5_water_use,field_region_6_water_use&include=field_region_1_water_use,field_plant_type,field_thumbnail,field_image_s_&fields[taxonomy_term--water_use]=name
+*/
+
+const baseUrl = "https://wucolsplants.sf.ucdavis.edu";
+
+var dataLookups = require("./data-lookups.json") as DataLookups;
+
+const plantTypeCodeByName: { [key: string]: string } = (() => {
+  const typeCodeByName: { [key: string]: string } = {};
+
+  dataLookups.plantTypes.forEach((plantType) => {
+    typeCodeByName[plantType.name] = plantType.code;
+  });
+
+  return typeCodeByName;
+})();
+
+const logJson = (json: any) => {
+  console.log(JSON.stringify(json, null, 2));
+};
+
+const getRawData = async (): Promise<any> => {
+  const url =
+    baseUrl +
+    "/jsonapi/" +
+    "node/plant_database_item" +
+    "?fields[node--plant_database_item]=field_botanical_name,title,field_plant_type,field_thumbnail,field_image_s_," +
+    "field_region_1_water_use,field_region_2_water_use,field_region_3_water_use,field_region_4_water_use,field_region_5_water_use,field_region_6_water_use" +
+    "&include=field_region_1_water_use,field_plant_type,field_thumbnail,field_image_s_" +
+    "&fields[taxonomy_term--water_use]=name" +
+    "&fields[file--file]=uri";
+
+  const response = await fetch(url);
+  const rawData: any = await response.json();
+
+  return rawData;
+};
+
+const getWaterUseCodeByGuidLookups = (
+  included: any[]
+): { [key: string]: WaterUseCode } => {
+  const waterUses = included.filter(
+    (item: any) => item.type === "taxonomy_term--water_use"
+  );
+
+  const waterUseLookups: { [key: string]: WaterUseCode } = {};
+
+  waterUses.forEach((waterUse: any) => {
+    switch (waterUse.attributes.name.toLowerCase()) {
+      case "very low":
+        waterUseLookups[waterUse.id] = "VL";
+        break;
+      case "low":
+        waterUseLookups[waterUse.id] = "LO";
+        break;
+      case "moderate":
+        waterUseLookups[waterUse.id] = "M";
+        break;
+      case "high":
+        waterUseLookups[waterUse.id] = "H";
+        break;
+      case "unknown":
+        waterUseLookups[waterUse.id] = "U";
+        break;
+      case "not appropriate for this region":
+        waterUseLookups[waterUse.id] = "NA";
+        break;
+      default:
+        console.log("Unknown water use:", waterUse.attributes.name);
+        throw new Error("Unknown water use");
+    }
+  });
+
+  return waterUseLookups;
+};
+
+const getPlantTypeNameByGuidLookups = (
+  included: any[]
+): { [key: string]: string } => {
+  const plantTypes = included.filter(
+    (item: any) => item.type === "taxonomy_term--plant_type"
+  );
+
+  const plantTypeLookups: { [key: string]: string } = {};
+
+  plantTypes.forEach((plantType) => {
+    plantTypeLookups[plantType.id] = plantType.attributes.name;
+  });
+
+  return plantTypeLookups;
+};
+
+const getImageUrlByGuidLookups = (
+  included: any[]
+): { [key: string]: string } => {
+  const images = included.filter((item: any) => item.type === "file--file");
+
+  const urlLookups: { [key: string]: string } = {};
+
+  images.forEach((plantType) => {
+    urlLookups[plantType.id] = baseUrl + plantType.attributes.uri.url;
+  });
+
+  return urlLookups;
+};
+
+const getWaterUseRegionsForItem = (
+  item: any,
+  waterUseLookups: { [key: string]: WaterUseCode }
+) => {
+  return [
+    item.relationships.field_region_1_water_use
+      ? waterUseLookups[item.relationships.field_region_1_water_use.data.id]
+      : "NA",
+    item.relationships.field_region_2_water_use
+      ? waterUseLookups[item.relationships.field_region_2_water_use.data.id]
+      : "NA",
+    item.relationships.field_region_3_water_use
+      ? waterUseLookups[item.relationships.field_region_3_water_use.data.id]
+      : "NA",
+    item.relationships.field_region_4_water_use
+      ? waterUseLookups[item.relationships.field_region_4_water_use.data.id]
+      : "NA",
+    item.relationships.field_region_5_water_use
+      ? waterUseLookups[item.relationships.field_region_5_water_use.data.id]
+      : "NA",
+    item.relationships.field_region_6_water_use
+      ? waterUseLookups[item.relationships.field_region_6_water_use.data.id]
+      : "NA",
+  ];
+};
+
+const getPlantTypeCodesForItem = (
+  item: any,
+  plantTypeNameByGuid: { [key: string]: string }
+): string[] => {
+  return item.relationships.field_plant_type.data.map(
+    (d: any) => plantTypeCodeByName[plantTypeNameByGuid[d.id]]
+  );
+};
+
+const getThumbnailPhotos = (
+  items: any[],
+  urlLookups: { [key: string]: string }
+): { [key: string]: Photo } => {
+  const photos: { [key: string]: Photo } = {};
+
+  items
+    .filter((item: any) => !!item.relationships.field_thumbnail?.data?.id)
+    .forEach((item: any) => {
+      const url = urlLookups[item.relationships.field_thumbnail.data.id];
+      const photo = {
+        small: {
+          url: url,
+          width: item.relationships.field_thumbnail.data.meta.width,
+          height: item.relationships.field_thumbnail.data.meta.height,
+        } as PhotoReference,
+        caption: item.attributes.field_botanical_name,
+        filename:
+          item.attributes.field_botanical_name.replace(
+            /[\\/:"'*?<>|\s]+/g,
+            "_"
+          ) +
+          "_thumbnail." +
+          url.split(".").pop(),
+      } as unknown as Photo;
+      photos[item.attributes.field_botanical_name] = photo;
+    });
+
+  return photos;
+};
+
+const getPlantPhotos = (
+  item: any,
+  urlLookups: { [key: string]: string }
+): Photo[] => {
+  return (item.relationships.field_image_s_?.data || []).map(
+    (image: any, ix: number) => {
+      const url = urlLookups[image.id];
+      return {
+        small: {
+          url: url,
+          width: image.meta.width,
+          height: image.meta.height,
+        } as PhotoReference,
+        caption: item.attributes.field_botanical_name + " " + (ix + 1),
+        filename:
+          item.attributes.field_botanical_name.replace(
+            /[\\/:"'*?<>|\s]+/g,
+            "_"
+          ) +
+          "_" +
+          (ix + 1) +
+          "." +
+          url.split(".").pop(),
+      } as unknown as Photo;
+    }
+  );
+};
+
+const getPlants = async (
+  rawData: any,
+  urlLookups: { [key: string]: string }
+): Promise<Plant[]> => {
+  const waterUseLookups: { [key: string]: WaterUseCode } =
+    getWaterUseCodeByGuidLookups(rawData.included);
+
+  const plantTypeNameByGuidLookups: { [key: string]: string } =
+    getPlantTypeNameByGuidLookups(rawData.included);
+
+  let i = 0;
+  const plants = rawData.data.map((item: any) => {
+    return {
+      id: i++,
+      url_keyword: item.attributes.field_botanical_name.replace(/\s/g, "_"),
+      botanicalName: item.attributes.field_botanical_name,
+      photos: getPlantPhotos(item, urlLookups),
+      commonName: item.attributes.title,
+      types: getPlantTypeCodesForItem(item, plantTypeNameByGuidLookups),
+      culturalInformation: "",
+      waterUseByRegion: getWaterUseRegionsForItem(item, waterUseLookups),
+    } as Plant;
+  });
+
+  return plants;
+};
+
+const getData = async (): Promise<Data> => {
+  const rawData = await getRawData();
+
+  const urlLookups: { [key: string]: string } = getImageUrlByGuidLookups(
+    rawData.included
+  );
+
+  const thumbnailPhotos = getThumbnailPhotos(rawData.data, urlLookups);
+
+  return {
+    ...dataLookups,
+    plants: await getPlants(rawData, urlLookups),
+    photos: thumbnailPhotos,
+  } as Data;
+};
+
+getData().then((data) => {
+  logJson(data);
+});

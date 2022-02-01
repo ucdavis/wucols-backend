@@ -1,0 +1,29 @@
+{
+  "name": "wucols-export",
+  "version": "1.0.0",
+  "description": "Export SiteFarm data via JSON API to a JSON file consumable by WUCOLS app",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucdavis/wucols-backend.git"
+  },
+  "author": "Scott Kirkland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ucdavis/wucols-backend/issues"
+  },
+  "homepage": "https://github.com/ucdavis/wucols-backend#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.12",
+    "@types/node-fetch": "^2.5.12",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
