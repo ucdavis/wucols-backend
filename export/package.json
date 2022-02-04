@@ -29,6 +29,7 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
+    "@azure/storage-blob": "^12.8.0",
     "node-fetch": "^2.6.7"
   }
 }

@@ -77,3 +77,7 @@ export interface PhotoReference {
   width: number;
   height: number;
 }
+
+export interface WucolsBlobLink {
+  cachedBlobUrl: string;
+}
