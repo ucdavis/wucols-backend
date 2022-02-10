@@ -1,5 +1,5 @@
 {
-  "name": "wucols-export",
+  "name": "wucols-functions",
   "version": "1.0.0",
   "description": "Azure Function to export JSON data from WUCOLS to Azure Blob Storage",
   "repository": {
