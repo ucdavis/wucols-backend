@@ -16,6 +16,7 @@ az account set --subscription <SUBSCRIPTION_ID>
 ## Create Function App (assuming resource group and storage account already exist)
 ```bash
 az functionapp create --resource-group wucols --consumption-plan-location westus2 --runtime dotnet --functions-version 4 --name wucols-proxy --storage-account wucols
+az functionapp cors add --resource-group wucols --name wucols-proxy --allowed-origins <SPACE_SEPARATED_ORIGINS>
 ```
 
 ## Publish
