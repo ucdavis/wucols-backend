@@ -55,11 +55,14 @@ const exportWucolsData: AzureFunction = async function (
   }
 
   if (dataNeedsRefresh) {
+    const newBlobClient = containerClient.getBlockBlobClient(
+      `data/wucols.${timestamp}.json`
+    );
     const dataLink = {
-      cachedBlobUrl: latestBlobClient.url,
+      cachedBlobUrl: newBlobClient.url,
     } as WucolsDataLink;
     context.log("Uploading new data blob.");
-    await uploadData(siteFarmData, latestBlobClient);
+    await uploadData(siteFarmData, newBlobClient);
     context.log("Refreshing data link.");
     await uploadDataLink(dataLink, dataLinkClient);
   } else {
