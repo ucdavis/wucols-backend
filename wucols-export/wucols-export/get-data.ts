@@ -110,22 +110,28 @@ const getWaterUseRegionsForItem = (
 ) => {
   return [
     item.relationships.field_region_1_water_use
-      ? waterUseLookups[item.relationships.field_region_1_water_use.data.id]
+      ? waterUseLookups[item.relationships.field_region_1_water_use.data.id] ||
+        "U"
       : "NA",
     item.relationships.field_region_2_water_use
-      ? waterUseLookups[item.relationships.field_region_2_water_use.data.id]
+      ? waterUseLookups[item.relationships.field_region_2_water_use.data.id] ||
+        "U"
       : "NA",
     item.relationships.field_region_3_water_use
-      ? waterUseLookups[item.relationships.field_region_3_water_use.data.id]
+      ? waterUseLookups[item.relationships.field_region_3_water_use.data.id] ||
+        "U"
       : "NA",
     item.relationships.field_region_4_water_use
-      ? waterUseLookups[item.relationships.field_region_4_water_use.data.id]
+      ? waterUseLookups[item.relationships.field_region_4_water_use.data.id] ||
+        "U"
       : "NA",
     item.relationships.field_region_5_water_use
-      ? waterUseLookups[item.relationships.field_region_5_water_use.data.id]
+      ? waterUseLookups[item.relationships.field_region_5_water_use.data.id] ||
+        "U"
       : "NA",
     item.relationships.field_region_6_water_use
-      ? waterUseLookups[item.relationships.field_region_6_water_use.data.id]
+      ? waterUseLookups[item.relationships.field_region_6_water_use.data.id] ||
+        "U"
       : "NA",
   ];
 };
