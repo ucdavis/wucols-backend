@@ -1,0 +1,89 @@
+# Node.js Function App to Linux on Azure
+# Build a Node.js function app and deploy it to Azure as a Linux function app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - main
+
+variables:
+
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: "577c37bd-eb66-4e1d-96dd-7b0a3de40e77"
+
+  # Function app name
+  functionAppName: "wucols-export"
+
+  # Environment name
+  environmentName: "development"
+
+  # Agent VM image name
+  vmImageName: "ubuntu-latest"
+
+  # Working Directory
+  workingDirectory: "$(System.DefaultWorkingDirectory)/wucols-export"
+
+stages:
+  - stage: Build
+    displayName: Build stage
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "14.x"
+            displayName: "Install Node.js"
+
+          - script: |
+              if [ -f extensions.csproj ]
+              then
+                  dotnet build extensions.csproj --runtime ubuntu.16.04-x64 --output ./bin
+              fi
+            displayName: "Build extensions"
+            workingDirectory: "${workingDirectory)"
+
+          - script: |
+              npm install
+              npm run build
+              npm run test
+              npm run build:production
+            displayName: "Prepare binaries"
+            workingDirectory: "${workingDirectory)"
+
+          - task: ArchiveFiles@2
+            displayName: "Archive files"
+            inputs:
+              rootFolderOrFile: "$(workingDirectory)"
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+              replaceExistingArchive: true
+
+          - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+            artifact: drop
+
+  - stage: Deploy
+    displayName: Deploy stage
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - deployment: Deploy
+        displayName: Deploy
+        environment: $(environmentName)
+        pool:
+          vmImage: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureFunctionApp@1
+                  displayName: "Azure Functions App Deploy: "
+                  inputs:
+                    azureSubscription: "$(azureSubscription)"
+                    appType: functionAppLinux
+                    appName: $(functionAppName)
+                    package: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
