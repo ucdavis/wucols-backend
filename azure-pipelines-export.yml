@@ -7,7 +7,6 @@ trigger:
   - main
 
 variables:
-
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: "577c37bd-eb66-4e1d-96dd-7b0a3de40e77"
 
@@ -44,7 +43,7 @@ stages:
                   dotnet build extensions.csproj --runtime ubuntu.16.04-x64 --output ./bin
               fi
             displayName: "Build extensions"
-            workingDirectory: "${workingDirectory)"
+            workingDirectory: "$(workingDirectory)"
 
           - script: |
               npm install
@@ -52,7 +51,7 @@ stages:
               npm run test
               npm run build:production
             displayName: "Prepare binaries"
-            workingDirectory: "${workingDirectory)"
+            workingDirectory: "$(workingDirectory)"
 
           - task: ArchiveFiles@2
             displayName: "Archive files"
