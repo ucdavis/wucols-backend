@@ -4,73 +4,72 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+  - main
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'afec47c0-2596-40dc-a675-13fabc73407a'
+  azureSubscription: "afec47c0-2596-40dc-a675-13fabc73407a"
 
   # Function app name
-  functionAppName: 'wucols-proxy'
+  functionAppName: "wucols-proxy"
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: "ubuntu-latest"
 
   # Working Directory
-  workingDirectory: '$(System.DefaultWorkingDirectory)/wucols-proxy'
+  workingDirectory: "$(System.DefaultWorkingDirectory)/wucols-proxy"
 
 stages:
-- stage: Build
-  displayName: Build stage
+  - stage: Build
+    displayName: Build stage
 
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: $(vmImageName)
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
 
-    steps:
-    - task: DotNetCoreCLI@2
-      displayName: Build
-      inputs:
-        command: 'build'
-        projects: |
-          $(workingDirectory)/*.csproj
-        arguments: --output $(System.DefaultWorkingDirectory)/publish_output --configuration Release
-
-    - task: ArchiveFiles@2
-      displayName: 'Archive files'
-      inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)/publish_output'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
-
-    - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      artifact: drop
-
-- stage: Deploy
-  displayName: Deploy stage
-  dependsOn: Build
-  condition: succeeded()
-
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    environment: 'development'
-    pool:
-      vmImage: $(vmImageName)
-
-    strategy:
-      runOnce:
-        deploy:
-
-          steps:
-          - task: AzureFunctionApp@1
-            displayName: 'Azure functions app deploy'
+        steps:
+          - task: DotNetCoreCLI@2
+            displayName: Build
             inputs:
-              azureSubscription: '$(azureSubscription)'
-              appType: functionApp
-              appName: $(functionAppName)
-              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              command: "build"
+              projects: |
+                $(workingDirectory)/*.csproj
+              arguments: --output $(System.DefaultWorkingDirectory)/publish_output --configuration Release
+
+          - task: ArchiveFiles@2
+            displayName: "Archive files"
+            inputs:
+              rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+              replaceExistingArchive: true
+
+          - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+            artifact: drop
+
+  - stage: Deploy
+    displayName: Deploy stage
+    dependsOn: Build
+    condition: succeeded()
+
+    jobs:
+      - deployment: Deploy
+        displayName: Deploy
+        environment: "development"
+        pool:
+          vmImage: $(vmImageName)
+
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureFunctionApp@1
+                  displayName: "Azure functions app deploy"
+                  inputs:
+                    azureSubscription: "$(azureSubscription)"
+                    appType: functionAppLinux
+                    appName: $(functionAppName)
+                    package: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
