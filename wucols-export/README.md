@@ -15,7 +15,7 @@ az account set --subscription <SUBSCRIPTION_ID>
 
 ## Create Function App (assuming resource group and storage account already exist)
 ```bash
-az functionapp create --resource-group wucols --consumption-plan-location westus2 --runtime node --runtime-version 14 --functions-version 4 --name wucols-export --storage-account wucols
+az functionapp create --resource-group wucols --consumption-plan-location westus2 --runtime node --runtime-version 14 --functions-version 4 --name wucols-export --storage-account wucols --os-type Linux
 ```
 
 ## Publish
