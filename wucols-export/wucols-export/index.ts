@@ -33,7 +33,7 @@ const exportWucolsData: AzureFunction = async function (
     context
   );
 
-  const siteFarmData = JSON.stringify(await getSiteFarmData());
+  const siteFarmData = JSON.stringify(await getSiteFarmData(context));
   context.log("SiteFarm data fetched. Length: ", siteFarmData.length);
 
   if (!(await dataLinkClient.exists()) || !(await latestBlobClient.exists())) {
