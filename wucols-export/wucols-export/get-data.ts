@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import { Data, DataLookups, Photo, Plant, WaterUseCode } from "./types";
+import { Context } from "@azure/functions";
 
 import dataLookups from "./data-lookups.json";
 
@@ -19,7 +20,7 @@ const logJson = (json: any) => {
   console.log(JSON.stringify(json, null, 2));
 };
 
-const getRawData = async (): Promise<any> => {
+const getRawData = async (context: Context): Promise<any> => {
   const url =
     baseUrl +
     "/jsonapi/" +
@@ -30,10 +31,30 @@ const getRawData = async (): Promise<any> => {
     "&fields[taxonomy_term--water_use]=name" +
     "&fields[file--file]=uri";
 
-  const response = await fetch(url);
-  const rawData: any = await response.json();
+  let page = 1;
 
-  return rawData;
+  context.log("Fetching page: ", page);
+  let rawData: any = await fetch(url).then((r) => r.json());
+
+  const included: { [key: string]: any } = {};
+  const data: any[] = [];
+
+  do {
+    data.push(...rawData.data);
+    rawData.included?.forEach((item: any) => {
+      included[item.id] = item;
+    });
+
+    if (rawData.links?.next) {
+      page++;
+      context.log("Fetching page: ", page);
+      rawData = await fetch(rawData.links.next).then((r) => r.json());
+    } else {
+      rawData = null;
+    }
+  } while (rawData !== null);
+
+  return { data, included: Object.values(included) };
 };
 
 const getWaterUseCodeByGuidLookups = (
@@ -231,8 +252,8 @@ const getPlants = async (
   return plants;
 };
 
-export const getData = async (): Promise<Data> => {
-  const rawData = await getRawData();
+export const getData = async (context: Context): Promise<Data> => {
+  const rawData = await getRawData(context);
 
   const urlLookups: { [key: string]: string } = getImageUrlByGuidLookups(
     rawData.included
