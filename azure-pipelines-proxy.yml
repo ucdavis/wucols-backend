@@ -25,6 +25,9 @@ variables:
   # Working Directory
   workingDirectory: "$(System.DefaultWorkingDirectory)/wucols-proxy"
 
+  # 'true' if on main branch
+  isMain: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+
 stages:
   - stage: Build
     displayName: Build stage
@@ -59,7 +62,7 @@ stages:
   - stage: Deploy
     displayName: Deploy stage
     dependsOn: Build
-    condition: succeeded()
+    condition: and(succeeded(), eq(variables.isMain, 'true'))
 
     jobs:
       - deployment: Deploy
