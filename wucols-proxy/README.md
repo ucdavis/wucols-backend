@@ -19,6 +19,11 @@ az functionapp create --resource-group wucols --consumption-plan-location westus
 az functionapp cors add --resource-group wucols --name wucols-proxy --allowed-origins <SPACE_SEPARATED_ORIGINS>
 ```
 
+## Run the function locally
+```bash
+func start
+```
+
 ## Publish
 ```bash
 func azure functionapp publish wucols-proxy
