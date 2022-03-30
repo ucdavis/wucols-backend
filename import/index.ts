@@ -100,6 +100,7 @@ const getPlants = (): Plant[] => {
   const plants: Plant[] = wucols.plants.map((plant: any) => ({
     botanicalName: plant.botanicalName,
     commonName: plant.commonName || plant.botanicalName, // if no common name, use botanical name
+    culturalInformation: plant.culturalInformation,
     types: plant.types.map(plantTypeMapper),
     waterUseByRegion: plant.waterUseByRegion.map(waterUseMapper),
     photoUrls: plant.photos.map((photo: any) => photo.full.url),
@@ -217,6 +218,72 @@ const uploadPlants = async (plants: Plant[], lookups: Lookups) => {
   }
 };
 
+const updateCulturalInformation = async (plants: Plant[]) => {
+  const auth =
+    "Basic " + Buffer.from(`${apiUser}:${apiPass}`).toString("base64");
+  for (let i = 3600; i < plants.length; i++) {
+    const plant = plants[i];
+
+    if (!plant.culturalInformation) {
+      console.log(
+        `No cultural info, skipping plant #${i + 1} ${plant.botanicalName} (${plant.commonName})`
+      );
+      continue;
+    }
+
+    console.log(
+      `Updating plant #${i + 1} ${plant.botanicalName} (${plant.commonName})`
+    );
+
+    // first, check if plant is already in SiteFarm
+    const safeBotanicalName = encodeURIComponent(plant.botanicalName);
+    const plantUrl = `${baseUrl}node/plant_database_item?filter[field_botanical_name]=${safeBotanicalName}`;
+
+    const plantRequest = await fetch(plantUrl);
+    const plantData: any = await plantRequest.json();
+
+    if (plantData.data.length === 0) {
+      console.log("Plant not found in SiteFarm: " + plant.botanicalName);
+      continue;
+    }
+
+    // we know we have the plant in SiteFarm, so update it
+    const plantUid = plantData.data[0].id;
+
+    // field to update is `field_cultural_information`
+    const updatePlantRequestData = {
+      data: {
+        type: "node--plant_database_item",
+        id: plantUid,
+        attributes: {
+          field_cultural_information: plant.culturalInformation,
+        },
+      },
+    };
+
+    const updateRequest = await fetch(
+      `${baseUrl}node/plant_database_item/${plantUid}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/vnd.api+json",
+          Accept: "application/vnd.api+json",
+          Authorization: auth,
+        },
+        body: JSON.stringify(updatePlantRequestData),
+      }
+    );
+
+    if (updateRequest.ok) {
+      const uploadData = await updateRequest.json();
+      // console.log(uploadData);
+    } else {
+      console.log("Error updating plant " + updateRequest.statusText);
+      throw new Error("Error updating plant " + plant.botanicalName);
+    }
+  }
+};
+
 const uploadImage = async (
   fieldName: string,
   plantUid: string,
@@ -273,6 +340,8 @@ const run = async () => {
   const lookups = await getLookups();
   const plants = await getPlants();
 
+  console.log(plants.length + " plants found");
+
   // console.log(lookups);
   // const samplePlant = plants.filter(
   //   (p) => p.botanicalName === "Acacia abyssinica"
@@ -280,8 +349,10 @@ const run = async () => {
 
   // console.log(samplePlant);
 
+  await updateCulturalInformation(plants);
+
   // await uploadPlants(samplePlant, lookups);
-  await uploadPlants(plants, lookups);
+  // await uploadPlants(plants, lookups);
 };
 
 run().then().catch();
@@ -301,6 +372,7 @@ interface Plant {
   uid: string;
   botanicalName: string;
   commonName: string;
+  culturalInformation: string;
   types: string[];
   waterUseByRegion: string[];
   photoUrls: string[];
