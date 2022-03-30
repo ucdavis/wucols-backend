@@ -3,8 +3,8 @@ import fetch from "node-fetch";
 
 const wucols = require("./WUCOLS.json");
 
-const baseUrl = "https://playground.sf.ucdavis.edu/jsonapi/";
-const apiUser = "apiuser2";
+const baseUrl = "https://wucolsplants.sf.ucdavis.edu/jsonapi/";
+const apiUser = "wucolapi";
 const apiPass = "";
 
 // maps water use from spreadsheet to plant type in API
@@ -21,23 +21,44 @@ const waterUseMapper = (waterUse: string): string => {
     case "U":
       return "Unknown";
     case "NA":
-      return "Not Appropriate for this Region";
+      return "Not Appropriate For This Region";
     default:
-      console.log("Unknown water use:", waterUse);
-      throw new Error("Unknown water use");
+      console.log("Invalid water use:", waterUse);
+      throw new Error("Invalid water use");
   }
 };
 
 const plantTypeMapper = (plantType: string): string => {
   switch (plantType) {
+    case "Ba":
+      return "Bamboo";
+    case "Bu":
+      return "Bulb";
+    case "G":
+      return "Ornamental Grass";
+    case "Gc":
+      return "Ground Cover";
+    case "P":
+      return "Perennial";
+    case "Pm":
+      return "Palm and Cycad";
     case "S":
-      return "S (Shrub)";
+      return "Shrub";
+    case "Su":
+      return "Succulent";
+    case "V":
+      return "Vine";
     case "N":
-      return "N (California Native)";
+      return "California Native";
+    case "A":
+      return "Arboretum All-Star";
     case "T":
-      return "T (Tree)";
+      return "Tree";
+    case "":
+      return "Unknown";
     default:
-      return "T (Tree)"; // TODO: remove after testing
+      console.log("Invalid plant type:", plantType);
+      throw new Error("Invalid plant type");
   }
 };
 
@@ -56,7 +77,7 @@ const getLookups = async (): Promise<Lookups> => {
   });
 
   // TODO: same with plant types
-  const plantTypesUrl = baseUrl + "taxonomy_term/pp";
+  const plantTypesUrl = baseUrl + "taxonomy_term/plant_type";
 
   const plantTypesRequest = await fetch(plantTypesUrl);
   const plantTypesData: any = await plantTypesRequest.json();
@@ -78,7 +99,8 @@ const getLookups = async (): Promise<Lookups> => {
 const getPlants = (): Plant[] => {
   const plants: Plant[] = wucols.plants.map((plant: any) => ({
     botanicalName: plant.botanicalName,
-    commonName: plant.commonName,
+    commonName: plant.commonName || plant.botanicalName, // if no common name, use botanical name
+    culturalInformation: plant.culturalInformation,
     types: plant.types.map(plantTypeMapper),
     waterUseByRegion: plant.waterUseByRegion.map(waterUseMapper),
     photoUrls: plant.photos.map((photo: any) => photo.full.url),
@@ -90,20 +112,25 @@ const getPlants = (): Plant[] => {
 // Step 3: For each plant, upload if not already in SiteFarm
 const uploadPlants = async (plants: Plant[], lookups: Lookups) => {
   // For now, only upload subset of plants for testing
-  const totalPlants = 200; // plants.length;
-  for (let i = 0; i < totalPlants; i++) {
+  const totalPlants = Math.min(plants.length, 5000);
+
+  for (let i = 1280; i < totalPlants; i++) {
     const plant = plants[i];
 
-    console.log(plant);
+    console.log(
+      `Uploading plant #${i + 1} ${plant.botanicalName} (${plant.commonName})`
+    );
+    // console.log(plant);
 
     // first, check if plant is already in SiteFarm
-    const plantUrl = `${baseUrl}node/plant_database_item?filter[title]=${plant.commonName}`;
+    const safeBotanicalName = encodeURIComponent(plant.botanicalName);
+    const plantUrl = `${baseUrl}node/plant_database_item?filter[field_botanical_name]=${safeBotanicalName}`;
 
     const plantRequest = await fetch(plantUrl);
     const plantData: any = await plantRequest.json();
 
     if (plantData.data.length > 0) {
-      console.log("Plant already in SiteFarm");
+      console.log("Plant already in SiteFarm: " + plant.botanicalName);
       continue;
     }
 
@@ -112,12 +139,12 @@ const uploadPlants = async (plants: Plant[], lookups: Lookups) => {
     );
 
     const plantTypeData = plant.types.map((type) => ({
-      type: "taxonomy_term--pp",
+      type: "taxonomy_term--plant_type",
       id: plantTypeIds.find((id) => id.name === type)?.id,
     }));
 
     const waterUseData = plant.waterUseByRegion.map((waterUse) => ({
-      type: "taxonomy_term--pp",
+      type: "taxonomy_term--water_use",
       id: lookups.waterUses.find((item: Lookup) => item.name === waterUse)?.id,
     }));
 
@@ -143,44 +170,117 @@ const uploadPlants = async (plants: Plant[], lookups: Lookups) => {
           field_region_3_water_use: {
             data: waterUseData[2],
           },
-          field_image: {
+          field_region_4_water_use: {
+            data: waterUseData[3],
+          },
+          field_region_5_water_use: {
+            data: waterUseData[4],
+          },
+          field_region_6_water_use: {
+            data: waterUseData[5],
+          },
+          field_thumbnail: {
             data: [], // thumbnail
           },
-          field_images: {
+          field_image_s_: {
             data: [], // other images
           },
         },
       },
     };
 
-    // console.log('to upload', JSON.stringify(newPlantRequest));
+    // console.log("to upload", JSON.stringify(newPlantRequest));
 
     // upload plant
     const auth =
       "Basic " + Buffer.from(`${apiUser}:${apiPass}`).toString("base64");
 
-    const response = await fetch(
-      "https://playground.sf.ucdavis.edu/jsonapi/node/plant_database_item",
+    const response = await fetch(`${baseUrl}node/plant_database_item`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/vnd.api+json",
+        Accept: "application/vnd.api+json",
+        Authorization: auth,
+      },
+      body: JSON.stringify(newPlantRequest),
+    });
+
+    if (response.ok && response.status === 201) {
+      const responseData = await response.json();
+      // console.log(responseData);
+      plant.uid = responseData.data.id;
+    } else {
+      console.log("Error uploading plant", response.statusText);
+      throw new Error("Error uploading plant " + plant.botanicalName);
+    }
+
+    await transferImages(plant);
+  }
+};
+
+const updateCulturalInformation = async (plants: Plant[]) => {
+  const auth =
+    "Basic " + Buffer.from(`${apiUser}:${apiPass}`).toString("base64");
+  for (let i = 3600; i < plants.length; i++) {
+    const plant = plants[i];
+
+    if (!plant.culturalInformation) {
+      console.log(
+        `No cultural info, skipping plant #${i + 1} ${plant.botanicalName} (${plant.commonName})`
+      );
+      continue;
+    }
+
+    console.log(
+      `Updating plant #${i + 1} ${plant.botanicalName} (${plant.commonName})`
+    );
+
+    // first, check if plant is already in SiteFarm
+    const safeBotanicalName = encodeURIComponent(plant.botanicalName);
+    const plantUrl = `${baseUrl}node/plant_database_item?filter[field_botanical_name]=${safeBotanicalName}`;
+
+    const plantRequest = await fetch(plantUrl);
+    const plantData: any = await plantRequest.json();
+
+    if (plantData.data.length === 0) {
+      console.log("Plant not found in SiteFarm: " + plant.botanicalName);
+      continue;
+    }
+
+    // we know we have the plant in SiteFarm, so update it
+    const plantUid = plantData.data[0].id;
+
+    // field to update is `field_cultural_information`
+    const updatePlantRequestData = {
+      data: {
+        type: "node--plant_database_item",
+        id: plantUid,
+        attributes: {
+          field_cultural_information: plant.culturalInformation,
+        },
+      },
+    };
+
+    const updateRequest = await fetch(
+      `${baseUrl}node/plant_database_item/${plantUid}`,
       {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/vnd.api+json",
           Accept: "application/vnd.api+json",
           Authorization: auth,
         },
-        body: JSON.stringify(newPlantRequest),
+        body: JSON.stringify(updatePlantRequestData),
       }
     );
 
-    if (response.ok && response.status === 201) {
-      const responseData = await response.json();
-      console.log(responseData);
-      plant.uid = responseData.data.id;
+    if (updateRequest.ok) {
+      const uploadData = await updateRequest.json();
+      // console.log(uploadData);
     } else {
-      console.log("Error uploading plant");
+      console.log("Error updating plant " + updateRequest.statusText);
+      throw new Error("Error updating plant " + plant.botanicalName);
     }
-
-    await transferImages(plant);
   }
 };
 
@@ -197,7 +297,7 @@ const uploadImage = async (
 
   // Step 2: Upload image to SiteFarm
   const uploadRequest = await fetch(
-    `https://playground.sf.ucdavis.edu/jsonapi/node/plant_database_item/${plantUid}/${fieldName}`,
+    `${baseUrl}node/plant_database_item/${plantUid}/${fieldName}`,
     {
       method: "POST",
       headers: {
@@ -212,9 +312,10 @@ const uploadImage = async (
 
   if (uploadRequest.ok) {
     const uploadData = await uploadRequest.json();
-    console.log(uploadData);
+    // console.log(uploadData);
   } else {
-    console.log("Error uploading image");
+    console.log("Error uploading image" + uploadRequest.statusText);
+    throw new Error("Error uploading image for plant " + plantUid);
   }
 };
 
@@ -223,14 +324,14 @@ const transferImages = async (plant: Plant) => {
 
   if (thumbnailData) {
     const thumbnailUrl = thumbnailData.small.url;
-    await uploadImage("field_image", plant.uid, thumbnailUrl);
+    await uploadImage("field_thumbnail", plant.uid, thumbnailUrl);
   }
 
   // now upload other images
   if (plant.photoUrls.length > 0) {
     for (let i = 0; i < plant.photoUrls.length; i++) {
       const photoUrl = plant.photoUrls[i];
-      await uploadImage("field_images", plant.uid, photoUrl);
+      await uploadImage("field_image_s_", plant.uid, photoUrl);
     }
   }
 };
@@ -239,7 +340,19 @@ const run = async () => {
   const lookups = await getLookups();
   const plants = await getPlants();
 
-  await uploadPlants(plants, lookups);
+  console.log(plants.length + " plants found");
+
+  // console.log(lookups);
+  // const samplePlant = plants.filter(
+  //   (p) => p.botanicalName === "Acacia abyssinica"
+  // );
+
+  // console.log(samplePlant);
+
+  await updateCulturalInformation(plants);
+
+  // await uploadPlants(samplePlant, lookups);
+  // await uploadPlants(plants, lookups);
 };
 
 run().then().catch();
@@ -259,6 +372,7 @@ interface Plant {
   uid: string;
   botanicalName: string;
   commonName: string;
+  culturalInformation: string;
   types: string[];
   waterUseByRegion: string[];
   photoUrls: string[];
