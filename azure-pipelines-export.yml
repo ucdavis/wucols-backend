@@ -9,8 +9,11 @@ trigger:
       - main
   paths:
     include:
-      - wucols-export/*
+      - wucols-export
       - azure-pipelines-export.yml
+    exclude:
+      - wucols-proxy
+      - azure-pipelines-proxy.yml
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
