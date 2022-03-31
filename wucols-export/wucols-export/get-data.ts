@@ -25,7 +25,7 @@ const getRawData = async (context: Context): Promise<any> => {
     baseUrl +
     "/jsonapi/" +
     "node/plant_database_item" +
-    "?fields[node--plant_database_item]=field_botanical_name,title,field_plant_type,field_thumbnail,field_image_s_," +
+    "?fields[node--plant_database_item]=field_botanical_name,title,field_plant_type,field_thumbnail,field_image_s_,field_cultural_information," +
     "field_region_1_water_use,field_region_2_water_use,field_region_3_water_use,field_region_4_water_use,field_region_5_water_use,field_region_6_water_use" +
     "&include=field_region_1_water_use,field_plant_type,field_thumbnail,field_image_s_" +
     "&fields[taxonomy_term--water_use]=name" +
@@ -244,7 +244,8 @@ const getPlants = async (
       photos: getPlantPhotos(item, urlLookups),
       commonName: item.attributes.title,
       types: getPlantTypeCodesForItem(item, plantTypeNameByGuidLookups),
-      culturalInformation: "",
+      culturalInformation:
+        item.attributes.field_cultural_information?.value || "",
       waterUseByRegion: getWaterUseRegionsForItem(item, waterUseLookups),
     } as Plant;
   });
