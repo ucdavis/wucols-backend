@@ -236,19 +236,27 @@ const getPlants = async (
     getPlantTypeNameByGuidLookups(rawData.included);
 
   let i = 0;
-  const plants = rawData.data.map((item: any) => {
-    return {
-      id: i++,
-      url_keyword: item.attributes.field_botanical_name.replace(/\s/g, "_"),
-      botanicalName: item.attributes.field_botanical_name,
-      photos: getPlantPhotos(item, urlLookups),
-      commonName: item.attributes.title,
-      types: getPlantTypeCodesForItem(item, plantTypeNameByGuidLookups),
-      culturalInformation:
-        item.attributes.field_cultural_information?.value || "",
-      waterUseByRegion: getWaterUseRegionsForItem(item, waterUseLookups),
-    } as Plant;
-  });
+  const plants = rawData.data
+    .map((item: any) => {
+      return {
+        id: i++,
+        url_keyword: item.attributes.field_botanical_name.replace(/\s/g, "_"),
+        botanicalName: item.attributes.field_botanical_name,
+        photos: getPlantPhotos(item, urlLookups),
+        commonName: item.attributes.title,
+        types: getPlantTypeCodesForItem(item, plantTypeNameByGuidLookups),
+        culturalInformation:
+          item.attributes.field_cultural_information?.value || "",
+        waterUseByRegion: getWaterUseRegionsForItem(item, waterUseLookups),
+      } as Plant;
+    })
+    .sort((a: Plant, b: Plant) =>
+      a.botanicalName > b.botanicalName
+        ? 1
+        : b.botanicalName > a.botanicalName
+        ? -1
+        : 0
+    );
 
   return plants;
 };
