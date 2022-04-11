@@ -210,14 +210,12 @@ const getPlantPhotos = (
           width: image.meta.width,
           height: image.meta.height,
         },
-        caption: item.attributes.field_botanical_name + " " + (ix + 1),
+        caption: item.attributes.field_botanical_name,
         filename:
           item.attributes.field_botanical_name.replace(
             /[\\/:"'*?<>|\s]+/g,
             "_"
           ) +
-          "_" +
-          (ix + 1) +
           "." +
           url.split(".").pop(),
       } as unknown as Photo;
