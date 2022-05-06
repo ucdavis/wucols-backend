@@ -130,27 +130,33 @@ const getWaterUseRegionsForItem = (
   waterUseLookups: { [key: string]: WaterUseCode }
 ) => {
   return [
-    item.relationships.field_region_1_water_use
+    item.relationships.field_region_1_water_use &&
+    item.relationships.field_region_1_water_use.data
       ? waterUseLookups[item.relationships.field_region_1_water_use.data.id] ||
         "U"
       : "NA",
-    item.relationships.field_region_2_water_use
+    item.relationships.field_region_2_water_use &&
+    item.relationships.field_region_2_water_use.data
       ? waterUseLookups[item.relationships.field_region_2_water_use.data.id] ||
         "U"
       : "NA",
-    item.relationships.field_region_3_water_use
+    item.relationships.field_region_3_water_use &&
+    item.relationships.field_region_3_water_use.data
       ? waterUseLookups[item.relationships.field_region_3_water_use.data.id] ||
         "U"
       : "NA",
-    item.relationships.field_region_4_water_use
+    item.relationships.field_region_4_water_use &&
+    item.relationships.field_region_4_water_use.data
       ? waterUseLookups[item.relationships.field_region_4_water_use.data.id] ||
         "U"
       : "NA",
-    item.relationships.field_region_5_water_use
+    item.relationships.field_region_5_water_use &&
+    item.relationships.field_region_5_water_use.data
       ? waterUseLookups[item.relationships.field_region_5_water_use.data.id] ||
         "U"
       : "NA",
-    item.relationships.field_region_6_water_use
+    item.relationships.field_region_6_water_use &&
+    item.relationships.field_region_6_water_use.data
       ? waterUseLookups[item.relationships.field_region_6_water_use.data.id] ||
         "U"
       : "NA",
