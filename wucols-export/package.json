@@ -13,9 +13,9 @@
   },
   "homepage": "https://github.com/ucdavis/wucols-backend#readme",
   "scripts": {
-    "build": "tsc",
-    "build:production": "npm run prestart && npm prune --production",
-    "watch": "tsc --w",
+    "build": "node node_modules/typescript/bin/tsc",
+    "build:production": "npm run prestart && npm prune --omit=dev",
+    "watch": "node node_modules/typescript/bin/tsc --w",
     "prestart": "npm run build",
     "start:host": "func start",
     "start": "npm-run-all --parallel start:host watch",
@@ -31,5 +31,9 @@
   "dependencies": {
     "@azure/storage-blob": "^12.8.0",
     "node-fetch": "^2.6.7"
+  },
+  "engines": {
+    "npm": ">=9.5.1",
+    "node": ">=18.16.0"
   }
 }

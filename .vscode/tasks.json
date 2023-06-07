@@ -8,7 +8,7 @@
       "isBackground": true,
       "dependsOn": "npm build (functions)",
       "options": {
-        "cwd": "${workspaceFolder}/wucols-functions"
+        "cwd": "${workspaceFolder}/wucols-export"
       }
     },
     {
@@ -18,7 +18,7 @@
       "dependsOn": "npm install (functions)",
       "problemMatcher": "$tsc",
       "options": {
-        "cwd": "${workspaceFolder}/wucols-functions"
+        "cwd": "${workspaceFolder}/wucols-export"
       }
     },
     {
@@ -26,7 +26,7 @@
       "label": "npm install (functions)",
       "command": "npm install",
       "options": {
-        "cwd": "${workspaceFolder}/wucols-functions"
+        "cwd": "${workspaceFolder}/wucols-export"
       }
     },
     {
@@ -36,7 +36,7 @@
       "dependsOn": "npm build (functions)",
       "problemMatcher": [],
       "options": {
-        "cwd": "${workspaceFolder}/wucols-functions"
+        "cwd": "${workspaceFolder}/wucols-export"
       }
     }
   ]
