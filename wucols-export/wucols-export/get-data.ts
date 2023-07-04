@@ -181,21 +181,16 @@ const getThumbnailPhotos = (
   items
     .filter((item: any) => !!item.relationships.field_thumbnail?.data?.id)
     .forEach((item: any) => {
-      const url = urlLookups[item.relationships.field_thumbnail.data.id];
+      const image = item.relationships.field_thumbnail.data;
+      const url = urlLookups[image.id];
       const photo = {
         small: {
           url: url,
-          width: item.relationships.field_thumbnail.data.meta.width,
-          height: item.relationships.field_thumbnail.data.meta.height,
+          width: image.meta.width,
+          height: image.meta.height,
         },
-        caption: item.attributes.field_botanical_name,
-        filename:
-          item.attributes.field_botanical_name.replace(
-            /[\\/:"'*?<>|\s]+/g,
-            "_"
-          ) +
-          "_thumbnail." +
-          url.split(".").pop(),
+        caption: image.meta.alt || item.attributes.field_botanical_name,
+        filename: url.split("/").pop(),
       } as unknown as Photo;
       photos[item.attributes.field_botanical_name] = photo;
     });
@@ -216,14 +211,8 @@ const getPlantPhotos = (
           width: image.meta.width,
           height: image.meta.height,
         },
-        caption: item.attributes.field_botanical_name,
-        filename:
-          item.attributes.field_botanical_name.replace(
-            /[\\/:"'*?<>|\s]+/g,
-            "_"
-          ) +
-          "." +
-          url.split(".").pop(),
+        caption: image.meta.alt || item.attributes.field_botanical_name,
+        filename: url.split("/").pop(),
       } as unknown as Photo;
     }
   );
