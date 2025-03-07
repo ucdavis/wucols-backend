@@ -20,7 +20,12 @@ const logJson = (json: any) => {
   console.log(JSON.stringify(json, null, 2));
 };
 
-const getRawData = async (context: Context): Promise<any> => {
+const getRawData = async (
+  context: Context,
+  published: boolean
+): Promise<any> => {
+  context.log(`Fetching ${published ? "published" : "unpublished"} data`);
+
   const url =
     baseUrl +
     "/jsonapi/" +
@@ -29,12 +34,20 @@ const getRawData = async (context: Context): Promise<any> => {
     "field_region_1_water_use,field_region_2_water_use,field_region_3_water_use,field_region_4_water_use,field_region_5_water_use,field_region_6_water_use" +
     "&include=field_region_1_water_use,field_plant_type,field_thumbnail,field_image_s_" +
     "&fields[taxonomy_term--water_use]=name" +
-    "&fields[file--file]=uri";
+    "&fields[file--file]=uri" +
+    `&filter[status][value]=${published ? 1 : 0}`;
 
   let page = 1;
 
   context.log("Fetching page: ", page);
-  let rawData: any = await fetch(url).then((r) => r.json());
+  const auth = Buffer.from(
+    `${process.env.WUCOLS_API_USER}:${process.env.WUCOLS_API_PASS}`
+  ).toString("base64");
+  let rawData: any = await fetch(url, {
+    headers: {
+      Authorization: `Basic ${auth}`,
+    },
+  }).then((r) => r.json());
 
   const included: { [key: string]: any } = {};
   const data: any[] = [];
@@ -48,7 +61,11 @@ const getRawData = async (context: Context): Promise<any> => {
     if (rawData.links?.next) {
       page++;
       context.log("Fetching page: ", page);
-      rawData = await fetch(rawData.links.next).then((r) => r.json());
+      rawData = await fetch(rawData.links.next, {
+        headers: {
+          Authorization: `Basic ${auth}`,
+        },
+      }).then((r) => r.json());
     } else {
       rawData = null;
     }
@@ -179,7 +196,11 @@ const getThumbnailPhotos = (
   const photos: { [key: string]: Photo } = {};
 
   items
-    .filter((item: any) => !!item.relationships.field_thumbnail?.data?.id)
+    .filter(
+      (item: any) =>
+        !!item.relationships?.field_thumbnail?.data?.id &&
+        !!urlLookups[item.relationships.field_thumbnail.data.id]
+    )
     .forEach((item: any) => {
       const url = urlLookups[item.relationships.field_thumbnail.data.id];
       const photo = {
@@ -207,8 +228,9 @@ const getPlantPhotos = (
   item: any,
   urlLookups: { [key: string]: string }
 ): Photo[] => {
-  return (item.relationships.field_image_s_?.data || []).map(
-    (image: any, ix: number) => {
+  return (item.relationships.field_image_s_?.data || [])
+    .filter((image: any) => !!urlLookups[image.id])
+    .map((image: any, ix: number) => {
       const url = urlLookups[image.id];
       return {
         small: {
@@ -225,8 +247,7 @@ const getPlantPhotos = (
           "." +
           url.split(".").pop(),
       } as unknown as Photo;
-    }
-  );
+    });
 };
 
 const getPlants = async (
@@ -266,7 +287,12 @@ const getPlants = async (
 };
 
 export const getData = async (context: Context): Promise<Data> => {
-  const rawData = await getRawData(context);
+  const publishedData = await getRawData(context, true);
+  const unpublishedData = await getRawData(context, false);
+  const rawData = {
+    data: [...publishedData.data, unpublishedData.data],
+    included: [[...publishedData.included, unpublishedData.included]],
+  };
 
   const urlLookups: { [key: string]: string } = getImageUrlByGuidLookups(
     rawData.included
