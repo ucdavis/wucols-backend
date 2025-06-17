@@ -1,3278 +1,3700 @@
 {
-  "regions": [{
-          "id": "1",
-          "name": "North-Central Coastal"
-      }, {
-          "id": "2",
-          "name": "Central Valley"
-      }, {
-          "id": "3",
-          "name": "South Coastal"
-      }, {
-          "id": "4",
-          "name": "South Inland"
-      }, {
-          "id": "5",
-          "name": "High and Intermediate Desert"
-      }, {
-          "id": "6",
-          "name": "Low Desert"
-      }
-  ],
-  "plantTypes": [{
-          "code": "Ba",
-          "name": "Bamboo"
-      }, {
-          "code": "Bu",
-          "name": "Bulb"
-      }, {
-          "code": "G",
-          "name": "Ornamental Grass"
-      }, {
-          "code": "Gc",
-          "name": "Ground Cover"
-      }, {
-          "code": "P",
-          "name": "Perennial"
-      }, {
-          "code": "Pm",
-          "name": "Palm and Cycad"
-      }, {
-          "code": "S",
-          "name": "Shrub"
-      }, {
-          "code": "Su",
-          "name": "Succulent"
-      }, {
-          "code": "V",
-          "name": "Vine"
-      }, {
-          "code": "N",
-          "name": "California Native"
-      }, {
-          "code": "A",
-          "name": "Arboretum All-Star"
-      }, {
-          "code": "T",
-          "name": "Tree"
-      }
-  ],
-  "waterUseClassifications": [{
-          "code": "VL",
-          "name": "Very Low",
-          "plantFactor": "< 0.10",
-          "percentageET0": "< 10"
-      }, {
-          "code": "LO",
-          "name": "Low",
-          "plantFactor": "0.10-0.30",
-          "percentageET0": "10-30"
-      }, {
-          "code": "M",
-          "name": "Moderate",
-          "plantFactor": "0.40-0.60",
-          "percentageET0": "40-60"
-      }, {
-          "code": "H",
-          "name": "High",
-          "plantFactor": "0.70-0.90",
-          "percentageET0": "70-90"
-      }, {
-          "code": "U",
-          "name": "Unknown",
-          "plantFactor": "N/A",
-          "percentageET0": "N/A"
-      }, {
-          "code": "NA",
-          "name": "Not Appropriate for this Region",
-          "plantFactor": "N/A",
-          "percentageET0": "N/A"
-      }
-  ],
-  "cities": [{
-          "region": "5",
-          "name": "Adelanto",
-          "id": 338,
-          "position": {
-              "lat": 34.5827699,
-              "lng": -117.409215
-          }
-      }, {
-          "region": "3",
-          "name": "Agoura Hills",
-          "id": 225,
-          "position": {
-              "lat": 34.1533395,
-              "lng": -118.7616764
-          }
-      }, {
-          "region": "1",
-          "name": "Alameda",
-          "id": 1,
-          "position": {
-              "lat": 37.7652065,
-              "lng": -122.2416355
-          }
-      }, {
-          "region": "1",
-          "name": "Albany",
-          "id": 2,
-          "position": {
-              "lat": 37.88687,
-              "lng": -122.2977475
-          }
-      }, {
-          "region": "4",
-          "name": "Alhambra",
-          "id": 382,
-          "position": {
-              "lat": 34.095287,
-              "lng": -118.1270146
-          }
-      }, {
-          "region": "1",
-          "name": "American Canyon",
-          "id": 3,
-          "position": {
-              "lat": 38.1749178,
-              "lng": -122.2608044
-          }
-      }, {
-          "region": "3",
-          "name": "Anaheim",
-          "id": 226,
-          "position": {
-              "lat": 33.8365932,
-              "lng": -117.9143012
-          }
-      }, {
-          "region": "2",
-          "name": "Angels Camp",
-          "id": 126,
-          "position": {
-              "lat": 38.0677832,
-              "lng": -120.5385299
-          }
-      }, {
-          "region": "2",
-          "name": "Antioch",
-          "id": 127,
-          "position": {
-              "lat": 38.0049214,
-              "lng": -121.805789
-          }
-      }, {
-          "region": "5",
-          "name": "Apple Valley",
-          "id": 339,
-          "position": {
-              "lat": 34.5008311,
-              "lng": -117.1858759
-          }
-      }, {
-          "region": "4",
-          "name": "Arcadia",
-          "id": 303,
-          "position": {
-              "lat": 34.1397292,
-              "lng": -118.0353449
-          }
-      }, {
-          "region": "1",
-          "name": "Arroyo Grande",
-          "id": 4,
-          "position": {
-              "lat": 35.1185868,
-              "lng": -120.5907252
-          }
-      }, {
-          "region": "1",
-          "name": "Atascadero",
-          "id": 5,
-          "position": {
-              "lat": 35.4894169,
-              "lng": -120.6707255
-          }
-      }, {
-          "region": "1",
-          "name": "Atherton",
-          "id": 6,
-          "position": {
-              "lat": 37.4613272,
-              "lng": -122.197743
-          }
-      }, {
-          "region": "2",
-          "name": "Atwater",
-          "id": 128,
-          "position": {
-              "lat": 37.3477174,
-              "lng": -120.609084
-          }
-      }, {
-          "region": "2",
-          "name": "Auburn",
-          "id": 129,
-          "position": {
-              "lat": 38.8965654,
-              "lng": -121.0768901
-          }
-      }, {
-          "region": "4",
-          "name": "Azusa",
-          "id": 304,
-          "position": {
-              "lat": 34.1336186,
-              "lng": -117.9075627
-          }
-      }, {
-          "region": "2",
-          "name": "Bakersfield",
-          "id": 130,
-          "position": {
-              "lat": 35.3732921,
-              "lng": -119.0187125
-          }
-      }, {
-          "region": "4",
-          "name": "Baldwin Park",
-          "id": 305,
-          "position": {
-              "lat": 34.0852868,
-              "lng": -117.9608978
-          }
-      }, {
-          "region": "5",
-          "name": "Barstow",
-          "id": 340,
-          "position": {
-              "lat": 34.8957957,
-              "lng": -117.0172826
-          }
-      }, {
-          "region": "1",
-          "name": "Belmont",
-          "id": 7,
-          "position": {
-              "lat": 37.5202145,
-              "lng": -122.2758008
-          }
-      }, {
-          "region": "1",
-          "name": "Benicia",
-          "id": 9,
-          "position": {
-              "lat": 38.049365,
-              "lng": -122.1585777
-          }
-      }, {
-          "region": "1",
-          "name": "Berkeley",
-          "id": 10,
-          "position": {
-              "lat": 37.8715926,
-              "lng": -122.272747
-          }
-      }, {
-          "region": "3",
-          "name": "Beverly Hills",
-          "id": 227,
-          "position": {
-              "lat": 34.0736204,
-              "lng": -118.4003563
-          }
-      }, {
-          "region": "2",
-          "name": "Biggs",
-          "id": 131,
-          "position": {
-              "lat": 39.4123876,
-              "lng": -121.7127513
-          }
-      }, {
-          "region": "5",
-          "name": "Bishop",
-          "id": 341,
-          "position": {
-              "lat": 37.3614238,
-              "lng": -118.3996636
-          }
-      }, {
-          "region": "6",
-          "name": "Blythe",
-          "id": 350,
-          "position": {
-              "lat": 33.6177725,
-              "lng": -114.5882607
-          }
-      }, {
-          "region": "6",
-          "name": "Borrego Springs",
-          "id": 396,
-          "position": {
-              "lat": 33.2558717,
-              "lng": -116.375012
-          }
-      }, {
-          "region": "6",
-          "name": "Brawley",
-          "id": 351,
-          "position": {
-              "lat": 32.9786566,
-              "lng": -115.530267
-          }
-      }, {
-          "region": "2",
-          "name": "Brentwood",
-          "id": 132,
-          "position": {
-              "lat": 37.931868,
-              "lng": -121.6957863
-          }
-      }, {
-          "region": "2",
-          "name": "Bridgeport",
-          "id": 133,
-          "position": {
-              "lat": 38.2557045,
-              "lng": -119.2313932
-          }
-      }, {
-          "region": "1",
-          "name": "Brisbane",
-          "id": 11,
-          "position": {
-              "lat": 37.6807661,
-              "lng": -122.3999715
-          }
-      }, {
-          "region": "3",
-          "name": "Buellton",
-          "id": 228,
-          "position": {
-              "lat": 34.613597,
-              "lng": -120.1926505
-          }
-      }, {
-          "region": "3",
-          "name": "Burbank",
-          "id": 229,
-          "position": {
-              "lat": 34.1808392,
-              "lng": -118.3089661
-          }
-      }, {
-          "region": "1",
-          "name": "Burlingame",
-          "id": 12,
-          "position": {
-              "lat": 37.5778696,
-              "lng": -122.34809
-          }
-      }, {
-          "region": "3",
-          "name": "Calabasas",
-          "id": 230,
-          "position": {
-              "lat": 34.1367208,
-              "lng": -118.6614809
-          }
-      }, {
-          "region": "6",
-          "name": "Calexico",
-          "id": 352,
-          "position": {
-              "lat": 32.6789476,
-              "lng": -115.4988834
-          }
-      }, {
-          "region": "5",
-          "name": "California City",
-          "id": 342,
-          "position": {
-              "lat": 35.125801,
-              "lng": -117.9859038
-          }
-      }, {
-          "region": "6",
-          "name": "Calipatria",
-          "id": 353,
-          "position": {
-              "lat": 33.1255957,
-              "lng": -115.5141538
-          }
-      }, {
-          "region": "2",
-          "name": "Calistoga",
-          "id": 134,
-          "position": {
-              "lat": 38.5787965,
-              "lng": -122.5797054
-          }
-      }, {
-          "region": "3",
-          "name": "Camarillo",
-          "id": 231,
-          "position": {
-              "lat": 34.2163937,
-              "lng": -119.0376023
-          }
-      }, {
-          "region": "2",
-          "name": "Camino",
-          "id": 402,
-          "position": {
-              "lat": 38.738046,
-              "lng": -120.6743853
-          }
-      }, {
-          "region": "1",
-          "name": "Campbell",
-          "id": 13,
-          "position": {
-              "lat": 37.2871651,
-              "lng": -121.9499568
-          }
-      }, {
-          "region": "3",
-          "name": "Canoga Park",
-          "id": 232,
-          "position": {
-              "lat": 34.208254,
-              "lng": -118.6058609
-          }
-      }, {
-          "region": "1",
-          "name": "Capitola",
-          "id": 14,
-          "position": {
-              "lat": 36.9752283,
-              "lng": -121.953293
-          }
-      }, {
-          "region": "3",
-          "name": "Carlsbad",
-          "id": 233,
-          "position": {
-              "lat": 33.1580933,
-              "lng": -117.3505939
-          }
-      }, {
-          "region": "1",
-          "name": "Carmel-by-the-Sea",
-          "id": 15,
-          "position": {
-              "lat": 36.5552386,
-              "lng": -121.9232879
-          }
-      }, {
-          "region": "3",
-          "name": "Carpinteria",
-          "id": 234,
-          "position": {
-              "lat": 34.3988838,
-              "lng": -119.5184564
-          }
-      }, {
-          "region": "3",
-          "name": "Carson",
-          "id": 235,
-          "position": {
-              "lat": 33.8316745,
-              "lng": -118.281693
-          }
-      }, {
-          "region": "1",
-          "name": "Castro Valley",
-          "id": 16,
-          "position": {
-              "lat": 37.6940973,
-              "lng": -122.0863522
-          }
-      }, {
-          "region": "6",
-          "name": "Cathedral City",
-          "id": 354,
-          "position": {
-              "lat": 33.7805388,
-              "lng": -116.4668036
-          }
-      }, {
-          "region": "2",
-          "name": "Ceres",
-          "id": 135,
-          "position": {
-              "lat": 37.5949316,
-              "lng": -120.9577098
-          }
-      }, {
-          "region": "2",
-          "name": "Chico",
-          "id": 136,
-          "position": {
-              "lat": 39.7284944,
-              "lng": -121.8374777
-          }
-      }, {
-          "region": "4",
-          "name": "Chino",
-          "id": 306,
-          "position": {
-              "lat": 34.0122346,
-              "lng": -117.688944
-          }
-      }, {
-          "region": "4",
-          "name": "Chino Hills",
-          "id": 307,
-          "position": {
-              "lat": 33.9898188,
-              "lng": -117.7325848
-          }
-      }, {
-          "region": "3",
-          "name": "Chula Vista",
-          "id": 236,
-          "position": {
-              "lat": 32.6400541,
-              "lng": -117.0841955
-          }
-      }, {
-          "region": "2",
-          "name": "Citrus Heights",
-          "id": 137,
-          "position": {
-              "lat": 38.7071247,
-              "lng": -121.2810611
-          }
-      }, {
-          "region": "4",
-          "name": "Claremont",
-          "id": 381,
-          "position": {
-              "lat": 34.0966764,
-              "lng": -117.7197785
-          }
-      }, {
-          "region": "2",
-          "name": "Clayton",
-          "id": 138,
-          "position": {
-              "lat": 37.9410341,
-              "lng": -121.9357925
-          }
-      }, {
-          "region": "1",
-          "name": "Cloverdale",
-          "id": 17,
-          "position": {
-              "lat": 38.8054624,
-              "lng": -123.0172227
-          }
-      }, {
-          "region": "2",
-          "name": "Clovis",
-          "id": 140,
-          "position": {
-              "lat": 36.8252277,
-              "lng": -119.7029194
-          }
-      }, {
-          "region": "6",
-          "name": "Coachella",
-          "id": 355,
-          "position": {
-              "lat": 33.6803003,
-              "lng": -116.173894
-          }
-      }, {
-          "region": "2",
-          "name": "Coalinga",
-          "id": 141,
-          "position": {
-              "lat": 36.139678,
-              "lng": -120.3601496
-          }
-      }, {
-          "region": "2",
-          "name": "Colfax",
-          "id": 142,
-          "position": {
-              "lat": 39.1007298,
-              "lng": -120.9532759
-          }
-      }, {
-          "region": "2",
-          "name": "Coloma",
-          "id": 403,
-          "position": {
-              "lat": 38.7999214,
-              "lng": -120.8902916
-          }
-      }, {
-          "region": "4",
-          "name": "Colton",
-          "id": 308,
-          "position": {
-              "lat": 34.0739016,
-              "lng": -117.3136547
-          }
-      }, {
-          "region": "2",
-          "name": "Colusa",
-          "id": 143,
-          "position": {
-              "lat": 39.2143343,
-              "lng": -122.0094175
-          }
-      }, {
-          "region": "3",
-          "name": "Compton",
-          "id": 369,
-          "position": {
-              "lat": 33.8958492,
-              "lng": -118.2200712
-          }
-      }, {
-          "region": "1",
-          "name": "Concord",
-          "id": 19,
-          "position": {
-              "lat": 37.9779776,
-              "lng": -122.0310733
-          }
-      }, {
-          "region": "2",
-          "name": "Cool",
-          "id": 144,
-          "position": {
-              "lat": 38.8880247,
-              "lng": -121.016225
-          }
-      }, {
-          "region": "2",
-          "name": "Corning",
-          "id": 145,
-          "position": {
-              "lat": 39.9276572,
-              "lng": -122.1791556
-          }
-      }, {
-          "region": "4",
-          "name": "Corona",
-          "id": 309,
-          "position": {
-              "lat": 33.8752935,
-              "lng": -117.5664384
-          }
-      }, {
-          "region": "3",
-          "name": "Coronado",
-          "id": 237,
-          "position": {
-              "lat": 32.6858853,
-              "lng": -117.1830891
-          }
-      }, {
-          "region": "1",
-          "name": "Corte Madera",
-          "id": 20,
-          "position": {
-              "lat": 37.9254806,
-              "lng": -122.5274755
-          }
-      }, {
-          "region": "3",
-          "name": "Costa Mesa",
-          "id": 238,
-          "position": {
-              "lat": 33.6412156,
-              "lng": -117.9188221
-          }
-      }, {
-          "region": "1",
-          "name": "Cotati",
-          "id": 21,
-          "position": {
-              "lat": 38.3293416,
-              "lng": -122.7096666
-          }
-      }, {
-          "region": "4",
-          "name": "Covina",
-          "id": 310,
-          "position": {
-              "lat": 34.0900091,
-              "lng": -117.8903397
-          }
-      }, {
-          "region": "1",
-          "name": "Crescent City",
-          "id": 22,
-          "position": {
-              "lat": 41.7557501,
-              "lng": -124.2025913
-          }
-      }, {
-          "region": "3",
-          "name": "Culver City",
-          "id": 239,
-          "position": {
-              "lat": 34.0211224,
-              "lng": -118.3964665
-          }
-      }, {
-          "region": "1",
-          "name": "Cupertino",
-          "id": 23,
-          "position": {
-              "lat": 37.3229978,
-              "lng": -122.0321823
-          }
-      }, {
-          "region": "3",
-          "name": "Cypress",
-          "id": 240,
-          "position": {
-              "lat": 33.8169366,
-              "lng": -118.0368507
-          }
-      }, {
-          "region": "1",
-          "name": "Daly City",
-          "id": 24,
-          "position": {
-              "lat": 37.6879241,
-              "lng": -122.4702079
-          }
-      }, {
-          "region": "3",
-          "name": "Dana Point",
-          "id": 241,
-          "position": {
-              "lat": 33.4672256,
-              "lng": -117.6981014
-          }
-      }, {
-          "region": "1",
-          "name": "Danville",
-          "id": 25,
-          "position": {
-              "lat": 37.8215929,
-              "lng": -121.9999606
-          }
-      }, {
-          "region": "2",
-          "name": "Davis",
-          "id": 146,
-          "position": {
-              "lat": 38.5449065,
-              "lng": -121.7405167
-          }
-      }, {
-          "region": "6",
-          "name": "Death Valley",
-          "id": 397,
-          "position": {
-              "lat": 36.5322649,
-              "lng": -116.9325408
-          }
-      }, {
-          "region": "6",
-          "name": "Desert Hot Springs",
-          "id": 356,
-          "position": {
-              "lat": 33.961124,
-              "lng": -116.5016784
-          }
-      }, {
-          "region": "4",
-          "name": "Diamond Bar",
-          "id": 311,
-          "position": {
-              "lat": 34.0286226,
-              "lng": -117.8103367
-          }
-      }, {
-          "region": "2",
-          "name": "Diamond Springs",
-          "id": 404,
-          "position": {
-              "lat": 38.6946259,
-              "lng": -120.8149355
-          }
-      }, {
-          "region": "2",
-          "name": "Dixon",
-          "id": 147,
-          "position": {
-              "lat": 38.4454641,
-              "lng": -121.8232958
-          }
-      }, {
-          "region": "2",
-          "name": "Dos Palos",
-          "id": 148,
-          "position": {
-              "lat": 36.9860582,
-              "lng": -120.6265722
-          }
-      }, {
-          "region": "3",
-          "name": "Downey",
-          "id": 370,
-          "position": {
-              "lat": 33.9401088,
-              "lng": -118.1331593
-          }
-      }, {
-          "region": "4",
-          "name": "Duarte",
-          "id": 312,
-          "position": {
-              "lat": 34.1394513,
-              "lng": -117.9772873
-          }
-      }, {
-          "region": "1",
-          "name": "Dublin",
-          "id": 27,
-          "position": {
-              "lat": 37.7021521,
-              "lng": -121.9357918
-          }
-      }, {
-          "region": "3",
-          "name": "El Cajon",
-          "id": 414,
-          "position": {
-              "lat": 32.7947731,
-              "lng": -116.9625269
-          }
-      }, {
-          "region": "6",
-          "name": "El Centro",
-          "id": 357,
-          "position": {
-              "lat": 32.792,
-              "lng": -115.5630514
-          }
-      }, {
-          "region": "1",
-          "name": "El Cerrito",
-          "id": 29,
-          "position": {
-              "lat": 37.9161326,
-              "lng": -122.310765
-          }
-      }, {
-          "region": "2",
-          "name": "El Dorado",
-          "id": 405,
-          "position": {
-              "lat": 38.7426376,
-              "lng": -120.4357631
-          }
-      }, {
-          "region": "2",
-          "name": "El Dorado Hills",
-          "id": 400,
-          "position": {
-              "lat": 38.6857367,
-              "lng": -121.082167
-          }
-      }, {
-          "region": "4",
-          "name": "El Monte",
-          "id": 313,
-          "position": {
-              "lat": 34.0686206,
-              "lng": -118.0275667
-          }
-      }, {
-          "region": "3",
-          "name": "El Segundo",
-          "id": 242,
-          "position": {
-              "lat": 33.9191799,
-              "lng": -118.4164652
-          }
-      }, {
-          "region": "1",
-          "name": "El Sobrante",
-          "id": 30,
-          "position": {
-              "lat": 37.9771452,
-              "lng": -122.2952474
-          }
-      }, {
-          "region": "2",
-          "name": "Elk Grove",
-          "id": 149,
-          "position": {
-              "lat": 38.4087993,
-              "lng": -121.3716178
-          }
-      }, {
-          "region": "1",
-          "name": "Emeryville",
-          "id": 31,
-          "position": {
-              "lat": 37.831316,
-              "lng": -122.2852473
-          }
-      }, {
-          "region": "3",
-          "name": "Encinitas",
-          "id": 243,
-          "position": {
-              "lat": 33.0369867,
-              "lng": -117.2919818
-          }
-      }, {
-          "region": "2",
-          "name": "Escalon",
-          "id": 150,
-          "position": {
-              "lat": 37.7974273,
-              "lng": -120.9966033
-          }
-      }, {
-          "region": "4",
-          "name": "Escondido",
-          "id": 415,
-          "position": {
-              "lat": 33.1192068,
-              "lng": -117.086421
-          }
-      }, {
-          "region": "1",
-          "name": "Fairfax",
-          "id": 32,
-          "position": {
-              "lat": 37.9871454,
-              "lng": -122.5888686
-          }
-      }, {
-          "region": "2",
-          "name": "Fairfield",
-          "id": 151,
-          "position": {
-              "lat": 38.2493581,
-              "lng": -122.0399663
-          }
-      }, {
-          "region": "3",
-          "name": "Fallbrook",
-          "id": 416,
-          "position": {
-              "lat": 33.3764196,
-              "lng": -117.2511466
-          }
-      }, {
-          "region": "3",
-          "name": "Fillmore",
-          "id": 244,
-          "position": {
-              "lat": 34.3991639,
-              "lng": -118.918154
-          }
-      }, {
-          "region": "2",
-          "name": "Firebaugh",
-          "id": 152,
-          "position": {
-              "lat": 36.8588376,
-              "lng": -120.4560072
-          }
-      }, {
-          "region": "2",
-          "name": "Folsom",
-          "id": 153,
-          "position": {
-              "lat": 38.6779591,
-              "lng": -121.1760583
-          }
-      }, {
-          "region": "4",
-          "name": "Fontana",
-          "id": 314,
-          "position": {
-              "lat": 34.0922335,
-              "lng": -117.435048
-          }
-      }, {
-          "region": "1",
-          "name": "Fort Bragg",
-          "id": 33,
-          "position": {
-              "lat": 39.445723,
-              "lng": -123.8052935
-          }
-      }, {
-          "region": "3",
-          "name": "Fountain Valley",
-          "id": 245,
-          "position": {
-              "lat": 33.7090212,
-              "lng": -117.9544069
-          }
-      }, {
-          "region": "2",
-          "name": "Fowler",
-          "id": 154,
-          "position": {
-              "lat": 36.6305058,
-              "lng": -119.6784697
-          }
-      }, {
-          "region": "1",
-          "name": "Fremont",
-          "id": 35,
-          "position": {
-              "lat": 37.5482697,
-              "lng": -121.9885719
-          }
-      }, {
-          "region": "2",
-          "name": "Fresno",
-          "id": 155,
-          "position": {
-              "lat": 36.7377981,
-              "lng": -119.7871247
-          }
-      }, {
-          "region": "3",
-          "name": "Fullerton",
-          "id": 246,
-          "position": {
-              "lat": 33.8703645,
-              "lng": -117.9242123
-          }
-      }, {
-          "region": "2",
-          "name": "Galt",
-          "id": 156,
-          "position": {
-              "lat": 38.2546373,
-              "lng": -121.2999485
-          }
-      }, {
-          "region": "3",
-          "name": "Garden Grove",
-          "id": 247,
-          "position": {
-              "lat": 33.7742692,
-              "lng": -117.9379952
-          }
-      }, {
-          "region": "3",
-          "name": "Gardena",
-          "id": 248,
-          "position": {
-              "lat": 33.8883487,
-              "lng": -118.3089624
-          }
-      }, {
-          "region": "1",
-          "name": "Gilroy",
-          "id": 36,
-          "position": {
-              "lat": 37.0057816,
-              "lng": -121.5682751
-          }
-      }, {
-          "region": "3",
-          "name": "Glendale",
-          "id": 249,
-          "position": {
-              "lat": 34.1425078,
-              "lng": -118.255075
-          }
-      }, {
-          "region": "4",
-          "name": "Glendora",
-          "id": 315,
-          "position": {
-              "lat": 34.1361187,
-              "lng": -117.865339
-          }
-      }, {
-          "region": "3",
-          "name": "Goleta",
-          "id": 250,
-          "position": {
-              "lat": 34.4358294,
-              "lng": -119.8276389
-          }
-      }, {
-          "region": "1",
-          "name": "Gonzales",
-          "id": 37,
-          "position": {
-              "lat": 36.5066295,
-              "lng": -121.4443806
-          }
-      }, {
-          "region": "2",
-          "name": "Grass Valley",
-          "id": 157,
-          "position": {
-              "lat": 39.2190608,
-              "lng": -121.0610606
-          }
-      }, {
-          "region": "1",
-          "name": "Greenfield",
-          "id": 38,
-          "position": {
-              "lat": 36.3207998,
-              "lng": -121.2438138
-          }
-      }, {
-          "region": "2",
-          "name": "Gridley",
-          "id": 158,
-          "position": {
-              "lat": 39.3637773,
-              "lng": -121.6935833
-          }
-      }, {
-          "region": "2",
-          "name": "Groveland",
-          "id": 159,
-          "position": {
-              "lat": 37.8388779,
-              "lng": -120.2308167
-          }
-      }, {
-          "region": "1",
-          "name": "Grover Beach",
-          "id": 39,
-          "position": {
-              "lat": 35.1216424,
-              "lng": -120.6212821
-          }
-      }, {
-          "region": "3",
-          "name": "Guadalupe",
-          "id": 251,
-          "position": {
-              "lat": 34.971644,
-              "lng": -120.5718363
-          }
-      }, {
-          "region": "2",
-          "name": "Gustine",
-          "id": 160,
-          "position": {
-              "lat": 37.2577171,
-              "lng": -120.9988154
-          }
-      }, {
-          "region": "1",
-          "name": "Half Moon Bay",
-          "id": 40,
-          "position": {
-              "lat": 37.4635519,
-              "lng": -122.4285862
-          }
-      }, {
-          "region": "3",
-          "name": "Hawthorne",
-          "id": 252,
-          "position": {
-              "lat": 33.9164032,
-              "lng": -118.3525748
-          }
-      }, {
-          "region": "1",
-          "name": "Hayward",
-          "id": 41,
-          "position": {
-              "lat": 37.6688205,
-              "lng": -122.0807964
-          }
-      }, {
-          "region": "1",
-          "name": "Healdsburg",
-          "id": 42,
-          "position": {
-              "lat": 38.6104658,
-              "lng": -122.8691609
-          }
-      }, {
-          "region": "4",
-          "name": "Hemet",
-          "id": 376,
-          "position": {
-              "lat": 33.7475203,
-              "lng": -116.9719684
-          }
-      }, {
-          "region": "1",
-          "name": "Hercules",
-          "id": 43,
-          "position": {
-              "lat": 38.0171441,
-              "lng": -122.2885808
-          }
-      }, {
-          "region": "5",
-          "name": "Hesperia",
-          "id": 343,
-          "position": {
-              "lat": 34.4263886,
-              "lng": -117.3008784
-          }
-      }, {
-          "region": "5",
-          "name": "Hinkley",
-          "id": 392,
-          "position": {
-              "lat": 34.9344769,
-              "lng": -117.1993469
-          }
-      }, {
-          "region": "6",
-          "name": "Holtville",
-          "id": 358,
-          "position": {
-              "lat": 32.8111612,
-              "lng": -115.3802643
-          }
-      }, {
-          "region": "2",
-          "name": "Hughson",
-          "id": 161,
-          "position": {
-              "lat": 37.6027244,
-              "lng": -120.8664811
-          }
-      }, {
-          "region": "3",
-          "name": "Huntington Beach",
-          "id": 253,
-          "position": {
-              "lat": 33.6594835,
-              "lng": -117.9988026
-          }
-      }, {
-          "region": "3",
-          "name": "Huntington Park",
-          "id": 254,
-          "position": {
-              "lat": 33.9816812,
-              "lng": -118.2250725
-          }
-      }, {
-          "region": "2",
-          "name": "Huron",
-          "id": 162,
-          "position": {
-              "lat": 36.2027308,
-              "lng": -120.1029177
-          }
-      }, {
-          "region": "6",
-          "name": "Imperial",
-          "id": 359,
-          "position": {
-              "lat": 32.8475528,
-              "lng": -115.5694391
-          }
-      }, {
-          "region": "3",
-          "name": "Imperial Beach",
-          "id": 255,
-          "position": {
-              "lat": 32.5839444,
-              "lng": -117.1130849
-          }
-      }, {
-          "region": "5",
-          "name": "Independence",
-          "id": 344,
-          "position": {
-              "lat": 36.8027102,
-              "lng": -118.2000951
-          }
-      }, {
-          "region": "6",
-          "name": "Indian Wells",
-          "id": 360,
-          "position": {
-              "lat": 33.717631,
-              "lng": -116.3407549
-          }
-      }, {
-          "region": "6",
-          "name": "Indio",
-          "id": 361,
-          "position": {
-              "lat": 33.7205771,
-              "lng": -116.2155619
-          }
-      }, {
-          "region": "3",
-          "name": "Inglewood",
-          "id": 256,
-          "position": {
-              "lat": 33.9616801,
-              "lng": -118.3531311
-          }
-      }, {
-          "region": "2",
-          "name": "Ione",
-          "id": 163,
-          "position": {
-              "lat": 38.3526912,
-              "lng": -120.9327177
-          }
-      }, {
-          "region": "3",
-          "name": "Irvine",
-          "id": 257,
-          "position": {
-              "lat": 33.6845673,
-              "lng": -117.8265049
-          }
-      }, {
-          "region": "2",
-          "name": "Isleton",
-          "id": 164,
-          "position": {
-              "lat": 38.1618614,
-              "lng": -121.6116206
-          }
-      }, {
-          "region": "2",
-          "name": "Jackson",
-          "id": 165,
-          "position": {
-              "lat": 38.3488023,
-              "lng": -120.7741018
-          }
-      }, {
-          "region": "2",
-          "name": "Kerman",
-          "id": 166,
-          "position": {
-              "lat": 36.7235572,
-              "lng": -120.059879
-          }
-      }, {
-          "region": "1",
-          "name": "King City",
-          "id": 45,
-          "position": {
-              "lat": 36.2127439,
-              "lng": -121.1260287
-          }
-      }, {
-          "region": "2",
-          "name": "Kingsburg",
-          "id": 167,
-          "position": {
-              "lat": 36.5138398,
-              "lng": -119.5540175
-          }
-      }, {
-          "region": "2",
-          "name": "Kyburz",
-          "id": 413,
-          "position": {
-              "lat": 38.7746298,
-              "lng": -120.2968596
-          }
-      }, {
-          "region": "3",
-          "name": "La Jolla",
-          "id": 366,
-          "position": {
-              "lat": 32.8328112,
-              "lng": -117.2712717
-          }
-      }, {
-          "region": "3",
-          "name": "La Mesa",
-          "id": 417,
-          "position": {
-              "lat": 32.7678287,
-              "lng": -117.0230839
-          }
-      }, {
-          "region": "6",
-          "name": "La Quinta",
-          "id": 398,
-          "position": {
-              "lat": 33.6633573,
-              "lng": -116.3100095
-          }
-      }, {
-          "region": "1",
-          "name": "Lafayette",
-          "id": 46,
-          "position": {
-              "lat": 37.8857582,
-              "lng": -122.1180201
-          }
-      }, {
-          "region": "3",
-          "name": "Laguna Beach",
-          "id": 258,
-          "position": {
-              "lat": 33.5427189,
-              "lng": -117.7853568
-          }
-      }, {
-          "region": "3",
-          "name": "Laguna Niguel",
-          "id": 259,
-          "position": {
-              "lat": 33.5236744,
-              "lng": -117.7149438
-          }
-      }, {
-          "region": "4",
-          "name": "Lake Elsinore",
-          "id": 388,
-          "position": {
-              "lat": 33.6680772,
-              "lng": -117.3272615
-          }
-      }, {
-          "region": "2",
-          "name": "Lakeport",
-          "id": 168,
-          "position": {
-              "lat": 39.0429506,
-              "lng": -122.9158293
-          }
-      }, {
-          "region": "3",
-          "name": "Lakewood",
-          "id": 260,
-          "position": {
-              "lat": 33.8536269,
-              "lng": -118.1339563
-          }
-      }, {
-          "region": "5",
-          "name": "Lancaster",
-          "id": 345,
-          "position": {
-              "lat": 34.6867846,
-              "lng": -118.1541632
-          }
-      }, {
-          "region": "1",
-          "name": "Larkspur",
-          "id": 47,
-          "position": {
-              "lat": 37.9340915,
-              "lng": -122.5352539
-          }
-      }, {
-          "region": "2",
-          "name": "Lathrop",
-          "id": 169,
-          "position": {
-              "lat": 37.8227046,
-              "lng": -121.27661
-          }
-      }, {
-          "region": "3",
-          "name": "Lawndale",
-          "id": 261,
-          "position": {
-              "lat": 33.887237,
-              "lng": -118.3525744
-          }
-      }, {
-          "region": "3",
-          "name": "Lemon Grove",
-          "id": 262,
-          "position": {
-              "lat": 32.7425516,
-              "lng": -117.0314172
-          }
-      }, {
-          "region": "2",
-          "name": "Lincoln",
-          "id": 170,
-          "position": {
-              "lat": 38.891565,
-              "lng": -121.2930079
-          }
-      }, {
-          "region": "2",
-          "name": "Live Oak",
-          "id": 171,
-          "position": {
-              "lat": 39.2757232,
-              "lng": -121.6599701
-          }
-      }, {
-          "region": "1",
-          "name": "Livermore",
-          "id": 48,
-          "position": {
-              "lat": 37.6818745,
-              "lng": -121.7680088
-          }
-      }, {
-          "region": "2",
-          "name": "Livingston",
-          "id": 172,
-          "position": {
-              "lat": 37.3868826,
-              "lng": -120.7235329
-          }
-      }, {
-          "region": "2",
-          "name": "Lodi",
-          "id": 173,
-          "position": {
-              "lat": 38.1341477,
-              "lng": -121.2722194
-          }
-      }, {
-          "region": "4",
-          "name": "Loma Linda",
-          "id": 317,
-          "position": {
-              "lat": 34.0483474,
-              "lng": -117.2611527
-          }
-      }, {
-          "region": "3",
-          "name": "Lomita",
-          "id": 263,
-          "position": {
-              "lat": 33.7922392,
-              "lng": -118.3150722
-          }
-      }, {
-          "region": "3",
-          "name": "Lompoc",
-          "id": 264,
-          "position": {
-              "lat": 34.6391501,
-              "lng": -120.4579409
-          }
-      }, {
-          "region": "5",
-          "name": "Lone Pine",
-          "id": 394,
-          "position": {
-              "lat": 36.6060444,
-              "lng": -118.0628654
-          }
-      }, {
-          "region": "3",
-          "name": "Long Beach",
-          "id": 265,
-          "position": {
-              "lat": 33.7700504,
-              "lng": -118.1937395
-          }
-      }, {
-          "region": "2",
-          "name": "Loomis",
-          "id": 174,
-          "position": {
-              "lat": 38.8212889,
-              "lng": -121.1930041
-          }
-      }, {
-          "region": "3",
-          "name": "Los Alamitos",
-          "id": 266,
-          "position": {
-              "lat": 33.8032009,
-              "lng": -118.0718894
-          }
-      }, {
-          "region": "1",
-          "name": "Los Altos",
-          "id": 49,
-          "position": {
-              "lat": 37.3852183,
-              "lng": -122.1141298
-          }
-      }, {
-          "region": "3",
-          "name": "Los Angeles",
-          "id": 267,
-          "position": {
-              "lat": 34.0522342,
-              "lng": -118.2436849
-          }
-      }, {
-          "region": "2",
-          "name": "Los Banos",
-          "id": 175,
-          "position": {
-              "lat": 37.0582786,
-              "lng": -120.8499151
-          }
-      }, {
-          "region": "1",
-          "name": "Los Gatos",
-          "id": 51,
-          "position": {
-              "lat": 37.2358078,
-              "lng": -121.9623751
-          }
-      }, {
-          "region": "2",
-          "name": "Lotus",
-          "id": 406,
-          "position": {
-              "lat": 38.801568,
-              "lng": -120.9085501
-          }
-      }, {
-          "region": "2",
-          "name": "Loyalton",
-          "id": 176,
-          "position": {
-              "lat": 39.6762936,
-              "lng": -120.2410385
-          }
-      }, {
-          "region": "5",
-          "name": "Lucerne Valley",
-          "id": 393,
-          "position": {
-              "lat": 34.4437599,
-              "lng": -116.9676823
-          }
-      }, {
-          "region": "3",
-          "name": "Lynwood",
-          "id": 268,
-          "position": {
-              "lat": 33.930293,
-              "lng": -118.2114603
-          }
-      }, {
-          "region": "2",
-          "name": "Madera",
-          "id": 399,
-          "position": {
-              "lat": 36.9613356,
-              "lng": -120.0607176
-          }
-      }, {
-          "region": "3",
-          "name": "Malibu",
-          "id": 269,
-          "position": {
-              "lat": 34.0259216,
-              "lng": -118.7797571
-          }
-      }, {
-          "region": "1",
-          "name": "Mammoth Lakes",
-          "id": 52,
-          "position": {
-              "lat": 37.648546,
-              "lng": -118.972079
-          }
-      }, {
-          "region": "3",
-          "name": "Manhattan Beach",
-          "id": 270,
-          "position": {
-              "lat": 33.8847361,
-              "lng": -118.4109089
-          }
-      }, {
-          "region": "2",
-          "name": "Manteca",
-          "id": 177,
-          "position": {
-              "lat": 37.7974273,
-              "lng": -121.2160526
-          }
-      }, {
-          "region": "1",
-          "name": "Marina",
-          "id": 53,
-          "position": {
-              "lat": 36.6844029,
-              "lng": -121.802173
-          }
-      }, {
-          "region": "1",
-          "name": "Markleeville",
-          "id": 54,
-          "position": {
-              "lat": 38.6937227,
-              "lng": -119.7796826
-          }
-      }, {
-          "region": "1",
-          "name": "Martinez",
-          "id": 55,
-          "position": {
-              "lat": 38.0193657,
-              "lng": -122.1341321
-          }
-      }, {
-          "region": "2",
-          "name": "Marysville",
-          "id": 178,
-          "position": {
-              "lat": 39.1457253,
-              "lng": -121.5913547
-          }
-      }, {
-          "region": "2",
-          "name": "Mendota",
-          "id": 179,
-          "position": {
-              "lat": 36.7535611,
-              "lng": -120.3815574
-          }
-      }, {
-          "region": "4",
-          "name": "Menifee",
-          "id": 387,
-          "position": {
-              "lat": 33.6971468,
-              "lng": -117.185294
-          }
-      }, {
-          "region": "1",
-          "name": "Menlo Park",
-          "id": 56,
-          "position": {
-              "lat": 37.4529598,
-              "lng": -122.1817252
-          }
-      }, {
-          "region": "2",
-          "name": "Merced",
-          "id": 180,
-          "position": {
-              "lat": 37.3021632,
-              "lng": -120.4829677
-          }
-      }, {
-          "region": "1",
-          "name": "Mill Valley",
-          "id": 57,
-          "position": {
-              "lat": 37.9060368,
-              "lng": -122.5449763
-          }
-      }, {
-          "region": "1",
-          "name": "Millbrae",
-          "id": 58,
-          "position": {
-              "lat": 37.5985468,
-              "lng": -122.3871942
-          }
-      }, {
-          "region": "1",
-          "name": "Milpitas",
-          "id": 59,
-          "position": {
-              "lat": 37.4323341,
-              "lng": -121.8995741
-          }
-      }, {
-          "region": "3",
-          "name": "Mission Viejo",
-          "id": 367,
-          "position": {
-              "lat": 33.5968913,
-              "lng": -117.6581562
-          }
-      }, {
-          "region": "2",
-          "name": "Modesto",
-          "id": 181,
-          "position": {
-              "lat": 37.6390972,
-              "lng": -120.9968782
-          }
-      }, {
-          "region": "5",
-          "name": "Mojave",
-          "id": 346,
-          "position": {
-              "lat": 35.0524699,
-              "lng": -118.1739645
-          }
-      }, {
-          "region": "4",
-          "name": "Monrovia",
-          "id": 318,
-          "position": {
-              "lat": 34.1442616,
-              "lng": -118.0019482
-          }
-      }, {
-          "region": "4",
-          "name": "Montclair",
-          "id": 319,
-          "position": {
-              "lat": 34.0775104,
-              "lng": -117.6897776
-          }
-      }, {
-          "region": "1",
-          "name": "Monterey",
-          "id": 61,
-          "position": {
-              "lat": 36.6002378,
-              "lng": -121.8946761
-          }
-      }, {
-          "region": "4",
-          "name": "Monterey Park",
-          "id": 383,
-          "position": {
-              "lat": 34.0625106,
-              "lng": -118.1228476
-          }
-      }, {
-          "region": "3",
-          "name": "Moorpark",
-          "id": 271,
-          "position": {
-              "lat": 34.285558,
-              "lng": -118.8820414
-          }
-      }, {
-          "region": "1",
-          "name": "Moraga",
-          "id": 62,
-          "position": {
-              "lat": 37.8349263,
-              "lng": -122.1296871
-          }
-      }, {
-          "region": "4",
-          "name": "Moreno Valley",
-          "id": 320,
-          "position": {
-              "lat": 33.9424658,
-              "lng": -117.2296717
-          }
-      }, {
-          "region": "1",
-          "name": "Morgan Hill",
-          "id": 63,
-          "position": {
-              "lat": 37.1305012,
-              "lng": -121.6543901
-          }
-      }, {
-          "region": "1",
-          "name": "Morro Bay",
-          "id": 64,
-          "position": {
-              "lat": 35.3659445,
-              "lng": -120.8499924
-          }
-      }, {
-          "region": "1",
-          "name": "Mountain View",
-          "id": 65,
-          "position": {
-              "lat": 37.3860517,
-              "lng": -122.0838511
-          }
-      }, {
-          "region": "4",
-          "name": "Murrieta",
-          "id": 378,
-          "position": {
-              "lat": 33.5539143,
-              "lng": -117.2139232
-          }
-      }, {
-          "region": "1",
-          "name": "Napa",
-          "id": 182,
-          "position": {
-              "lat": 38.2975381,
-              "lng": -122.286865
-          }
-      }, {
-          "region": "3",
-          "name": "National City",
-          "id": 272,
-          "position": {
-              "lat": 32.6781085,
-              "lng": -117.0991967
-          }
-      }, {
-          "region": "6",
-          "name": "Needles",
-          "id": 362,
-          "position": {
-              "lat": 34.8480597,
-              "lng": -114.6141315
-          }
-      }, {
-          "region": "2",
-          "name": "Nevada City",
-          "id": 183,
-          "position": {
-              "lat": 39.2615606,
-              "lng": -121.0160594
-          }
-      }, {
-          "region": "1",
-          "name": "Newark",
-          "id": 66,
-          "position": {
-              "lat": 37.5296593,
-              "lng": -122.0402399
-          }
-      }, {
-          "region": "2",
-          "name": "Newman",
-          "id": 184,
-          "position": {
-              "lat": 37.3138267,
-              "lng": -121.0207614
-          }
-      }, {
-          "region": "3",
-          "name": "Newport Beach",
-          "id": 273,
-          "position": {
-              "lat": 33.6188829,
-              "lng": -117.9298493
-          }
-      }, {
-          "region": "4",
-          "name": "Norco",
-          "id": 374,
-          "position": {
-              "lat": 33.9311257,
-              "lng": -117.548661
-          }
-      }, {
-          "region": "3",
-          "name": "Norwalk",
-          "id": 371,
-          "position": {
-              "lat": 33.9022367,
-              "lng": -118.081733
-          }
-      }, {
-          "region": "1",
-          "name": "Novato",
-          "id": 67,
-          "position": {
-              "lat": 38.1074198,
-              "lng": -122.5697032
-          }
-      }, {
-          "region": "2",
-          "name": "Oakdale",
-          "id": 185,
-          "position": {
-              "lat": 37.7665947,
-              "lng": -120.8471545
-          }
-      }, {
-          "region": "1",
-          "name": "Oakland",
-          "id": 68,
-          "position": {
-              "lat": 37.8043637,
-              "lng": -122.2711137
-          }
-      }, {
-          "region": "2",
-          "name": "Oakley",
-          "id": 186,
-          "position": {
-              "lat": 37.9974219,
-              "lng": -121.7124536
-          }
-      }, {
-          "region": "3",
-          "name": "Oceanside",
-          "id": 274,
-          "position": {
-              "lat": 33.1958696,
-              "lng": -117.3794834
-          }
-      }, {
-          "region": "3",
-          "name": "Ojai",
-          "id": 275,
-          "position": {
-              "lat": 34.4480495,
-              "lng": -119.242889
-          }
-      }, {
-          "region": "4",
-          "name": "Ontario",
-          "id": 321,
-          "position": {
-              "lat": 34.0633443,
-              "lng": -117.6508876
-          }
-      }, {
-          "region": "2",
-          "name": "Orange Cove",
-          "id": 187,
-          "position": {
-              "lat": 36.624394,
-              "lng": -119.3137301
-          }
-      }, {
-          "region": "1",
-          "name": "Orinda",
-          "id": 69,
-          "position": {
-              "lat": 37.8771476,
-              "lng": -122.1796888
-          }
-      }, {
-          "region": "2",
-          "name": "Orland",
-          "id": 188,
-          "position": {
-              "lat": 39.7473803,
-              "lng": -122.1963748
-          }
-      }, {
-          "region": "2",
-          "name": "Oroville",
-          "id": 189,
-          "position": {
-              "lat": 39.5137752,
-              "lng": -121.556359
-          }
-      }, {
-          "region": "3",
-          "name": "Oxnard",
-          "id": 276,
-          "position": {
-              "lat": 34.1975048,
-              "lng": -119.1770516
-          }
-      }, {
-          "region": "1",
-          "name": "Pacific Grove",
-          "id": 70,
-          "position": {
-              "lat": 36.6177374,
-              "lng": -121.9166215
-          }
-      }, {
-          "region": "1",
-          "name": "Pacifica",
-          "id": 71,
-          "position": {
-              "lat": 37.6138253,
-              "lng": -122.4869194
-          }
-      }, {
-          "region": "6",
-          "name": "Palm Desert",
-          "id": 363,
-          "position": {
-              "lat": 33.7222445,
-              "lng": -116.3744556
-          }
-      }, {
-          "region": "6",
-          "name": "Palm Springs",
-          "id": 364,
-          "position": {
-              "lat": 33.8302961,
-              "lng": -116.5452921
-          }
-      }, {
-          "region": "5",
-          "name": "Palmdale",
-          "id": 347,
-          "position": {
-              "lat": 34.5794343,
-              "lng": -118.1164613
-          }
-      }, {
-          "region": "1",
-          "name": "Palo Alto",
-          "id": 72,
-          "position": {
-              "lat": 37.4418834,
-              "lng": -122.1430195
-          }
-      }, {
-          "region": "2",
-          "name": "Paradise",
-          "id": 190,
-          "position": {
-              "lat": 39.7596061,
-              "lng": -121.6219177
-          }
-      }, {
-          "region": "2",
-          "name": "Parlier",
-          "id": 191,
-          "position": {
-              "lat": 36.6116174,
-              "lng": -119.5270734
-          }
-      }, {
-          "region": "4",
-          "name": "Pasadena",
-          "id": 322,
-          "position": {
-              "lat": 34.1477849,
-              "lng": -118.1445155
-          }
-      }, {
-          "region": "1",
-          "name": "Paso Robles",
-          "id": 73,
-          "position": {
-              "lat": 35.6368759,
-              "lng": -120.6545022
-          }
-      }, {
-          "region": "2",
-          "name": "Patterson",
-          "id": 192,
-          "position": {
-              "lat": 37.4716001,
-              "lng": -121.129656
-          }
-      }, {
-          "region": "5",
-          "name": "Pearblossom",
-          "id": 390,
-          "position": {
-              "lat": 34.5064141,
-              "lng": -117.9096804
-          }
-      }, {
-          "region": "4",
-          "name": "Perris",
-          "id": 375,
-          "position": {
-              "lat": 33.7825194,
-              "lng": -117.2286478
-          }
-      }, {
-          "region": "1",
-          "name": "Petaluma",
-          "id": 74,
-          "position": {
-              "lat": 38.232417,
-              "lng": -122.6366524
-          }
-      }, {
-          "region": "1",
-          "name": "Piedmont",
-          "id": 75,
-          "position": {
-              "lat": 37.8243715,
-              "lng": -122.231635
-          }
-      }, {
-          "region": "1",
-          "name": "Pinole",
-          "id": 76,
-          "position": {
-              "lat": 38.0043667,
-              "lng": -122.2988587
-          }
-      }, {
-          "region": "1",
-          "name": "Pismo Beach",
-          "id": 77,
-          "position": {
-              "lat": 35.1427533,
-              "lng": -120.6412827
-          }
-      }, {
-          "region": "1",
-          "name": "Pittsburg",
-          "id": 78,
-          "position": {
-              "lat": 38.0279762,
-              "lng": -121.8846806
-          }
-      }, {
-          "region": "2",
-          "name": "Placerville",
-          "id": 193,
-          "position": {
-              "lat": 38.7296252,
-              "lng": -120.798546
-          }
-      }, {
-          "region": "2",
-          "name": "Placerville",
-          "id": 407,
-          "position": {
-              "lat": 38.7296252,
-              "lng": -120.798546
-          }
-      }, {
-          "region": "1",
-          "name": "Pleasant Hill",
-          "id": 79,
-          "position": {
-              "lat": 37.9479786,
-              "lng": -122.0607963
-          }
-      }, {
-          "region": "1",
-          "name": "Pleasanton",
-          "id": 80,
-          "position": {
-              "lat": 37.6624312,
-              "lng": -121.8746789
-          }
-      }, {
-          "region": "2",
-          "name": "Plymouth",
-          "id": 194,
-          "position": {
-              "lat": 38.4818531,
-              "lng": -120.844659
-          }
-      }, {
-          "region": "1",
-          "name": "Point Arena",
-          "id": 81,
-          "position": {
-              "lat": 38.908798,
-              "lng": -123.6930726
-          }
-      }, {
-          "region": "2",
-          "name": "Pollock Pines",
-          "id": 408,
-          "position": {
-              "lat": 38.7612923,
-              "lng": -120.5865935
-          }
-      }, {
-          "region": "4",
-          "name": "Pomona",
-          "id": 323,
-          "position": {
-              "lat": 34.055103,
-              "lng": -117.7499909
-          }
-      }, {
-          "region": "3",
-          "name": "Port Hueneme",
-          "id": 278,
-          "position": {
-              "lat": 34.1477829,
-              "lng": -119.1951074
-          }
-      }, {
-          "region": "2",
-          "name": "Portola",
-          "id": 195,
-          "position": {
-              "lat": 39.8104567,
-              "lng": -120.4691034
-          }
-      }, {
-          "region": "1",
-          "name": "Portola Valley",
-          "id": 82,
-          "position": {
-              "lat": 37.3841066,
-              "lng": -122.2352443
-          }
-      }, {
-          "region": "2",
-          "name": "Quincy",
-          "id": 196,
-          "position": {
-              "lat": 39.9368363,
-              "lng": -120.9471764
-          }
-      }, {
-          "region": "4",
-          "name": "Ramona",
-          "id": 324,
-          "position": {
-              "lat": 33.0413604,
-              "lng": -116.8792553
-          }
-      }, {
-          "region": "2",
-          "name": "Rancho Cordova",
-          "id": 197,
-          "position": {
-              "lat": 38.5890723,
-              "lng": -121.302728
-          }
-      }, {
-          "region": "4",
-          "name": "Rancho Cucamonga",
-          "id": 325,
-          "position": {
-              "lat": 34.1063989,
-              "lng": -117.5931084
-          }
-      }, {
-          "region": "6",
-          "name": "Rancho Mirage",
-          "id": 365,
-          "position": {
-              "lat": 33.739744,
-              "lng": -116.41279
-          }
-      }, {
-          "region": "3",
-          "name": "Rancho Palos Verdes",
-          "id": 279,
-          "position": {
-              "lat": 33.7444613,
-              "lng": -118.3870173
-          }
-      }, {
-          "region": "4",
-          "name": "Rancho Santa Fe",
-          "id": 418,
-          "position": {
-              "lat": 33.020321,
-              "lng": -117.202813
-          }
-      }, {
-          "region": "3",
-          "name": "Rancho Santa Margarita",
-          "id": 280,
-          "position": {
-              "lat": 33.640171,
-              "lng": -117.602832
-          }
-      }, {
-          "region": "2",
-          "name": "Red Bluff",
-          "id": 198,
-          "position": {
-              "lat": 40.1784886,
-              "lng": -122.2358302
-          }
-      }, {
-          "region": "2",
-          "name": "Redding",
-          "id": 199,
-          "position": {
-              "lat": 40.5865396,
-              "lng": -122.3916754
-          }
-      }, {
-          "region": "4",
-          "name": "Redlands",
-          "id": 326,
-          "position": {
-              "lat": 34.0555693,
-              "lng": -117.1825381
-          }
-      }, {
-          "region": "3",
-          "name": "Redondo Beach",
-          "id": 281,
-          "position": {
-              "lat": 33.8491816,
-              "lng": -118.3884078
-          }
-      }, {
-          "region": "1",
-          "name": "Redwood City",
-          "id": 83,
-          "position": {
-              "lat": 37.4852152,
-              "lng": -122.2363548
-          }
-      }, {
-          "region": "2",
-          "name": "Rescue",
-          "id": 409,
-          "position": {
-              "lat": 38.7148404,
-              "lng": -120.9528258
-          }
-      }, {
-          "region": "4",
-          "name": "Rialto",
-          "id": 327,
-          "position": {
-              "lat": 34.1064001,
-              "lng": -117.3703235
-          }
-      }, {
-          "region": "1",
-          "name": "Richmond",
-          "id": 84,
-          "position": {
-              "lat": 37.9357576,
-              "lng": -122.3477486
-          }
-      }, {
-          "region": "2",
-          "name": "Rio Vista",
-          "id": 201,
-          "position": {
-              "lat": 38.1557502,
-              "lng": -121.6913439
-          }
-      }, {
-          "region": "2",
-          "name": "Ripon",
-          "id": 202,
-          "position": {
-              "lat": 37.7394537,
-              "lng": -121.1354141
-          }
-      }, {
-          "region": "2",
-          "name": "Riverbank",
-          "id": 203,
-          "position": {
-              "lat": 37.7360396,
-              "lng": -120.9354895
-          }
-      }, {
-          "region": "4",
-          "name": "Riverside",
-          "id": 328,
-          "position": {
-              "lat": 33.9806005,
-              "lng": -117.3754942
-          }
-      }, {
-          "region": "2",
-          "name": "Rocklin",
-          "id": 204,
-          "position": {
-              "lat": 38.7907339,
-              "lng": -121.2357828
-          }
-      }, {
-          "region": "1",
-          "name": "Rohnert Park",
-          "id": 85,
-          "position": {
-              "lat": 38.3396367,
-              "lng": -122.7010984
-          }
-      }, {
-          "region": "5",
-          "name": "Rosamond",
-          "id": 391,
-          "position": {
-              "lat": 34.8641446,
-              "lng": -118.1634075
-          }
-      }, {
-          "region": "4",
-          "name": "Rosemead",
-          "id": 329,
-          "position": {
-              "lat": 34.0805651,
-              "lng": -118.072846
-          }
-      }, {
-          "region": "2",
-          "name": "Roseville",
-          "id": 205,
-          "position": {
-              "lat": 38.7521235,
-              "lng": -121.2880059
-          }
-      }, {
-          "region": "1",
-          "name": "Ross",
-          "id": 86,
-          "position": {
-              "lat": 37.9624239,
-              "lng": -122.5549775
-          }
-      }, {
-          "region": "2",
-          "name": "Sacramento",
-          "id": 206,
-          "position": {
-              "lat": 38.5815719,
-              "lng": -121.4943996
-          }
-      }, {
-          "region": "1",
-          "name": "Salinas",
-          "id": 87,
-          "position": {
-              "lat": 36.6777372,
-              "lng": -121.6555013
-          }
-      }, {
-          "region": "1",
-          "name": "San Anselmo",
-          "id": 88,
-          "position": {
-              "lat": 37.9746458,
-              "lng": -122.5616448
-          }
-      }, {
-          "region": "4",
-          "name": "San Bernardino",
-          "id": 330,
-          "position": {
-              "lat": 34.1083449,
-              "lng": -117.2897652
-          }
-      }, {
-          "region": "1",
-          "name": "San Bruno",
-          "id": 89,
-          "position": {
-              "lat": 37.6304904,
-              "lng": -122.4110835
-          }
-      }, {
-          "region": "1",
-          "name": "San Carlos",
-          "id": 90,
-          "position": {
-              "lat": 37.5071591,
-              "lng": -122.2605222
-          }
-      }, {
-          "region": "3",
-          "name": "San Clemente",
-          "id": 282,
-          "position": {
-              "lat": 33.4273521,
-              "lng": -117.6126004
-          }
-      }, {
-          "region": "3",
-          "name": "San Diego",
-          "id": 283,
-          "position": {
-              "lat": 32.715738,
-              "lng": -117.1610838
-          }
-      }, {
-          "region": "4",
-          "name": "San Dimas",
-          "id": 331,
-          "position": {
-              "lat": 34.1066756,
-              "lng": -117.8067257
-          }
-      }, {
-          "region": "4",
-          "name": "San Fernando",
-          "id": 332,
-          "position": {
-              "lat": 34.2819461,
-              "lng": -118.4389719
-          }
-      }, {
-          "region": "1",
-          "name": "San Francisco",
-          "id": 91,
-          "position": {
-              "lat": 37.7749295,
-              "lng": -122.4194155
-          }
-      }, {
-          "region": "4",
-          "name": "San Jacinto",
-          "id": 384,
-          "position": {
-              "lat": 33.7839084,
-              "lng": -116.958635
-          }
-      }, {
-          "region": "1",
-          "name": "San Jose",
-          "id": 92,
-          "position": {
-              "lat": 37.3382082,
-              "lng": -121.8863286
-          }
-      }, {
-          "region": "3",
-          "name": "San Juan Capistrano",
-          "id": 284,
-          "position": {
-              "lat": 33.5019027,
-              "lng": -117.6627655
-          }
-      }, {
-          "region": "1",
-          "name": "San Leandro",
-          "id": 93,
-          "position": {
-              "lat": 37.7249296,
-              "lng": -122.1560768
-          }
-      }, {
-          "region": "1",
-          "name": "San Luis Obispo",
-          "id": 94,
-          "position": {
-              "lat": 35.2827524,
-              "lng": -120.6596156
-          }
-      }, {
-          "region": "4",
-          "name": "San Marcos",
-          "id": 285,
-          "position": {
-              "lat": 33.1433723,
-              "lng": -117.1661449
-          }
-      }, {
-          "region": "1",
-          "name": "San Mateo",
-          "id": 95,
-          "position": {
-              "lat": 37.5629917,
-              "lng": -122.3255254
-          }
-      }, {
-          "region": "1",
-          "name": "San Pablo",
-          "id": 96,
-          "position": {
-              "lat": 37.9621457,
-              "lng": -122.3455263
-          }
-      }, {
-          "region": "1",
-          "name": "San Rafael",
-          "id": 97,
-          "position": {
-              "lat": 37.9735346,
-              "lng": -122.5310874
-          }
-      }, {
-          "region": "1",
-          "name": "San Ramon",
-          "id": 98,
-          "position": {
-              "lat": 37.7799273,
-              "lng": -121.9780153
-          }
-      }, {
-          "region": "2",
-          "name": "Sanger",
-          "id": 207,
-          "position": {
-              "lat": 36.708006,
-              "lng": -119.5559652
-          }
-      }, {
-          "region": "3",
-          "name": "Santa Ana",
-          "id": 286,
-          "position": {
-              "lat": 33.7454725,
-              "lng": -117.867653
-          }
-      }, {
-          "region": "3",
-          "name": "Santa Barbara",
-          "id": 287,
-          "position": {
-              "lat": 34.4208305,
-              "lng": -119.6981901
-          }
-      }, {
-          "region": "1",
-          "name": "Santa Clara",
-          "id": 100,
-          "position": {
-              "lat": 37.3541079,
-              "lng": -121.9552356
-          }
-      }, {
-          "region": "4",
-          "name": "Santa Clarita",
-          "id": 333,
-          "position": {
-              "lat": 34.3916641,
-              "lng": -118.542586
-          }
-      }, {
-          "region": "1",
-          "name": "Santa Cruz",
-          "id": 101,
-          "position": {
-              "lat": 36.9741171,
-              "lng": -122.0307963
-          }
-      }, {
-          "region": "3",
-          "name": "Santa Maria",
-          "id": 288,
-          "position": {
-              "lat": 34.9530337,
-              "lng": -120.4357191
-          }
-      }, {
-          "region": "3",
-          "name": "Santa Monica",
-          "id": 289,
-          "position": {
-              "lat": 34.0194543,
-              "lng": -118.4911912
-          }
-      }, {
-          "region": "3",
-          "name": "Santa Paula",
-          "id": 290,
-          "position": {
-              "lat": 34.3541659,
-              "lng": -119.0592705
-          }
-      }, {
-          "region": "1",
-          "name": "Santa Rosa",
-          "id": 102,
-          "position": {
-              "lat": 38.440429,
-              "lng": -122.7140548
-          }
-      }, {
-          "region": "1",
-          "name": "Saratoga",
-          "id": 103,
-          "position": {
-              "lat": 37.2638324,
-              "lng": -122.0230146
-          }
-      }, {
-          "region": "1",
-          "name": "Sausalito",
-          "id": 104,
-          "position": {
-              "lat": 37.8590937,
-              "lng": -122.4852507
-          }
-      }, {
-          "region": "1",
-          "name": "Scotts Valley",
-          "id": 105,
-          "position": {
-              "lat": 37.0510595,
-              "lng": -122.0146841
-          }
-      }, {
-          "region": "1",
-          "name": "Seaside",
-          "id": 106,
-          "position": {
-              "lat": 36.6149217,
-              "lng": -121.822098
-          }
-      }, {
-          "region": "1",
-          "name": "Sebastopol",
-          "id": 107,
-          "position": {
-              "lat": 38.4021359,
-              "lng": -122.8238806
-          }
-      }, {
-          "region": "2",
-          "name": "Selma",
-          "id": 208,
-          "position": {
-              "lat": 36.5707838,
-              "lng": -119.6120765
-          }
-      }, {
-          "region": "4",
-          "name": "Sierra Madre",
-          "id": 334,
-          "position": {
-              "lat": 34.1616729,
-              "lng": -118.0528456
-          }
-      }, {
-          "region": "3",
-          "name": "Simi Valley",
-          "id": 291,
-          "position": {
-              "lat": 34.2694474,
-              "lng": -118.781482
-          }
-      }, {
-          "region": "1",
-          "name": "Soledad",
-          "id": 108,
-          "position": {
-              "lat": 36.424687,
-              "lng": -121.3263187
-          }
-      }, {
-          "region": "3",
-          "name": "Solvang",
-          "id": 292,
-          "position": {
-              "lat": 34.5958201,
-              "lng": -120.1376481
-          }
-      }, {
-          "region": "2",
-          "name": "Somerset",
-          "id": 410,
-          "position": {
-              "lat": 38.64762,
-              "lng": -120.685388
-          }
-      }, {
-          "region": "3",
-          "name": "Somis",
-          "id": 373,
-          "position": {
-              "lat": 34.2637508,
-              "lng": -118.9946323
-          }
-      }, {
-          "region": "1",
-          "name": "Sonoma",
-          "id": 109,
-          "position": {
-              "lat": 38.291859,
-              "lng": -122.4580356
-          }
-      }, {
-          "region": "2",
-          "name": "Sonora",
-          "id": 209,
-          "position": {
-              "lat": 37.9829496,
-              "lng": -120.3821724
-          }
-      }, {
-          "region": "3",
-          "name": "South Gate",
-          "id": 293,
-          "position": {
-              "lat": 33.954737,
-              "lng": -118.2120161
-          }
-      }, {
-          "region": "1",
-          "name": "South Lake Tahoe",
-          "id": 110,
-          "position": {
-              "lat": 38.939926,
-              "lng": -119.9771868
-          }
-      }, {
-          "region": "1",
-          "name": "South San Francisco",
-          "id": 111,
-          "position": {
-              "lat": 37.654656,
-              "lng": -122.4077498
-          }
-      }, {
-          "region": "1",
-          "name": "St. Helena",
-          "id": 112,
-          "position": {
-              "lat": 38.5052429,
-              "lng": -122.4703868
-          }
-      }, {
-          "region": "2",
-          "name": "Stockton",
-          "id": 210,
-          "position": {
-              "lat": 37.9577016,
-              "lng": -121.2907796
-          }
-      }, {
-          "region": "2",
-          "name": "Strawberry",
-          "id": 412,
-          "position": {
-              "lat": 38.19825,
-              "lng": -120.009351
-          }
-      }, {
-          "region": "1",
-          "name": "Suisun City",
-          "id": 113,
-          "position": {
-              "lat": 38.2382474,
-              "lng": -122.040244
-          }
-      }, {
-          "region": "4",
-          "name": "Sun City",
-          "id": 377,
-          "position": {
-              "lat": 33.7091878,
-              "lng": -117.1972566
-          }
-      }, {
-          "region": "1",
-          "name": "Sunnyvale",
-          "id": 114,
-          "position": {
-              "lat": 37.36883,
-              "lng": -122.0363496
-          }
-      }, {
-          "region": "2",
-          "name": "Sutter Creek",
-          "id": 211,
-          "position": {
-              "lat": 38.3929675,
-              "lng": -120.8024357
-          }
-      }, {
-          "region": "5",
-          "name": "Tehachapi",
-          "id": 348,
-          "position": {
-              "lat": 35.1321877,
-              "lng": -118.4489739
-          }
-      }, {
-          "region": "2",
-          "name": "Tehama",
-          "id": 212,
-          "position": {
-              "lat": 40.0271015,
-              "lng": -122.1233228
-          }
-      }, {
-          "region": "4",
-          "name": "Temecula",
-          "id": 379,
-          "position": {
-              "lat": 33.4936391,
-              "lng": -117.1483648
-          }
-      }, {
-          "region": "4",
-          "name": "Temple City",
-          "id": 335,
-          "position": {
-              "lat": 34.1072305,
-              "lng": -118.0578456
-          }
-      }, {
-          "region": "3",
-          "name": "Thousand Oaks",
-          "id": 294,
-          "position": {
-              "lat": 34.1705609,
-              "lng": -118.8375937
-          }
-      }, {
-          "region": "3",
-          "name": "Torrance",
-          "id": 295,
-          "position": {
-              "lat": 33.8358492,
-              "lng": -118.3406288
-          }
-      }, {
-          "region": "2",
-          "name": "Tracy",
-          "id": 213,
-          "position": {
-              "lat": 37.7396513,
-              "lng": -121.4252227
-          }
-      }, {
-          "region": "2",
-          "name": "Truckee",
-          "id": 214,
-          "position": {
-              "lat": 39.327962,
-              "lng": -120.1832533
-          }
-      }, {
-          "region": "2",
-          "name": "Turlock",
-          "id": 215,
-          "position": {
-              "lat": 37.4946568,
-              "lng": -120.8465941
-          }
-      }, {
-          "region": "1",
-          "name": "Ukiah",
-          "id": 116,
-          "position": {
-              "lat": 39.1501709,
-              "lng": -123.2077831
-          }
-      }, {
-          "region": "1",
-          "name": "Union City",
-          "id": 117,
-          "position": {
-              "lat": 37.5933918,
-              "lng": -122.0438298
-          }
-      }, {
-          "region": "4",
-          "name": "Upland",
-          "id": 336,
-          "position": {
-              "lat": 34.09751,
-              "lng": -117.6483876
-          }
-      }, {
-          "region": "2",
-          "name": "Vacaville",
-          "id": 216,
-          "position": {
-              "lat": 38.3565773,
-              "lng": -121.9877444
-          }
-      }, {
-          "region": "1",
-          "name": "Vallejo",
-          "id": 118,
-          "position": {
-              "lat": 38.1040864,
-              "lng": -122.2566367
-          }
-      }, {
-          "region": "3",
-          "name": "Ventura",
-          "id": 296,
-          "position": {
-              "lat": 34.2804923,
-              "lng": -119.2945199
-          }
-      }, {
-          "region": "5",
-          "name": "Victorville",
-          "id": 349,
-          "position": {
-              "lat": 34.5362184,
-              "lng": -117.2927641
-          }
-      }, {
-          "region": "3",
-          "name": "Vista",
-          "id": 298,
-          "position": {
-              "lat": 33.2000368,
-              "lng": -117.2425355
-          }
-      }, {
-          "region": "1",
-          "name": "Walnut Creek",
-          "id": 119,
-          "position": {
-              "lat": 37.9100783,
-              "lng": -122.0651819
-          }
-      }, {
-          "region": "2",
-          "name": "Waterford",
-          "id": 217,
-          "position": {
-              "lat": 37.6413202,
-              "lng": -120.7604834
-          }
-      }, {
-          "region": "1",
-          "name": "Watsonville",
-          "id": 120,
-          "position": {
-              "lat": 36.910231,
-              "lng": -121.7568946
-          }
-      }, {
-          "region": "4",
-          "name": "West Covina",
-          "id": 337,
-          "position": {
-              "lat": 34.0686208,
-              "lng": -117.9389526
-          }
-      }, {
-          "region": "3",
-          "name": "West Hollywood",
-          "id": 299,
-          "position": {
-              "lat": 34.0900091,
-              "lng": -118.3617443
-          }
-      }, {
-          "region": "2",
-          "name": "West Sacramento",
-          "id": 218,
-          "position": {
-              "lat": 38.5804609,
-              "lng": -121.530234
-          }
-      }, {
-          "region": "3",
-          "name": "Westlake Village",
-          "id": 300,
-          "position": {
-              "lat": 34.1466467,
-              "lng": -118.8073729
-          }
-      }, {
-          "region": "3",
-          "name": "Westminster",
-          "id": 301,
-          "position": {
-              "lat": 33.7591757,
-              "lng": -117.9897058
-          }
-      }, {
-          "region": "3",
-          "name": "Westwood",
-          "id": 372,
-          "position": {
-              "lat": 34.0635016,
-              "lng": -118.4455164
-          }
-      }, {
-          "region": "2",
-          "name": "Wheatland",
-          "id": 219,
-          "position": {
-              "lat": 39.0098946,
-              "lng": -121.4230133
-          }
-      }, {
-          "region": "3",
-          "name": "Whittier",
-          "id": 368,
-          "position": {
-              "lat": 33.9791793,
-              "lng": -118.032844
-          }
-      }, {
-          "region": "2",
-          "name": "Williams",
-          "id": 220,
-          "position": {
-              "lat": 39.1546137,
-              "lng": -122.1494187
-          }
-      }, {
-          "region": "1",
-          "name": "Willits",
-          "id": 121,
-          "position": {
-              "lat": 39.4096079,
-              "lng": -123.3555656
-          }
-      }, {
-          "region": "2",
-          "name": "Willows",
-          "id": 221,
-          "position": {
-              "lat": 39.5243265,
-              "lng": -122.1935931
-          }
-      }, {
-          "region": "4",
-          "name": "Winchester",
-          "id": 380,
-          "position": {
-              "lat": 33.706966,
-              "lng": -117.0844733
-          }
-      }, {
-          "region": "1",
-          "name": "Windsor",
-          "id": 122,
-          "position": {
-              "lat": 38.5471327,
-              "lng": -122.8163802
-          }
-      }, {
-          "region": "2",
-          "name": "Winters",
-          "id": 222,
-          "position": {
-              "lat": 38.5249065,
-              "lng": -121.9708017
-          }
-      }, {
-          "region": "2",
-          "name": "Woodland",
-          "id": 223,
-          "position": {
-              "lat": 38.6785157,
-              "lng": -121.7732971
-          }
-      }, {
-          "region": "3",
-          "name": "Woodland Hills",
-          "id": 302,
-          "position": {
-              "lat": 34.165357,
-              "lng": -118.6089752
-          }
-      }, {
-          "region": "1",
-          "name": "Yountville",
-          "id": 124,
-          "position": {
-              "lat": 38.4015781,
-              "lng": -122.3608105
-          }
-      }, {
-          "region": "2",
-          "name": "Yuba City",
-          "id": 224,
-          "position": {
-              "lat": 39.1404477,
-              "lng": -121.6169108
-          }
-      }, {
-          "region": "4",
-          "name": "Yucaipa",
-          "id": 385,
-          "position": {
-              "lat": 34.033625,
-              "lng": -117.0430865
-          }
-      }
-  ],
-  "benchCardTemplates": [{
-          "name": "7x11",
-          "id": "7x11",
-          "sizeInInches": {
-              "x": 11,
-              "y": 7
-          }
-      }, {
-          "name": "5x7",
-          "id": "5x7",
-          "sizeInInches": {
-              "x": 7,
-              "y": 5
-          }
-      }
-  ]
+    "regions": [
+        {
+            "id": "1",
+            "name": "North-Central Coastal"
+        },
+        {
+            "id": "2",
+            "name": "Central Valley"
+        },
+        {
+            "id": "3",
+            "name": "South Coastal"
+        },
+        {
+            "id": "4",
+            "name": "South Inland"
+        },
+        {
+            "id": "5",
+            "name": "High and Intermediate Desert"
+        },
+        {
+            "id": "6",
+            "name": "Low Desert"
+        }
+    ],
+    "plantTypes": [
+        {
+            "code": "Ba",
+            "name": "Bamboo"
+        },
+        {
+            "code": "Bu",
+            "name": "Bulb"
+        },
+        {
+            "code": "G",
+            "name": "Ornamental Grass"
+        },
+        {
+            "code": "Gc",
+            "name": "Ground Cover"
+        },
+        {
+            "code": "P",
+            "name": "Perennial"
+        },
+        {
+            "code": "Pm",
+            "name": "Palm and Cycad"
+        },
+        {
+            "code": "S",
+            "name": "Shrub"
+        },
+        {
+            "code": "Su",
+            "name": "Succulent"
+        },
+        {
+            "code": "V",
+            "name": "Vine"
+        },
+        {
+            "code": "N",
+            "name": "California Native"
+        },
+        {
+            "code": "A",
+            "name": "Arboretum All-Star"
+        },
+        {
+            "code": "T",
+            "name": "Tree"
+        }
+    ],
+    "waterUseClassifications": [
+        {
+            "code": "VL",
+            "name": "Very Low",
+            "plantFactor": "< 0.10",
+            "percentageET0": "< 10"
+        },
+        {
+            "code": "LO",
+            "name": "Low",
+            "plantFactor": "0.10-0.30",
+            "percentageET0": "10-30"
+        },
+        {
+            "code": "M",
+            "name": "Moderate",
+            "plantFactor": "0.40-0.60",
+            "percentageET0": "40-60"
+        },
+        {
+            "code": "H",
+            "name": "High",
+            "plantFactor": "0.70-0.90",
+            "percentageET0": "70-90"
+        },
+        {
+            "code": "U",
+            "name": "Unknown",
+            "plantFactor": "N/A",
+            "percentageET0": "N/A"
+        },
+        {
+            "code": "NA",
+            "name": "Not Appropriate for this Region",
+            "plantFactor": "N/A",
+            "percentageET0": "N/A"
+        }
+    ],
+    "cities": [
+        {
+            "region": "1",
+            "name": "Alameda",
+            "id": 1,
+            "position": {
+                "lat": 37.7652065,
+                "lng": -122.2416355
+            }
+        },
+        {
+            "region": "1",
+            "name": "Albany",
+            "id": 2,
+            "position": {
+                "lat": 37.88687,
+                "lng": -122.2977475
+            }
+        },
+        {
+            "region": "1",
+            "name": "American Canyon",
+            "id": 3,
+            "position": {
+                "lat": 38.1749178,
+                "lng": -122.2608044
+            }
+        },
+        {
+            "region": "1",
+            "name": "Arroyo Grande",
+            "id": 4,
+            "position": {
+                "lat": 35.1185868,
+                "lng": -120.5907252
+            }
+        },
+        {
+            "region": "1",
+            "name": "Atascadero",
+            "id": 5,
+            "position": {
+                "lat": 35.4894169,
+                "lng": -120.6707255
+            }
+        },
+        {
+            "region": "1",
+            "name": "Atherton",
+            "id": 6,
+            "position": {
+                "lat": 37.4613272,
+                "lng": -122.197743
+            }
+        },
+        {
+            "region": "1",
+            "name": "Belmont",
+            "id": 7,
+            "position": {
+                "lat": 37.5202145,
+                "lng": -122.2758008
+            }
+        },
+        {
+            "region": "1",
+            "name": "Benicia",
+            "id": 9,
+            "position": {
+                "lat": 38.049365,
+                "lng": -122.1585777
+            }
+        },
+        {
+            "region": "1",
+            "name": "Berkeley",
+            "id": 10,
+            "position": {
+                "lat": 37.8715926,
+                "lng": -122.272747
+            }
+        },
+        {
+            "region": "1",
+            "name": "Brisbane",
+            "id": 11,
+            "position": {
+                "lat": 37.6807661,
+                "lng": -122.3999715
+            }
+        },
+        {
+            "region": "1",
+            "name": "Burlingame",
+            "id": 12,
+            "position": {
+                "lat": 37.5778696,
+                "lng": -122.34809
+            }
+        },
+        {
+            "region": "1",
+            "name": "Campbell",
+            "id": 13,
+            "position": {
+                "lat": 37.2871651,
+                "lng": -121.9499568
+            }
+        },
+        {
+            "region": "1",
+            "name": "Capitola",
+            "id": 14,
+            "position": {
+                "lat": 36.9752283,
+                "lng": -121.953293
+            }
+        },
+        {
+            "region": "1",
+            "name": "Carmel-by-the-Sea",
+            "id": 15,
+            "position": {
+                "lat": 36.5552386,
+                "lng": -121.9232879
+            }
+        },
+        {
+            "region": "1",
+            "name": "Castro Valley",
+            "id": 16,
+            "position": {
+                "lat": 37.6940973,
+                "lng": -122.0863522
+            }
+        },
+        {
+            "region": "1",
+            "name": "Cloverdale",
+            "id": 17,
+            "position": {
+                "lat": 38.8054624,
+                "lng": -123.0172227
+            }
+        },
+        {
+            "region": "1",
+            "name": "Concord",
+            "id": 19,
+            "position": {
+                "lat": 37.9779776,
+                "lng": -122.0310733
+            }
+        },
+        {
+            "region": "1",
+            "name": "Corte Madera",
+            "id": 20,
+            "position": {
+                "lat": 37.9254806,
+                "lng": -122.5274755
+            }
+        },
+        {
+            "region": "1",
+            "name": "Cotati",
+            "id": 21,
+            "position": {
+                "lat": 38.3293416,
+                "lng": -122.7096666
+            }
+        },
+        {
+            "region": "1",
+            "name": "Crescent City",
+            "id": 22,
+            "position": {
+                "lat": 41.7557501,
+                "lng": -124.2025913
+            }
+        },
+        {
+            "region": "1",
+            "name": "Cupertino",
+            "id": 23,
+            "position": {
+                "lat": 37.3229978,
+                "lng": -122.0321823
+            }
+        },
+        {
+            "region": "1",
+            "name": "Daly City",
+            "id": 24,
+            "position": {
+                "lat": 37.6879241,
+                "lng": -122.4702079
+            }
+        },
+        {
+            "region": "1",
+            "name": "Danville",
+            "id": 25,
+            "position": {
+                "lat": 37.8215929,
+                "lng": -121.9999606
+            }
+        },
+        {
+            "region": "1",
+            "name": "Dublin",
+            "id": 27,
+            "position": {
+                "lat": 37.7021521,
+                "lng": -121.9357918
+            }
+        },
+        {
+            "region": "1",
+            "name": "El Cerrito",
+            "id": 29,
+            "position": {
+                "lat": 37.9161326,
+                "lng": -122.310765
+            }
+        },
+        {
+            "region": "1",
+            "name": "El Sobrante",
+            "id": 30,
+            "position": {
+                "lat": 37.9771452,
+                "lng": -122.2952474
+            }
+        },
+        {
+            "region": "1",
+            "name": "Emeryville",
+            "id": 31,
+            "position": {
+                "lat": 37.831316,
+                "lng": -122.2852473
+            }
+        },
+        {
+            "region": "1",
+            "name": "Fairfax",
+            "id": 32,
+            "position": {
+                "lat": 37.9871454,
+                "lng": -122.5888686
+            }
+        },
+        {
+            "region": "1",
+            "name": "Fort Bragg",
+            "id": 33,
+            "position": {
+                "lat": 39.445723,
+                "lng": -123.8052935
+            }
+        },
+        {
+            "region": "1",
+            "name": "Fremont",
+            "id": 35,
+            "position": {
+                "lat": 37.5482697,
+                "lng": -121.9885719
+            }
+        },
+        {
+            "region": "1",
+            "name": "Gilroy",
+            "id": 36,
+            "position": {
+                "lat": 37.0057816,
+                "lng": -121.5682751
+            }
+        },
+        {
+            "region": "1",
+            "name": "Gonzales",
+            "id": 37,
+            "position": {
+                "lat": 36.5066295,
+                "lng": -121.4443806
+            }
+        },
+        {
+            "region": "1",
+            "name": "Greenfield",
+            "id": 38,
+            "position": {
+                "lat": 36.3207998,
+                "lng": -121.2438138
+            }
+        },
+        {
+            "region": "1",
+            "name": "Grover Beach",
+            "id": 39,
+            "position": {
+                "lat": 35.1216424,
+                "lng": -120.6212821
+            }
+        },
+        {
+            "region": "1",
+            "name": "Half Moon Bay",
+            "id": 40,
+            "position": {
+                "lat": 37.4635519,
+                "lng": -122.4285862
+            }
+        },
+        {
+            "region": "1",
+            "name": "Hayward",
+            "id": 41,
+            "position": {
+                "lat": 37.6688205,
+                "lng": -122.0807964
+            }
+        },
+        {
+            "region": "1",
+            "name": "Healdsburg",
+            "id": 42,
+            "position": {
+                "lat": 38.6104658,
+                "lng": -122.8691609
+            }
+        },
+        {
+            "region": "1",
+            "name": "Hercules",
+            "id": 43,
+            "position": {
+                "lat": 38.0171441,
+                "lng": -122.2885808
+            }
+        },
+        {
+            "region": "1",
+            "name": "King City",
+            "id": 45,
+            "position": {
+                "lat": 36.2127439,
+                "lng": -121.1260287
+            }
+        },
+        {
+            "region": "1",
+            "name": "Lafayette",
+            "id": 46,
+            "position": {
+                "lat": 37.8857582,
+                "lng": -122.1180201
+            }
+        },
+        {
+            "region": "1",
+            "name": "Larkspur",
+            "id": 47,
+            "position": {
+                "lat": 37.9340915,
+                "lng": -122.5352539
+            }
+        },
+        {
+            "region": "1",
+            "name": "Livermore",
+            "id": 48,
+            "position": {
+                "lat": 37.6818745,
+                "lng": -121.7680088
+            }
+        },
+        {
+            "region": "1",
+            "name": "Los Altos",
+            "id": 49,
+            "position": {
+                "lat": 37.3852183,
+                "lng": -122.1141298
+            }
+        },
+        {
+            "region": "1",
+            "name": "Los Gatos",
+            "id": 51,
+            "position": {
+                "lat": 37.2358078,
+                "lng": -121.9623751
+            }
+        },
+        {
+            "region": "1",
+            "name": "Mammoth Lakes",
+            "id": 52,
+            "position": {
+                "lat": 37.648546,
+                "lng": -118.972079
+            }
+        },
+        {
+            "region": "1",
+            "name": "Marina",
+            "id": 53,
+            "position": {
+                "lat": 36.6844029,
+                "lng": -121.802173
+            }
+        },
+        {
+            "region": "1",
+            "name": "Markleeville",
+            "id": 54,
+            "position": {
+                "lat": 38.6937227,
+                "lng": -119.7796826
+            }
+        },
+        {
+            "region": "1",
+            "name": "Martinez",
+            "id": 55,
+            "position": {
+                "lat": 38.0193657,
+                "lng": -122.1341321
+            }
+        },
+        {
+            "region": "1",
+            "name": "Menlo Park",
+            "id": 56,
+            "position": {
+                "lat": 37.4529598,
+                "lng": -122.1817252
+            }
+        },
+        {
+            "region": "1",
+            "name": "Mill Valley",
+            "id": 57,
+            "position": {
+                "lat": 37.9060368,
+                "lng": -122.5449763
+            }
+        },
+        {
+            "region": "1",
+            "name": "Millbrae",
+            "id": 58,
+            "position": {
+                "lat": 37.5985468,
+                "lng": -122.3871942
+            }
+        },
+        {
+            "region": "1",
+            "name": "Milpitas",
+            "id": 59,
+            "position": {
+                "lat": 37.4323341,
+                "lng": -121.8995741
+            }
+        },
+        {
+            "region": "1",
+            "name": "Monterey",
+            "id": 61,
+            "position": {
+                "lat": 36.6002378,
+                "lng": -121.8946761
+            }
+        },
+        {
+            "region": "1",
+            "name": "Moraga",
+            "id": 62,
+            "position": {
+                "lat": 37.8349263,
+                "lng": -122.1296871
+            }
+        },
+        {
+            "region": "1",
+            "name": "Morgan Hill",
+            "id": 63,
+            "position": {
+                "lat": 37.1305012,
+                "lng": -121.6543901
+            }
+        },
+        {
+            "region": "1",
+            "name": "Morro Bay",
+            "id": 64,
+            "position": {
+                "lat": 35.3659445,
+                "lng": -120.8499924
+            }
+        },
+        {
+            "region": "1",
+            "name": "Mountain View",
+            "id": 65,
+            "position": {
+                "lat": 37.3860517,
+                "lng": -122.0838511
+            }
+        },
+        {
+            "region": "1",
+            "name": "Napa",
+            "id": 182,
+            "position": {
+                "lat": 38.2975381,
+                "lng": -122.286865
+            }
+        },
+        {
+            "region": "1",
+            "name": "Newark",
+            "id": 66,
+            "position": {
+                "lat": 37.5296593,
+                "lng": -122.0402399
+            }
+        },
+        {
+            "region": "1",
+            "name": "Novato",
+            "id": 67,
+            "position": {
+                "lat": 38.1074198,
+                "lng": -122.5697032
+            }
+        },
+        {
+            "region": "1",
+            "name": "Oakland",
+            "id": 68,
+            "position": {
+                "lat": 37.8043637,
+                "lng": -122.2711137
+            }
+        },
+        {
+            "region": "1",
+            "name": "Orinda",
+            "id": 69,
+            "position": {
+                "lat": 37.8771476,
+                "lng": -122.1796888
+            }
+        },
+        {
+            "region": "1",
+            "name": "Pacific Grove",
+            "id": 70,
+            "position": {
+                "lat": 36.6177374,
+                "lng": -121.9166215
+            }
+        },
+        {
+            "region": "1",
+            "name": "Pacifica",
+            "id": 71,
+            "position": {
+                "lat": 37.6138253,
+                "lng": -122.4869194
+            }
+        },
+        {
+            "region": "1",
+            "name": "Palo Alto",
+            "id": 72,
+            "position": {
+                "lat": 37.4418834,
+                "lng": -122.1430195
+            }
+        },
+        {
+            "region": "1",
+            "name": "Paso Robles",
+            "id": 73,
+            "position": {
+                "lat": 35.6368759,
+                "lng": -120.6545022
+            }
+        },
+        {
+            "region": "1",
+            "name": "Petaluma",
+            "id": 74,
+            "position": {
+                "lat": 38.232417,
+                "lng": -122.6366524
+            }
+        },
+        {
+            "region": "1",
+            "name": "Piedmont",
+            "id": 75,
+            "position": {
+                "lat": 37.8243715,
+                "lng": -122.231635
+            }
+        },
+        {
+            "region": "1",
+            "name": "Pinole",
+            "id": 76,
+            "position": {
+                "lat": 38.0043667,
+                "lng": -122.2988587
+            }
+        },
+        {
+            "region": "1",
+            "name": "Pismo Beach",
+            "id": 77,
+            "position": {
+                "lat": 35.1427533,
+                "lng": -120.6412827
+            }
+        },
+        {
+            "region": "1",
+            "name": "Pittsburg",
+            "id": 78,
+            "position": {
+                "lat": 38.0279762,
+                "lng": -121.8846806
+            }
+        },
+        {
+            "region": "1",
+            "name": "Pleasant Hill",
+            "id": 79,
+            "position": {
+                "lat": 37.9479786,
+                "lng": -122.0607963
+            }
+        },
+        {
+            "region": "1",
+            "name": "Pleasanton",
+            "id": 80,
+            "position": {
+                "lat": 37.6624312,
+                "lng": -121.8746789
+            }
+        },
+        {
+            "region": "1",
+            "name": "Point Arena",
+            "id": 81,
+            "position": {
+                "lat": 38.908798,
+                "lng": -123.6930726
+            }
+        },
+        {
+            "region": "1",
+            "name": "Portola Valley",
+            "id": 82,
+            "position": {
+                "lat": 37.3841066,
+                "lng": -122.2352443
+            }
+        },
+        {
+            "region": "1",
+            "name": "Redwood City",
+            "id": 83,
+            "position": {
+                "lat": 37.4852152,
+                "lng": -122.2363548
+            }
+        },
+        {
+            "region": "1",
+            "name": "Richmond",
+            "id": 84,
+            "position": {
+                "lat": 37.9357576,
+                "lng": -122.3477486
+            }
+        },
+        {
+            "region": "1",
+            "name": "Rohnert Park",
+            "id": 85,
+            "position": {
+                "lat": 38.3396367,
+                "lng": -122.7010984
+            }
+        },
+        {
+            "region": "1",
+            "name": "Ross",
+            "id": 86,
+            "position": {
+                "lat": 37.9624239,
+                "lng": -122.5549775
+            }
+        },
+        {
+            "region": "1",
+            "name": "Salinas",
+            "id": 87,
+            "position": {
+                "lat": 36.6777372,
+                "lng": -121.6555013
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Anselmo",
+            "id": 88,
+            "position": {
+                "lat": 37.9746458,
+                "lng": -122.5616448
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Bruno",
+            "id": 89,
+            "position": {
+                "lat": 37.6304904,
+                "lng": -122.4110835
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Carlos",
+            "id": 90,
+            "position": {
+                "lat": 37.5071591,
+                "lng": -122.2605222
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Francisco",
+            "id": 91,
+            "position": {
+                "lat": 37.7749295,
+                "lng": -122.4194155
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Jose",
+            "id": 92,
+            "position": {
+                "lat": 37.3382082,
+                "lng": -121.8863286
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Leandro",
+            "id": 93,
+            "position": {
+                "lat": 37.7249296,
+                "lng": -122.1560768
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Luis Obispo",
+            "id": 94,
+            "position": {
+                "lat": 35.2827524,
+                "lng": -120.6596156
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Mateo",
+            "id": 95,
+            "position": {
+                "lat": 37.5629917,
+                "lng": -122.3255254
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Pablo",
+            "id": 96,
+            "position": {
+                "lat": 37.9621457,
+                "lng": -122.3455263
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Rafael",
+            "id": 97,
+            "position": {
+                "lat": 37.9735346,
+                "lng": -122.5310874
+            }
+        },
+        {
+            "region": "1",
+            "name": "San Ramon",
+            "id": 98,
+            "position": {
+                "lat": 37.7799273,
+                "lng": -121.9780153
+            }
+        },
+        {
+            "region": "1",
+            "name": "Santa Clara",
+            "id": 100,
+            "position": {
+                "lat": 37.3541079,
+                "lng": -121.9552356
+            }
+        },
+        {
+            "region": "1",
+            "name": "Santa Cruz",
+            "id": 101,
+            "position": {
+                "lat": 36.9741171,
+                "lng": -122.0307963
+            }
+        },
+        {
+            "region": "1",
+            "name": "Santa Rosa",
+            "id": 102,
+            "position": {
+                "lat": 38.440429,
+                "lng": -122.7140548
+            }
+        },
+        {
+            "region": "1",
+            "name": "Saratoga",
+            "id": 103,
+            "position": {
+                "lat": 37.2638324,
+                "lng": -122.0230146
+            }
+        },
+        {
+            "region": "1",
+            "name": "Sausalito",
+            "id": 104,
+            "position": {
+                "lat": 37.8590937,
+                "lng": -122.4852507
+            }
+        },
+        {
+            "region": "1",
+            "name": "Scotts Valley",
+            "id": 105,
+            "position": {
+                "lat": 37.0510595,
+                "lng": -122.0146841
+            }
+        },
+        {
+            "region": "1",
+            "name": "Seaside",
+            "id": 106,
+            "position": {
+                "lat": 36.6149217,
+                "lng": -121.822098
+            }
+        },
+        {
+            "region": "1",
+            "name": "Sebastopol",
+            "id": 107,
+            "position": {
+                "lat": 38.4021359,
+                "lng": -122.8238806
+            }
+        },
+        {
+            "region": "1",
+            "name": "Soledad",
+            "id": 108,
+            "position": {
+                "lat": 36.424687,
+                "lng": -121.3263187
+            }
+        },
+        {
+            "region": "1",
+            "name": "Sonoma",
+            "id": 109,
+            "position": {
+                "lat": 38.291859,
+                "lng": -122.4580356
+            }
+        },
+        {
+            "region": "1",
+            "name": "South Lake Tahoe",
+            "id": 110,
+            "position": {
+                "lat": 38.939926,
+                "lng": -119.9771868
+            }
+        },
+        {
+            "region": "1",
+            "name": "South San Francisco",
+            "id": 111,
+            "position": {
+                "lat": 37.654656,
+                "lng": -122.4077498
+            }
+        },
+        {
+            "region": "1",
+            "name": "St. Helena",
+            "id": 112,
+            "position": {
+                "lat": 38.5052429,
+                "lng": -122.4703868
+            }
+        },
+        {
+            "region": "1",
+            "name": "Suisun City",
+            "id": 113,
+            "position": {
+                "lat": 38.2382474,
+                "lng": -122.040244
+            }
+        },
+        {
+            "region": "1",
+            "name": "Sunnyvale",
+            "id": 114,
+            "position": {
+                "lat": 37.36883,
+                "lng": -122.0363496
+            }
+        },
+        {
+            "region": "1",
+            "name": "Ukiah",
+            "id": 116,
+            "position": {
+                "lat": 39.1501709,
+                "lng": -123.2077831
+            }
+        },
+        {
+            "region": "1",
+            "name": "Union City",
+            "id": 117,
+            "position": {
+                "lat": 37.5933918,
+                "lng": -122.0438298
+            }
+        },
+        {
+            "region": "1",
+            "name": "Vallejo",
+            "id": 118,
+            "position": {
+                "lat": 38.1040864,
+                "lng": -122.2566367
+            }
+        },
+        {
+            "region": "1",
+            "name": "Walnut Creek",
+            "id": 119,
+            "position": {
+                "lat": 37.9100783,
+                "lng": -122.0651819
+            }
+        },
+        {
+            "region": "1",
+            "name": "Watsonville",
+            "id": 120,
+            "position": {
+                "lat": 36.910231,
+                "lng": -121.7568946
+            }
+        },
+        {
+            "region": "1",
+            "name": "Willits",
+            "id": 121,
+            "position": {
+                "lat": 39.4096079,
+                "lng": -123.3555656
+            }
+        },
+        {
+            "region": "1",
+            "name": "Windsor",
+            "id": 122,
+            "position": {
+                "lat": 38.5471327,
+                "lng": -122.8163802
+            }
+        },
+        {
+            "region": "1",
+            "name": "Yountville",
+            "id": 124,
+            "position": {
+                "lat": 38.4015781,
+                "lng": -122.3608105
+            }
+        },
+        {
+            "region": "2",
+            "name": "Angels Camp",
+            "id": 126,
+            "position": {
+                "lat": 38.0677832,
+                "lng": -120.5385299
+            }
+        },
+        {
+            "region": "2",
+            "name": "Antioch",
+            "id": 127,
+            "position": {
+                "lat": 38.0049214,
+                "lng": -121.805789
+            }
+        },
+        {
+            "region": "2",
+            "name": "Atwater",
+            "id": 128,
+            "position": {
+                "lat": 37.3477174,
+                "lng": -120.609084
+            }
+        },
+        {
+            "region": "2",
+            "name": "Auburn",
+            "id": 129,
+            "position": {
+                "lat": 38.8965654,
+                "lng": -121.0768901
+            }
+        },
+        {
+            "region": "2",
+            "name": "Bakersfield",
+            "id": 130,
+            "position": {
+                "lat": 35.3732921,
+                "lng": -119.0187125
+            }
+        },
+        {
+            "region": "2",
+            "name": "Biggs",
+            "id": 131,
+            "position": {
+                "lat": 39.4123876,
+                "lng": -121.7127513
+            }
+        },
+        {
+            "region": "2",
+            "name": "Brentwood",
+            "id": 132,
+            "position": {
+                "lat": 37.931868,
+                "lng": -121.6957863
+            }
+        },
+        {
+            "region": "2",
+            "name": "Bridgeport",
+            "id": 133,
+            "position": {
+                "lat": 38.2557045,
+                "lng": -119.2313932
+            }
+        },
+        {
+            "region": "2",
+            "name": "Calistoga",
+            "id": 134,
+            "position": {
+                "lat": 38.5787965,
+                "lng": -122.5797054
+            }
+        },
+        {
+            "region": "2",
+            "name": "Camino",
+            "id": 402,
+            "position": {
+                "lat": 38.738046,
+                "lng": -120.6743853
+            }
+        },
+        {
+            "region": "2",
+            "name": "Ceres",
+            "id": 135,
+            "position": {
+                "lat": 37.5949316,
+                "lng": -120.9577098
+            }
+        },
+        {
+            "region": "2",
+            "name": "Chico",
+            "id": 136,
+            "position": {
+                "lat": 39.7284944,
+                "lng": -121.8374777
+            }
+        },
+        {
+            "region": "2",
+            "name": "Citrus Heights",
+            "id": 137,
+            "position": {
+                "lat": 38.7071247,
+                "lng": -121.2810611
+            }
+        },
+        {
+            "region": "2",
+            "name": "Clayton",
+            "id": 138,
+            "position": {
+                "lat": 37.9410341,
+                "lng": -121.9357925
+            }
+        },
+        {
+            "region": "2",
+            "name": "Clovis",
+            "id": 140,
+            "position": {
+                "lat": 36.8252277,
+                "lng": -119.7029194
+            }
+        },
+        {
+            "region": "2",
+            "name": "Coalinga",
+            "id": 141,
+            "position": {
+                "lat": 36.139678,
+                "lng": -120.3601496
+            }
+        },
+        {
+            "region": "2",
+            "name": "Colfax",
+            "id": 142,
+            "position": {
+                "lat": 39.1007298,
+                "lng": -120.9532759
+            }
+        },
+        {
+            "region": "2",
+            "name": "Coloma",
+            "id": 403,
+            "position": {
+                "lat": 38.7999214,
+                "lng": -120.8902916
+            }
+        },
+        {
+            "region": "2",
+            "name": "Colusa",
+            "id": 143,
+            "position": {
+                "lat": 39.2143343,
+                "lng": -122.0094175
+            }
+        },
+        {
+            "region": "2",
+            "name": "Cool",
+            "id": 144,
+            "position": {
+                "lat": 38.8880247,
+                "lng": -121.016225
+            }
+        },
+        {
+            "region": "2",
+            "name": "Corning",
+            "id": 145,
+            "position": {
+                "lat": 39.9276572,
+                "lng": -122.1791556
+            }
+        },
+        {
+            "region": "2",
+            "name": "Davis",
+            "id": 146,
+            "position": {
+                "lat": 38.5449065,
+                "lng": -121.7405167
+            }
+        },
+        {
+            "region": "2",
+            "name": "Diamond Springs",
+            "id": 404,
+            "position": {
+                "lat": 38.6946259,
+                "lng": -120.8149355
+            }
+        },
+        {
+            "region": "2",
+            "name": "Dixon",
+            "id": 147,
+            "position": {
+                "lat": 38.4454641,
+                "lng": -121.8232958
+            }
+        },
+        {
+            "region": "2",
+            "name": "Dos Palos",
+            "id": 148,
+            "position": {
+                "lat": 36.9860582,
+                "lng": -120.6265722
+            }
+        },
+        {
+            "region": "2",
+            "name": "El Dorado",
+            "id": 405,
+            "position": {
+                "lat": 38.7426376,
+                "lng": -120.4357631
+            }
+        },
+        {
+            "region": "2",
+            "name": "El Dorado Hills",
+            "id": 400,
+            "position": {
+                "lat": 38.6857367,
+                "lng": -121.082167
+            }
+        },
+        {
+            "region": "2",
+            "name": "Elk Grove",
+            "id": 149,
+            "position": {
+                "lat": 38.4087993,
+                "lng": -121.3716178
+            }
+        },
+        {
+            "region": "2",
+            "name": "Escalon",
+            "id": 150,
+            "position": {
+                "lat": 37.7974273,
+                "lng": -120.9966033
+            }
+        },
+        {
+            "region": "2",
+            "name": "Fairfield",
+            "id": 151,
+            "position": {
+                "lat": 38.2493581,
+                "lng": -122.0399663
+            }
+        },
+        {
+            "region": "2",
+            "name": "Firebaugh",
+            "id": 152,
+            "position": {
+                "lat": 36.8588376,
+                "lng": -120.4560072
+            }
+        },
+        {
+            "region": "2",
+            "name": "Folsom",
+            "id": 153,
+            "position": {
+                "lat": 38.6779591,
+                "lng": -121.1760583
+            }
+        },
+        {
+            "region": "2",
+            "name": "Fowler",
+            "id": 154,
+            "position": {
+                "lat": 36.6305058,
+                "lng": -119.6784697
+            }
+        },
+        {
+            "region": "2",
+            "name": "Fresno",
+            "id": 155,
+            "position": {
+                "lat": 36.7377981,
+                "lng": -119.7871247
+            }
+        },
+        {
+            "region": "2",
+            "name": "Galt",
+            "id": 156,
+            "position": {
+                "lat": 38.2546373,
+                "lng": -121.2999485
+            }
+        },
+        {
+            "region": "2",
+            "name": "Grass Valley",
+            "id": 157,
+            "position": {
+                "lat": 39.2190608,
+                "lng": -121.0610606
+            }
+        },
+        {
+            "region": "2",
+            "name": "Gridley",
+            "id": 158,
+            "position": {
+                "lat": 39.3637773,
+                "lng": -121.6935833
+            }
+        },
+        {
+            "region": "2",
+            "name": "Groveland",
+            "id": 159,
+            "position": {
+                "lat": 37.8388779,
+                "lng": -120.2308167
+            }
+        },
+        {
+            "region": "2",
+            "name": "Gustine",
+            "id": 160,
+            "position": {
+                "lat": 37.2577171,
+                "lng": -120.9988154
+            }
+        },
+        {
+            "region": "2",
+            "name": "Hughson",
+            "id": 161,
+            "position": {
+                "lat": 37.6027244,
+                "lng": -120.8664811
+            }
+        },
+        {
+            "region": "2",
+            "name": "Huron",
+            "id": 162,
+            "position": {
+                "lat": 36.2027308,
+                "lng": -120.1029177
+            }
+        },
+        {
+            "region": "2",
+            "name": "Ione",
+            "id": 163,
+            "position": {
+                "lat": 38.3526912,
+                "lng": -120.9327177
+            }
+        },
+        {
+            "region": "2",
+            "name": "Isleton",
+            "id": 164,
+            "position": {
+                "lat": 38.1618614,
+                "lng": -121.6116206
+            }
+        },
+        {
+            "region": "2",
+            "name": "Jackson",
+            "id": 165,
+            "position": {
+                "lat": 38.3488023,
+                "lng": -120.7741018
+            }
+        },
+        {
+            "region": "2",
+            "name": "Kerman",
+            "id": 166,
+            "position": {
+                "lat": 36.7235572,
+                "lng": -120.059879
+            }
+        },
+        {
+            "region": "2",
+            "name": "Kingsburg",
+            "id": 167,
+            "position": {
+                "lat": 36.5138398,
+                "lng": -119.5540175
+            }
+        },
+        {
+            "region": "2",
+            "name": "Kyburz",
+            "id": 413,
+            "position": {
+                "lat": 38.7746298,
+                "lng": -120.2968596
+            }
+        },
+        {
+            "region": "2",
+            "name": "Lakeport",
+            "id": 168,
+            "position": {
+                "lat": 39.0429506,
+                "lng": -122.9158293
+            }
+        },
+        {
+            "region": "2",
+            "name": "Lathrop",
+            "id": 169,
+            "position": {
+                "lat": 37.8227046,
+                "lng": -121.27661
+            }
+        },
+        {
+            "region": "2",
+            "name": "Lincoln",
+            "id": 170,
+            "position": {
+                "lat": 38.891565,
+                "lng": -121.2930079
+            }
+        },
+        {
+            "region": "2",
+            "name": "Live Oak",
+            "id": 171,
+            "position": {
+                "lat": 39.2757232,
+                "lng": -121.6599701
+            }
+        },
+        {
+            "region": "2",
+            "name": "Livingston",
+            "id": 172,
+            "position": {
+                "lat": 37.3868826,
+                "lng": -120.7235329
+            }
+        },
+        {
+            "region": "2",
+            "name": "Lodi",
+            "id": 173,
+            "position": {
+                "lat": 38.1341477,
+                "lng": -121.2722194
+            }
+        },
+        {
+            "region": "2",
+            "name": "Loomis",
+            "id": 174,
+            "position": {
+                "lat": 38.8212889,
+                "lng": -121.1930041
+            }
+        },
+        {
+            "region": "2",
+            "name": "Los Banos",
+            "id": 175,
+            "position": {
+                "lat": 37.0582786,
+                "lng": -120.8499151
+            }
+        },
+        {
+            "region": "2",
+            "name": "Lotus",
+            "id": 406,
+            "position": {
+                "lat": 38.801568,
+                "lng": -120.9085501
+            }
+        },
+        {
+            "region": "2",
+            "name": "Loyalton",
+            "id": 176,
+            "position": {
+                "lat": 39.6762936,
+                "lng": -120.2410385
+            }
+        },
+        {
+            "region": "2",
+            "name": "Madera",
+            "id": 399,
+            "position": {
+                "lat": 36.9613356,
+                "lng": -120.0607176
+            }
+        },
+        {
+            "region": "2",
+            "name": "Manteca",
+            "id": 177,
+            "position": {
+                "lat": 37.7974273,
+                "lng": -121.2160526
+            }
+        },
+        {
+            "region": "2",
+            "name": "Marysville",
+            "id": 178,
+            "position": {
+                "lat": 39.1457253,
+                "lng": -121.5913547
+            }
+        },
+        {
+            "region": "2",
+            "name": "Mendota",
+            "id": 179,
+            "position": {
+                "lat": 36.7535611,
+                "lng": -120.3815574
+            }
+        },
+        {
+            "region": "2",
+            "name": "Merced",
+            "id": 180,
+            "position": {
+                "lat": 37.3021632,
+                "lng": -120.4829677
+            }
+        },
+        {
+            "region": "2",
+            "name": "Modesto",
+            "id": 181,
+            "position": {
+                "lat": 37.6390972,
+                "lng": -120.9968782
+            }
+        },
+        {
+            "region": "2",
+            "name": "Nevada City",
+            "id": 183,
+            "position": {
+                "lat": 39.2615606,
+                "lng": -121.0160594
+            }
+        },
+        {
+            "region": "2",
+            "name": "Newman",
+            "id": 184,
+            "position": {
+                "lat": 37.3138267,
+                "lng": -121.0207614
+            }
+        },
+        {
+            "region": "2",
+            "name": "Oakdale",
+            "id": 185,
+            "position": {
+                "lat": 37.7665947,
+                "lng": -120.8471545
+            }
+        },
+        {
+            "region": "2",
+            "name": "Oakley",
+            "id": 186,
+            "position": {
+                "lat": 37.9974219,
+                "lng": -121.7124536
+            }
+        },
+        {
+            "region": "2",
+            "name": "Orange Cove",
+            "id": 187,
+            "position": {
+                "lat": 36.624394,
+                "lng": -119.3137301
+            }
+        },
+        {
+            "region": "2",
+            "name": "Orland",
+            "id": 188,
+            "position": {
+                "lat": 39.7473803,
+                "lng": -122.1963748
+            }
+        },
+        {
+            "region": "2",
+            "name": "Oroville",
+            "id": 189,
+            "position": {
+                "lat": 39.5137752,
+                "lng": -121.556359
+            }
+        },
+        {
+            "region": "2",
+            "name": "Paradise",
+            "id": 190,
+            "position": {
+                "lat": 39.7596061,
+                "lng": -121.6219177
+            }
+        },
+        {
+            "region": "2",
+            "name": "Parlier",
+            "id": 191,
+            "position": {
+                "lat": 36.6116174,
+                "lng": -119.5270734
+            }
+        },
+        {
+            "region": "2",
+            "name": "Patterson",
+            "id": 192,
+            "position": {
+                "lat": 37.4716001,
+                "lng": -121.129656
+            }
+        },
+        {
+            "region": "2",
+            "name": "Placerville",
+            "id": 193,
+            "position": {
+                "lat": 38.7296252,
+                "lng": -120.798546
+            }
+        },
+        {
+            "region": "2",
+            "name": "Placerville",
+            "id": 407,
+            "position": {
+                "lat": 38.7296252,
+                "lng": -120.798546
+            }
+        },
+        {
+            "region": "2",
+            "name": "Plymouth",
+            "id": 194,
+            "position": {
+                "lat": 38.4818531,
+                "lng": -120.844659
+            }
+        },
+        {
+            "region": "2",
+            "name": "Pollock Pines",
+            "id": 408,
+            "position": {
+                "lat": 38.7612923,
+                "lng": -120.5865935
+            }
+        },
+        {
+            "region": "2",
+            "name": "Portola",
+            "id": 195,
+            "position": {
+                "lat": 39.8104567,
+                "lng": -120.4691034
+            }
+        },
+        {
+            "region": "2",
+            "name": "Quincy",
+            "id": 196,
+            "position": {
+                "lat": 39.9368363,
+                "lng": -120.9471764
+            }
+        },
+        {
+            "region": "2",
+            "name": "Rancho Cordova",
+            "id": 197,
+            "position": {
+                "lat": 38.5890723,
+                "lng": -121.302728
+            }
+        },
+        {
+            "region": "2",
+            "name": "Red Bluff",
+            "id": 198,
+            "position": {
+                "lat": 40.1784886,
+                "lng": -122.2358302
+            }
+        },
+        {
+            "region": "2",
+            "name": "Redding",
+            "id": 199,
+            "position": {
+                "lat": 40.5865396,
+                "lng": -122.3916754
+            }
+        },
+        {
+            "region": "2",
+            "name": "Rescue",
+            "id": 409,
+            "position": {
+                "lat": 38.7148404,
+                "lng": -120.9528258
+            }
+        },
+        {
+            "region": "2",
+            "name": "Rio Vista",
+            "id": 201,
+            "position": {
+                "lat": 38.1557502,
+                "lng": -121.6913439
+            }
+        },
+        {
+            "region": "2",
+            "name": "Ripon",
+            "id": 202,
+            "position": {
+                "lat": 37.7394537,
+                "lng": -121.1354141
+            }
+        },
+        {
+            "region": "2",
+            "name": "Riverbank",
+            "id": 203,
+            "position": {
+                "lat": 37.7360396,
+                "lng": -120.9354895
+            }
+        },
+        {
+            "region": "2",
+            "name": "Rocklin",
+            "id": 204,
+            "position": {
+                "lat": 38.7907339,
+                "lng": -121.2357828
+            }
+        },
+        {
+            "region": "2",
+            "name": "Roseville",
+            "id": 205,
+            "position": {
+                "lat": 38.7521235,
+                "lng": -121.2880059
+            }
+        },
+        {
+            "region": "2",
+            "name": "Sacramento",
+            "id": 206,
+            "position": {
+                "lat": 38.5815719,
+                "lng": -121.4943996
+            }
+        },
+        {
+            "region": "2",
+            "name": "Sanger",
+            "id": 207,
+            "position": {
+                "lat": 36.708006,
+                "lng": -119.5559652
+            }
+        },
+        {
+            "region": "2",
+            "name": "Selma",
+            "id": 208,
+            "position": {
+                "lat": 36.5707838,
+                "lng": -119.6120765
+            }
+        },
+        {
+            "region": "2",
+            "name": "Somerset",
+            "id": 410,
+            "position": {
+                "lat": 38.64762,
+                "lng": -120.685388
+            }
+        },
+        {
+            "region": "2",
+            "name": "Sonora",
+            "id": 209,
+            "position": {
+                "lat": 37.9829496,
+                "lng": -120.3821724
+            }
+        },
+        {
+            "region": "2",
+            "name": "Stockton",
+            "id": 210,
+            "position": {
+                "lat": 37.9577016,
+                "lng": -121.2907796
+            }
+        },
+        {
+            "region": "2",
+            "name": "Strawberry",
+            "id": 412,
+            "position": {
+                "lat": 38.19825,
+                "lng": -120.009351
+            }
+        },
+        {
+            "region": "2",
+            "name": "Sutter Creek",
+            "id": 211,
+            "position": {
+                "lat": 38.3929675,
+                "lng": -120.8024357
+            }
+        },
+        {
+            "region": "2",
+            "name": "Tehama",
+            "id": 212,
+            "position": {
+                "lat": 40.0271015,
+                "lng": -122.1233228
+            }
+        },
+        {
+            "region": "2",
+            "name": "Tracy",
+            "id": 213,
+            "position": {
+                "lat": 37.7396513,
+                "lng": -121.4252227
+            }
+        },
+        {
+            "region": "2",
+            "name": "Truckee",
+            "id": 214,
+            "position": {
+                "lat": 39.327962,
+                "lng": -120.1832533
+            }
+        },
+        {
+            "region": "2",
+            "name": "Turlock",
+            "id": 215,
+            "position": {
+                "lat": 37.4946568,
+                "lng": -120.8465941
+            }
+        },
+        {
+            "region": "2",
+            "name": "Vacaville",
+            "id": 216,
+            "position": {
+                "lat": 38.3565773,
+                "lng": -121.9877444
+            }
+        },
+        {
+            "region": "2",
+            "name": "Waterford",
+            "id": 217,
+            "position": {
+                "lat": 37.6413202,
+                "lng": -120.7604834
+            }
+        },
+        {
+            "region": "2",
+            "name": "West Sacramento",
+            "id": 218,
+            "position": {
+                "lat": 38.5804609,
+                "lng": -121.530234
+            }
+        },
+        {
+            "region": "2",
+            "name": "Wheatland",
+            "id": 219,
+            "position": {
+                "lat": 39.0098946,
+                "lng": -121.4230133
+            }
+        },
+        {
+            "region": "2",
+            "name": "Williams",
+            "id": 220,
+            "position": {
+                "lat": 39.1546137,
+                "lng": -122.1494187
+            }
+        },
+        {
+            "region": "2",
+            "name": "Willows",
+            "id": 221,
+            "position": {
+                "lat": 39.5243265,
+                "lng": -122.1935931
+            }
+        },
+        {
+            "region": "2",
+            "name": "Winters",
+            "id": 222,
+            "position": {
+                "lat": 38.5249065,
+                "lng": -121.9708017
+            }
+        },
+        {
+            "region": "2",
+            "name": "Woodland",
+            "id": 223,
+            "position": {
+                "lat": 38.6785157,
+                "lng": -121.7732971
+            }
+        },
+        {
+            "region": "2",
+            "name": "Yuba City",
+            "id": 224,
+            "position": {
+                "lat": 39.1404477,
+                "lng": -121.6169108
+            }
+        },
+        {
+            "region": "3",
+            "name": "Agoura Hills",
+            "id": 225,
+            "position": {
+                "lat": 34.1533395,
+                "lng": -118.7616764
+            }
+        },
+        {
+            "region": "3",
+            "name": "Anaheim",
+            "id": 226,
+            "position": {
+                "lat": 33.8365932,
+                "lng": -117.9143012
+            }
+        },
+        {
+            "region": "3",
+            "name": "Beverly Hills",
+            "id": 227,
+            "position": {
+                "lat": 34.0736204,
+                "lng": -118.4003563
+            }
+        },
+        {
+            "region": "3",
+            "name": "Buellton",
+            "id": 228,
+            "position": {
+                "lat": 34.613597,
+                "lng": -120.1926505
+            }
+        },
+        {
+            "region": "3",
+            "name": "Burbank",
+            "id": 229,
+            "position": {
+                "lat": 34.1808392,
+                "lng": -118.3089661
+            }
+        },
+        {
+            "region": "3",
+            "name": "Calabasas",
+            "id": 230,
+            "position": {
+                "lat": 34.1367208,
+                "lng": -118.6614809
+            }
+        },
+        {
+            "region": "3",
+            "name": "Camarillo",
+            "id": 231,
+            "position": {
+                "lat": 34.2163937,
+                "lng": -119.0376023
+            }
+        },
+        {
+            "region": "3",
+            "name": "Canoga Park",
+            "id": 232,
+            "position": {
+                "lat": 34.208254,
+                "lng": -118.6058609
+            }
+        },
+        {
+            "region": "3",
+            "name": "Carlsbad",
+            "id": 233,
+            "position": {
+                "lat": 33.1580933,
+                "lng": -117.3505939
+            }
+        },
+        {
+            "region": "3",
+            "name": "Carpinteria",
+            "id": 234,
+            "position": {
+                "lat": 34.3988838,
+                "lng": -119.5184564
+            }
+        },
+        {
+            "region": "3",
+            "name": "Carson",
+            "id": 235,
+            "position": {
+                "lat": 33.8316745,
+                "lng": -118.281693
+            }
+        },
+        {
+            "region": "3",
+            "name": "Chula Vista",
+            "id": 236,
+            "position": {
+                "lat": 32.6400541,
+                "lng": -117.0841955
+            }
+        },
+        {
+            "region": "3",
+            "name": "Compton",
+            "id": 369,
+            "position": {
+                "lat": 33.8958492,
+                "lng": -118.2200712
+            }
+        },
+        {
+            "region": "3",
+            "name": "Coronado",
+            "id": 237,
+            "position": {
+                "lat": 32.6858853,
+                "lng": -117.1830891
+            }
+        },
+        {
+            "region": "3",
+            "name": "Costa Mesa",
+            "id": 238,
+            "position": {
+                "lat": 33.6412156,
+                "lng": -117.9188221
+            }
+        },
+        {
+            "region": "3",
+            "name": "Culver City",
+            "id": 239,
+            "position": {
+                "lat": 34.0211224,
+                "lng": -118.3964665
+            }
+        },
+        {
+            "region": "3",
+            "name": "Cypress",
+            "id": 240,
+            "position": {
+                "lat": 33.8169366,
+                "lng": -118.0368507
+            }
+        },
+        {
+            "region": "3",
+            "name": "Dana Point",
+            "id": 241,
+            "position": {
+                "lat": 33.4672256,
+                "lng": -117.6981014
+            }
+        },
+        {
+            "region": "3",
+            "name": "Downey",
+            "id": 370,
+            "position": {
+                "lat": 33.9401088,
+                "lng": -118.1331593
+            }
+        },
+        {
+            "region": "3",
+            "name": "El Cajon",
+            "id": 414,
+            "position": {
+                "lat": 32.7947731,
+                "lng": -116.9625269
+            }
+        },
+        {
+            "region": "3",
+            "name": "El Segundo",
+            "id": 242,
+            "position": {
+                "lat": 33.9191799,
+                "lng": -118.4164652
+            }
+        },
+        {
+            "region": "3",
+            "name": "Encinitas",
+            "id": 243,
+            "position": {
+                "lat": 33.0369867,
+                "lng": -117.2919818
+            }
+        },
+        {
+            "region": "3",
+            "name": "Fallbrook",
+            "id": 416,
+            "position": {
+                "lat": 33.3764196,
+                "lng": -117.2511466
+            }
+        },
+        {
+            "region": "3",
+            "name": "Fillmore",
+            "id": 244,
+            "position": {
+                "lat": 34.3991639,
+                "lng": -118.918154
+            }
+        },
+        {
+            "region": "3",
+            "name": "Fountain Valley",
+            "id": 245,
+            "position": {
+                "lat": 33.7090212,
+                "lng": -117.9544069
+            }
+        },
+        {
+            "region": "3",
+            "name": "Fullerton",
+            "id": 246,
+            "position": {
+                "lat": 33.8703645,
+                "lng": -117.9242123
+            }
+        },
+        {
+            "region": "3",
+            "name": "Garden Grove",
+            "id": 247,
+            "position": {
+                "lat": 33.7742692,
+                "lng": -117.9379952
+            }
+        },
+        {
+            "region": "3",
+            "name": "Gardena",
+            "id": 248,
+            "position": {
+                "lat": 33.8883487,
+                "lng": -118.3089624
+            }
+        },
+        {
+            "region": "3",
+            "name": "Glendale",
+            "id": 249,
+            "position": {
+                "lat": 34.1425078,
+                "lng": -118.255075
+            }
+        },
+        {
+            "region": "3",
+            "name": "Goleta",
+            "id": 250,
+            "position": {
+                "lat": 34.4358294,
+                "lng": -119.8276389
+            }
+        },
+        {
+            "region": "3",
+            "name": "Guadalupe",
+            "id": 251,
+            "position": {
+                "lat": 34.971644,
+                "lng": -120.5718363
+            }
+        },
+        {
+            "region": "3",
+            "name": "Hawthorne",
+            "id": 252,
+            "position": {
+                "lat": 33.9164032,
+                "lng": -118.3525748
+            }
+        },
+        {
+            "region": "3",
+            "name": "Huntington Beach",
+            "id": 253,
+            "position": {
+                "lat": 33.6594835,
+                "lng": -117.9988026
+            }
+        },
+        {
+            "region": "3",
+            "name": "Huntington Park",
+            "id": 254,
+            "position": {
+                "lat": 33.9816812,
+                "lng": -118.2250725
+            }
+        },
+        {
+            "region": "3",
+            "name": "Imperial Beach",
+            "id": 255,
+            "position": {
+                "lat": 32.5839444,
+                "lng": -117.1130849
+            }
+        },
+        {
+            "region": "3",
+            "name": "Inglewood",
+            "id": 256,
+            "position": {
+                "lat": 33.9616801,
+                "lng": -118.3531311
+            }
+        },
+        {
+            "region": "3",
+            "name": "Irvine",
+            "id": 257,
+            "position": {
+                "lat": 33.6845673,
+                "lng": -117.8265049
+            }
+        },
+        {
+            "region": "3",
+            "name": "La Jolla",
+            "id": 366,
+            "position": {
+                "lat": 32.8328112,
+                "lng": -117.2712717
+            }
+        },
+        {
+            "region": "3",
+            "name": "La Mesa",
+            "id": 417,
+            "position": {
+                "lat": 32.7678287,
+                "lng": -117.0230839
+            }
+        },
+        {
+            "region": "3",
+            "name": "Laguna Beach",
+            "id": 258,
+            "position": {
+                "lat": 33.5427189,
+                "lng": -117.7853568
+            }
+        },
+        {
+            "region": "3",
+            "name": "Laguna Niguel",
+            "id": 259,
+            "position": {
+                "lat": 33.5236744,
+                "lng": -117.7149438
+            }
+        },
+        {
+            "region": "3",
+            "name": "Lakewood",
+            "id": 260,
+            "position": {
+                "lat": 33.8536269,
+                "lng": -118.1339563
+            }
+        },
+        {
+            "region": "3",
+            "name": "Lawndale",
+            "id": 261,
+            "position": {
+                "lat": 33.887237,
+                "lng": -118.3525744
+            }
+        },
+        {
+            "region": "3",
+            "name": "Lemon Grove",
+            "id": 262,
+            "position": {
+                "lat": 32.7425516,
+                "lng": -117.0314172
+            }
+        },
+        {
+            "region": "3",
+            "name": "Lomita",
+            "id": 263,
+            "position": {
+                "lat": 33.7922392,
+                "lng": -118.3150722
+            }
+        },
+        {
+            "region": "3",
+            "name": "Lompoc",
+            "id": 264,
+            "position": {
+                "lat": 34.6391501,
+                "lng": -120.4579409
+            }
+        },
+        {
+            "region": "3",
+            "name": "Long Beach",
+            "id": 265,
+            "position": {
+                "lat": 33.7700504,
+                "lng": -118.1937395
+            }
+        },
+        {
+            "region": "3",
+            "name": "Los Alamitos",
+            "id": 266,
+            "position": {
+                "lat": 33.8032009,
+                "lng": -118.0718894
+            }
+        },
+        {
+            "region": "3",
+            "name": "Los Angeles",
+            "id": 267,
+            "position": {
+                "lat": 34.0522342,
+                "lng": -118.2436849
+            }
+        },
+        {
+            "region": "3",
+            "name": "Lynwood",
+            "id": 268,
+            "position": {
+                "lat": 33.930293,
+                "lng": -118.2114603
+            }
+        },
+        {
+            "region": "3",
+            "name": "Malibu",
+            "id": 269,
+            "position": {
+                "lat": 34.0259216,
+                "lng": -118.7797571
+            }
+        },
+        {
+            "region": "3",
+            "name": "Manhattan Beach",
+            "id": 270,
+            "position": {
+                "lat": 33.8847361,
+                "lng": -118.4109089
+            }
+        },
+        {
+            "region": "3",
+            "name": "Mission Viejo",
+            "id": 367,
+            "position": {
+                "lat": 33.5968913,
+                "lng": -117.6581562
+            }
+        },
+        {
+            "region": "3",
+            "name": "Moorpark",
+            "id": 271,
+            "position": {
+                "lat": 34.285558,
+                "lng": -118.8820414
+            }
+        },
+        {
+            "region": "3",
+            "name": "National City",
+            "id": 272,
+            "position": {
+                "lat": 32.6781085,
+                "lng": -117.0991967
+            }
+        },
+        {
+            "region": "3",
+            "name": "Newport Beach",
+            "id": 273,
+            "position": {
+                "lat": 33.6188829,
+                "lng": -117.9298493
+            }
+        },
+        {
+            "region": "3",
+            "name": "Norwalk",
+            "id": 371,
+            "position": {
+                "lat": 33.9022367,
+                "lng": -118.081733
+            }
+        },
+        {
+            "region": "3",
+            "name": "Oceanside",
+            "id": 274,
+            "position": {
+                "lat": 33.1958696,
+                "lng": -117.3794834
+            }
+        },
+        {
+            "region": "3",
+            "name": "Ojai",
+            "id": 275,
+            "position": {
+                "lat": 34.4480495,
+                "lng": -119.242889
+            }
+        },
+        {
+            "region": "3",
+            "name": "Oxnard",
+            "id": 276,
+            "position": {
+                "lat": 34.1975048,
+                "lng": -119.1770516
+            }
+        },
+        {
+            "region": "3",
+            "name": "Port Hueneme",
+            "id": 278,
+            "position": {
+                "lat": 34.1477829,
+                "lng": -119.1951074
+            }
+        },
+        {
+            "region": "3",
+            "name": "Rancho Palos Verdes",
+            "id": 279,
+            "position": {
+                "lat": 33.7444613,
+                "lng": -118.3870173
+            }
+        },
+        {
+            "region": "3",
+            "name": "Rancho Santa Margarita",
+            "id": 280,
+            "position": {
+                "lat": 33.640171,
+                "lng": -117.602832
+            }
+        },
+        {
+            "region": "3",
+            "name": "Redondo Beach",
+            "id": 281,
+            "position": {
+                "lat": 33.8491816,
+                "lng": -118.3884078
+            }
+        },
+        {
+            "region": "3",
+            "name": "San Clemente",
+            "id": 282,
+            "position": {
+                "lat": 33.4273521,
+                "lng": -117.6126004
+            }
+        },
+        {
+            "region": "3",
+            "name": "San Diego",
+            "id": 283,
+            "position": {
+                "lat": 32.715738,
+                "lng": -117.1610838
+            }
+        },
+        {
+            "region": "3",
+            "name": "San Juan Capistrano",
+            "id": 284,
+            "position": {
+                "lat": 33.5019027,
+                "lng": -117.6627655
+            }
+        },
+        {
+            "region": "3",
+            "name": "Santa Ana",
+            "id": 286,
+            "position": {
+                "lat": 33.7454725,
+                "lng": -117.867653
+            }
+        },
+        {
+            "region": "3",
+            "name": "Santa Barbara",
+            "id": 287,
+            "position": {
+                "lat": 34.4208305,
+                "lng": -119.6981901
+            }
+        },
+        {
+            "region": "3",
+            "name": "Santa Maria",
+            "id": 288,
+            "position": {
+                "lat": 34.9530337,
+                "lng": -120.4357191
+            }
+        },
+        {
+            "region": "3",
+            "name": "Santa Monica",
+            "id": 289,
+            "position": {
+                "lat": 34.0194543,
+                "lng": -118.4911912
+            }
+        },
+        {
+            "region": "3",
+            "name": "Santa Paula",
+            "id": 290,
+            "position": {
+                "lat": 34.3541659,
+                "lng": -119.0592705
+            }
+        },
+        {
+            "region": "3",
+            "name": "Simi Valley",
+            "id": 291,
+            "position": {
+                "lat": 34.2694474,
+                "lng": -118.781482
+            }
+        },
+        {
+            "region": "3",
+            "name": "Solvang",
+            "id": 292,
+            "position": {
+                "lat": 34.5958201,
+                "lng": -120.1376481
+            }
+        },
+        {
+            "region": "3",
+            "name": "Somis",
+            "id": 373,
+            "position": {
+                "lat": 34.2637508,
+                "lng": -118.9946323
+            }
+        },
+        {
+            "region": "3",
+            "name": "South Gate",
+            "id": 293,
+            "position": {
+                "lat": 33.954737,
+                "lng": -118.2120161
+            }
+        },
+        {
+            "region": "3",
+            "name": "Thousand Oaks",
+            "id": 294,
+            "position": {
+                "lat": 34.1705609,
+                "lng": -118.8375937
+            }
+        },
+        {
+            "region": "3",
+            "name": "Torrance",
+            "id": 295,
+            "position": {
+                "lat": 33.8358492,
+                "lng": -118.3406288
+            }
+        },
+        {
+            "region": "3",
+            "name": "Ventura",
+            "id": 296,
+            "position": {
+                "lat": 34.2804923,
+                "lng": -119.2945199
+            }
+        },
+        {
+            "region": "3",
+            "name": "Vista",
+            "id": 298,
+            "position": {
+                "lat": 33.2000368,
+                "lng": -117.2425355
+            }
+        },
+        {
+            "region": "3",
+            "name": "West Hollywood",
+            "id": 299,
+            "position": {
+                "lat": 34.0900091,
+                "lng": -118.3617443
+            }
+        },
+        {
+            "region": "3",
+            "name": "Westlake Village",
+            "id": 300,
+            "position": {
+                "lat": 34.1466467,
+                "lng": -118.8073729
+            }
+        },
+        {
+            "region": "3",
+            "name": "Westminster",
+            "id": 301,
+            "position": {
+                "lat": 33.7591757,
+                "lng": -117.9897058
+            }
+        },
+        {
+            "region": "3",
+            "name": "Westwood",
+            "id": 372,
+            "position": {
+                "lat": 34.0635016,
+                "lng": -118.4455164
+            }
+        },
+        {
+            "region": "3",
+            "name": "Whittier",
+            "id": 368,
+            "position": {
+                "lat": 33.9791793,
+                "lng": -118.032844
+            }
+        },
+        {
+            "region": "3",
+            "name": "Woodland Hills",
+            "id": 302,
+            "position": {
+                "lat": 34.165357,
+                "lng": -118.6089752
+            }
+        },
+        {
+            "region": "4",
+            "name": "Alhambra",
+            "id": 382,
+            "position": {
+                "lat": 34.095287,
+                "lng": -118.1270146
+            }
+        },
+        {
+            "region": "4",
+            "name": "Arcadia",
+            "id": 303,
+            "position": {
+                "lat": 34.1397292,
+                "lng": -118.0353449
+            }
+        },
+        {
+            "region": "4",
+            "name": "Azusa",
+            "id": 304,
+            "position": {
+                "lat": 34.1336186,
+                "lng": -117.9075627
+            }
+        },
+        {
+            "region": "4",
+            "name": "Baldwin Park",
+            "id": 305,
+            "position": {
+                "lat": 34.0852868,
+                "lng": -117.9608978
+            }
+        },
+        {
+            "region": "4",
+            "name": "Chino",
+            "id": 306,
+            "position": {
+                "lat": 34.0122346,
+                "lng": -117.688944
+            }
+        },
+        {
+            "region": "4",
+            "name": "Chino Hills",
+            "id": 307,
+            "position": {
+                "lat": 33.9898188,
+                "lng": -117.7325848
+            }
+        },
+        {
+            "region": "4",
+            "name": "Claremont",
+            "id": 381,
+            "position": {
+                "lat": 34.0966764,
+                "lng": -117.7197785
+            }
+        },
+        {
+            "region": "4",
+            "name": "Colton",
+            "id": 308,
+            "position": {
+                "lat": 34.0739016,
+                "lng": -117.3136547
+            }
+        },
+        {
+            "region": "4",
+            "name": "Corona",
+            "id": 309,
+            "position": {
+                "lat": 33.8752935,
+                "lng": -117.5664384
+            }
+        },
+        {
+            "region": "4",
+            "name": "Covina",
+            "id": 310,
+            "position": {
+                "lat": 34.0900091,
+                "lng": -117.8903397
+            }
+        },
+        {
+            "region": "4",
+            "name": "Diamond Bar",
+            "id": 311,
+            "position": {
+                "lat": 34.0286226,
+                "lng": -117.8103367
+            }
+        },
+        {
+            "region": "4",
+            "name": "Duarte",
+            "id": 312,
+            "position": {
+                "lat": 34.1394513,
+                "lng": -117.9772873
+            }
+        },
+        {
+            "region": "4",
+            "name": "El Monte",
+            "id": 313,
+            "position": {
+                "lat": 34.0686206,
+                "lng": -118.0275667
+            }
+        },
+        {
+            "region": "4",
+            "name": "Escondido",
+            "id": 415,
+            "position": {
+                "lat": 33.1192068,
+                "lng": -117.086421
+            }
+        },
+        {
+            "region": "4",
+            "name": "Fontana",
+            "id": 314,
+            "position": {
+                "lat": 34.0922335,
+                "lng": -117.435048
+            }
+        },
+        {
+            "region": "4",
+            "name": "Glendora",
+            "id": 315,
+            "position": {
+                "lat": 34.1361187,
+                "lng": -117.865339
+            }
+        },
+        {
+            "region": "4",
+            "name": "Hemet",
+            "id": 376,
+            "position": {
+                "lat": 33.7475203,
+                "lng": -116.9719684
+            }
+        },
+        {
+            "region": "4",
+            "name": "Lake Elsinore",
+            "id": 388,
+            "position": {
+                "lat": 33.6680772,
+                "lng": -117.3272615
+            }
+        },
+        {
+            "region": "4",
+            "name": "Loma Linda",
+            "id": 317,
+            "position": {
+                "lat": 34.0483474,
+                "lng": -117.2611527
+            }
+        },
+        {
+            "region": "4",
+            "name": "Menifee",
+            "id": 387,
+            "position": {
+                "lat": 33.6971468,
+                "lng": -117.185294
+            }
+        },
+        {
+            "region": "4",
+            "name": "Monrovia",
+            "id": 318,
+            "position": {
+                "lat": 34.1442616,
+                "lng": -118.0019482
+            }
+        },
+        {
+            "region": "4",
+            "name": "Montclair",
+            "id": 319,
+            "position": {
+                "lat": 34.0775104,
+                "lng": -117.6897776
+            }
+        },
+        {
+            "region": "4",
+            "name": "Monterey Park",
+            "id": 383,
+            "position": {
+                "lat": 34.0625106,
+                "lng": -118.1228476
+            }
+        },
+        {
+            "region": "4",
+            "name": "Moreno Valley",
+            "id": 320,
+            "position": {
+                "lat": 33.9424658,
+                "lng": -117.2296717
+            }
+        },
+        {
+            "region": "4",
+            "name": "Murrieta",
+            "id": 378,
+            "position": {
+                "lat": 33.5539143,
+                "lng": -117.2139232
+            }
+        },
+        {
+            "region": "4",
+            "name": "Norco",
+            "id": 374,
+            "position": {
+                "lat": 33.9311257,
+                "lng": -117.548661
+            }
+        },
+        {
+            "region": "4",
+            "name": "Ontario",
+            "id": 321,
+            "position": {
+                "lat": 34.0633443,
+                "lng": -117.6508876
+            }
+        },
+        {
+            "region": "4",
+            "name": "Pasadena",
+            "id": 322,
+            "position": {
+                "lat": 34.1477849,
+                "lng": -118.1445155
+            }
+        },
+        {
+            "region": "4",
+            "name": "Perris",
+            "id": 375,
+            "position": {
+                "lat": 33.7825194,
+                "lng": -117.2286478
+            }
+        },
+        {
+            "region": "4",
+            "name": "Pomona",
+            "id": 323,
+            "position": {
+                "lat": 34.055103,
+                "lng": -117.7499909
+            }
+        },
+        {
+            "region": "4",
+            "name": "Ramona",
+            "id": 324,
+            "position": {
+                "lat": 33.0413604,
+                "lng": -116.8792553
+            }
+        },
+        {
+            "region": "4",
+            "name": "Rancho Cucamonga",
+            "id": 325,
+            "position": {
+                "lat": 34.1063989,
+                "lng": -117.5931084
+            }
+        },
+        {
+            "region": "4",
+            "name": "Rancho Santa Fe",
+            "id": 418,
+            "position": {
+                "lat": 33.020321,
+                "lng": -117.202813
+            }
+        },
+        {
+            "region": "4",
+            "name": "Redlands",
+            "id": 326,
+            "position": {
+                "lat": 34.0555693,
+                "lng": -117.1825381
+            }
+        },
+        {
+            "region": "4",
+            "name": "Rialto",
+            "id": 327,
+            "position": {
+                "lat": 34.1064001,
+                "lng": -117.3703235
+            }
+        },
+        {
+            "region": "4",
+            "name": "Riverside",
+            "id": 328,
+            "position": {
+                "lat": 33.9806005,
+                "lng": -117.3754942
+            }
+        },
+        {
+            "region": "4",
+            "name": "Rosemead",
+            "id": 329,
+            "position": {
+                "lat": 34.0805651,
+                "lng": -118.072846
+            }
+        },
+        {
+            "region": "4",
+            "name": "San Bernardino",
+            "id": 330,
+            "position": {
+                "lat": 34.1083449,
+                "lng": -117.2897652
+            }
+        },
+        {
+            "region": "4",
+            "name": "San Dimas",
+            "id": 331,
+            "position": {
+                "lat": 34.1066756,
+                "lng": -117.8067257
+            }
+        },
+        {
+            "region": "4",
+            "name": "San Fernando",
+            "id": 332,
+            "position": {
+                "lat": 34.2819461,
+                "lng": -118.4389719
+            }
+        },
+        {
+            "region": "4",
+            "name": "San Jacinto",
+            "id": 384,
+            "position": {
+                "lat": 33.7839084,
+                "lng": -116.958635
+            }
+        },
+        {
+            "region": "4",
+            "name": "San Marcos",
+            "id": 285,
+            "position": {
+                "lat": 33.1433723,
+                "lng": -117.1661449
+            }
+        },
+        {
+            "region": "4",
+            "name": "Santa Clarita",
+            "id": 333,
+            "position": {
+                "lat": 34.3916641,
+                "lng": -118.542586
+            }
+        },
+        {
+            "region": "4",
+            "name": "Sierra Madre",
+            "id": 334,
+            "position": {
+                "lat": 34.1616729,
+                "lng": -118.0528456
+            }
+        },
+        {
+            "region": "4",
+            "name": "Sun City",
+            "id": 377,
+            "position": {
+                "lat": 33.7091878,
+                "lng": -117.1972566
+            }
+        },
+        {
+            "region": "4",
+            "name": "Temecula",
+            "id": 379,
+            "position": {
+                "lat": 33.4936391,
+                "lng": -117.1483648
+            }
+        },
+        {
+            "region": "4",
+            "name": "Temple City",
+            "id": 335,
+            "position": {
+                "lat": 34.1072305,
+                "lng": -118.0578456
+            }
+        },
+        {
+            "region": "4",
+            "name": "Upland",
+            "id": 336,
+            "position": {
+                "lat": 34.09751,
+                "lng": -117.6483876
+            }
+        },
+        {
+            "region": "4",
+            "name": "West Covina",
+            "id": 337,
+            "position": {
+                "lat": 34.0686208,
+                "lng": -117.9389526
+            }
+        },
+        {
+            "region": "4",
+            "name": "Winchester",
+            "id": 380,
+            "position": {
+                "lat": 33.706966,
+                "lng": -117.0844733
+            }
+        },
+        {
+            "region": "4",
+            "name": "Yucaipa",
+            "id": 385,
+            "position": {
+                "lat": 34.033625,
+                "lng": -117.0430865
+            }
+        },
+        {
+            "region": "5",
+            "name": "Adelanto",
+            "id": 338,
+            "position": {
+                "lat": 34.5827699,
+                "lng": -117.409215
+            }
+        },
+        {
+            "region": "5",
+            "name": "Apple Valley",
+            "id": 339,
+            "position": {
+                "lat": 34.5008311,
+                "lng": -117.1858759
+            }
+        },
+        {
+            "region": "5",
+            "name": "Barstow",
+            "id": 340,
+            "position": {
+                "lat": 34.8957957,
+                "lng": -117.0172826
+            }
+        },
+        {
+            "region": "5",
+            "name": "Bishop",
+            "id": 341,
+            "position": {
+                "lat": 37.3614238,
+                "lng": -118.3996636
+            }
+        },
+        {
+            "region": "5",
+            "name": "California City",
+            "id": 342,
+            "position": {
+                "lat": 35.125801,
+                "lng": -117.9859038
+            }
+        },
+        {
+            "region": "5",
+            "name": "Hesperia",
+            "id": 343,
+            "position": {
+                "lat": 34.4263886,
+                "lng": -117.3008784
+            }
+        },
+        {
+            "region": "5",
+            "name": "Hinkley",
+            "id": 392,
+            "position": {
+                "lat": 34.9344769,
+                "lng": -117.1993469
+            }
+        },
+        {
+            "region": "5",
+            "name": "Independence",
+            "id": 344,
+            "position": {
+                "lat": 36.8027102,
+                "lng": -118.2000951
+            }
+        },
+        {
+            "region": "5",
+            "name": "Lancaster",
+            "id": 345,
+            "position": {
+                "lat": 34.6867846,
+                "lng": -118.1541632
+            }
+        },
+        {
+            "region": "5",
+            "name": "Lone Pine",
+            "id": 394,
+            "position": {
+                "lat": 36.6060444,
+                "lng": -118.0628654
+            }
+        },
+        {
+            "region": "5",
+            "name": "Lucerne Valley",
+            "id": 393,
+            "position": {
+                "lat": 34.4437599,
+                "lng": -116.9676823
+            }
+        },
+        {
+            "region": "5",
+            "name": "Mojave",
+            "id": 346,
+            "position": {
+                "lat": 35.0524699,
+                "lng": -118.1739645
+            }
+        },
+        {
+            "region": "5",
+            "name": "Palmdale",
+            "id": 347,
+            "position": {
+                "lat": 34.5794343,
+                "lng": -118.1164613
+            }
+        },
+        {
+            "region": "5",
+            "name": "Pearblossom",
+            "id": 390,
+            "position": {
+                "lat": 34.5064141,
+                "lng": -117.9096804
+            }
+        },
+        {
+            "region": "5",
+            "name": "Rosamond",
+            "id": 391,
+            "position": {
+                "lat": 34.8641446,
+                "lng": -118.1634075
+            }
+        },
+        {
+            "region": "5",
+            "name": "Tehachapi",
+            "id": 348,
+            "position": {
+                "lat": 35.1321877,
+                "lng": -118.4489739
+            }
+        },
+        {
+            "region": "5",
+            "name": "Victorville",
+            "id": 349,
+            "position": {
+                "lat": 34.5362184,
+                "lng": -117.2927641
+            }
+        },
+        {
+            "region": "6",
+            "name": "Blythe",
+            "id": 350,
+            "position": {
+                "lat": 33.6177725,
+                "lng": -114.5882607
+            }
+        },
+        {
+            "region": "6",
+            "name": "Borrego Springs",
+            "id": 396,
+            "position": {
+                "lat": 33.2558717,
+                "lng": -116.375012
+            }
+        },
+        {
+            "region": "6",
+            "name": "Brawley",
+            "id": 351,
+            "position": {
+                "lat": 32.9786566,
+                "lng": -115.530267
+            }
+        },
+        {
+            "region": "6",
+            "name": "Calexico",
+            "id": 352,
+            "position": {
+                "lat": 32.6789476,
+                "lng": -115.4988834
+            }
+        },
+        {
+            "region": "6",
+            "name": "Calipatria",
+            "id": 353,
+            "position": {
+                "lat": 33.1255957,
+                "lng": -115.5141538
+            }
+        },
+        {
+            "region": "6",
+            "name": "Cathedral City",
+            "id": 354,
+            "position": {
+                "lat": 33.7805388,
+                "lng": -116.4668036
+            }
+        },
+        {
+            "region": "6",
+            "name": "Coachella",
+            "id": 355,
+            "position": {
+                "lat": 33.6803003,
+                "lng": -116.173894
+            }
+        },
+        {
+            "region": "6",
+            "name": "Death Valley",
+            "id": 397,
+            "position": {
+                "lat": 36.5322649,
+                "lng": -116.9325408
+            }
+        },
+        {
+            "region": "6",
+            "name": "Desert Hot Springs",
+            "id": 356,
+            "position": {
+                "lat": 33.961124,
+                "lng": -116.5016784
+            }
+        },
+        {
+            "region": "6",
+            "name": "El Centro",
+            "id": 357,
+            "position": {
+                "lat": 32.792,
+                "lng": -115.5630514
+            }
+        },
+        {
+            "region": "6",
+            "name": "Holtville",
+            "id": 358,
+            "position": {
+                "lat": 32.8111612,
+                "lng": -115.3802643
+            }
+        },
+        {
+            "region": "6",
+            "name": "Imperial",
+            "id": 359,
+            "position": {
+                "lat": 32.8475528,
+                "lng": -115.5694391
+            }
+        },
+        {
+            "region": "6",
+            "name": "Indian Wells",
+            "id": 360,
+            "position": {
+                "lat": 33.717631,
+                "lng": -116.3407549
+            }
+        },
+        {
+            "region": "6",
+            "name": "Indio",
+            "id": 361,
+            "position": {
+                "lat": 33.7205771,
+                "lng": -116.2155619
+            }
+        },
+        {
+            "region": "6",
+            "name": "La Quinta",
+            "id": 398,
+            "position": {
+                "lat": 33.6633573,
+                "lng": -116.3100095
+            }
+        },
+        {
+            "region": "6",
+            "name": "Needles",
+            "id": 362,
+            "position": {
+                "lat": 34.8480597,
+                "lng": -114.6141315
+            }
+        },
+        {
+            "region": "6",
+            "name": "Palm Desert",
+            "id": 363,
+            "position": {
+                "lat": 33.7222445,
+                "lng": -116.3744556
+            }
+        },
+        {
+            "region": "6",
+            "name": "Palm Springs",
+            "id": 364,
+            "position": {
+                "lat": 33.8302961,
+                "lng": -116.5452921
+            }
+        },
+        {
+            "region": "6",
+            "name": "Rancho Mirage",
+            "id": 365,
+            "position": {
+                "lat": 33.739744,
+                "lng": -116.41279
+            }
+        }
+    ],
+    "benchCardTemplates": [
+        {
+            "name": "7x11",
+            "id": "7x11",
+            "sizeInInches": {
+                "x": 11,
+                "y": 7
+            }
+        },
+        {
+            "name": "5x7",
+            "id": "5x7",
+            "sizeInInches": {
+                "x": 7,
+                "y": 5
+            }
+        }
+    ]
 }
