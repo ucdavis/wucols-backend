@@ -40,12 +40,27 @@ stages:
 
         steps:
           - task: DotNetCoreCLI@2
+            displayName: Restore
+            inputs:
+              command: "restore"
+              projects: |
+                $(workingDirectory)/*.csproj
+
+          - task: DotNetCoreCLI@2
             displayName: Build
             inputs:
               command: "build"
               projects: |
                 $(workingDirectory)/*.csproj
-              arguments: --output $(System.DefaultWorkingDirectory)/publish_output --configuration Release
+              arguments: --configuration Release --no-restore
+
+          - task: DotNetCoreCLI@2
+            displayName: Publish
+            inputs:
+              command: "publish"
+              projects: |
+                $(workingDirectory)/*.csproj
+              arguments: --configuration Release --output $(System.DefaultWorkingDirectory)/publish_output --no-build
 
           - task: ArchiveFiles@2
             displayName: "Archive files"
@@ -82,3 +97,4 @@ stages:
                     appType: functionAppLinux
                     appName: $(functionAppName)
                     package: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
+                    runtimeStack: "DOTNET-ISOLATED|8.0"

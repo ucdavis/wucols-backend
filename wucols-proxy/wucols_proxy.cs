@@ -1,50 +1,77 @@
 using System;
 using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System.Net.Http;
-using System.Linq;
-using System.Net.Http.Headers;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace wucols_proxy
 {
-    public static class wucols_proxy
+    public class WucolsProxyFunction
     {
-        [FunctionName("wucols-proxy")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "wucols-proxy/sites/{someLetter}/files/{someAccountId}/files/{yearAndMonth}/{filename}")]
-            HttpRequest req,
+        private readonly ILogger<WucolsProxyFunction> _logger;
+        private readonly HttpClient _httpClient;
+
+        public WucolsProxyFunction(ILogger<WucolsProxyFunction> logger, HttpClient httpClient)
+        {
+            _logger = logger;
+            _httpClient = httpClient;
+        }
+
+        [Function("wucols-proxy")]
+        public async Task<HttpResponseData> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "sites/{someLetter}/files/{someAccountId}/files/{yearAndMonth}/{filename}")]
+            HttpRequestData req,
             string someLetter,
             string someAccountId,
             string yearAndMonth,
-            string filename,
-            ILogger log)
+            string filename)
         {
-            var httpClient = new HttpClient();
-            var siteFarmResponse = await httpClient.GetAsync(
-                $"https://wucolsplants.sf.ucdavis.edu/sites/{someLetter}/files/{someAccountId}/files/{yearAndMonth}/{filename}");
-            var memoryStream = new MemoryStream();
-            siteFarmResponse.Content.CopyTo(memoryStream, default, default);
-            memoryStream.Position = 0;
-            var result = new FileStreamResult(memoryStream, GetMIMEType(filename));
-            //log.LogInformation(System.Text.Json.JsonSerializer.Serialize(siteFarmResponse.));
+            try
+            {
+                _logger.LogInformation("Processing request for: {someLetter}/{someAccountId}/{yearAndMonth}/{filename}", 
+                    someLetter, someAccountId, yearAndMonth, filename);
 
-            //, new MediaTypeHeaderValue( siteFarmResponse.Headers.GetValues("Content-Type").FirstOrDefault()));
-            //req.HttpContext.Response
-            return result;
+                var targetUrl = $"https://wucolsplants.sf.ucdavis.edu/sites/{someLetter}/files/{someAccountId}/files/{yearAndMonth}/{filename}";
+                _logger.LogInformation("Fetching from: {targetUrl}", targetUrl);
+
+                var siteFarmResponse = await _httpClient.GetAsync(targetUrl);
+
+                var response = req.CreateResponse();
+                
+                if (siteFarmResponse.IsSuccessStatusCode)
+                {
+                    var content = await siteFarmResponse.Content.ReadAsByteArrayAsync();
+                    var contentType = GetMIMEType(filename);
+                    
+                    _logger.LogInformation("Successfully retrieved {byteCount} bytes with content type: {contentType}", 
+                        content.Length, contentType);
+                    
+                    response.StatusCode = System.Net.HttpStatusCode.OK;
+                    response.Headers.Add("Content-Type", contentType);
+                    response.WriteBytes(content);
+                }
+                else
+                {
+                    _logger.LogWarning("Source returned status code: {statusCode}", siteFarmResponse.StatusCode);
+                    response.StatusCode = siteFarmResponse.StatusCode;
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing request for file: {filename}", filename);
+                var errorResponse = req.CreateResponse(System.Net.HttpStatusCode.InternalServerError);
+                return errorResponse;
+            }
         }
 
         private static string GetMIMEType(string fileName)
         {
-            var provider =
-                new Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider();
-            string contentType;
-            if (!provider.TryGetContentType(fileName, out contentType))
+            var provider = new FileExtensionContentTypeProvider();
+            if (!provider.TryGetContentType(fileName, out string? contentType))
             {
                 contentType = "application/octet-stream";
             }
