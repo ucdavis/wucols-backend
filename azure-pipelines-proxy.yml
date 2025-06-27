@@ -39,29 +39,25 @@ stages:
           vmImage: $(vmImageName)
 
         steps:
-          - task: DotNetCoreCLI@2
-            displayName: Restore
+          - task: Bash@3
+            displayName: "Build and Publish Function"
             inputs:
-              command: "restore"
-              projects: |
-                $(workingDirectory)/*.csproj
-
-          - task: DotNetCoreCLI@2
-            displayName: Build
-            inputs:
-              command: "build"
-              projects: |
-                $(workingDirectory)/*.csproj
-              arguments: --configuration Release --no-restore
-
-          - task: DotNetCoreCLI@2
-            displayName: Publish
-            inputs:
-              command: "publish"
-              publishWebProjects: false
-              projects: |
-                $(workingDirectory)/*.csproj
-              arguments: --configuration Release --output $(System.DefaultWorkingDirectory)/publish_output --no-build
+              targetType: 'inline'
+              script: |
+                cd $(workingDirectory)
+                echo "Cleaning previous builds..."
+                dotnet clean --configuration Release
+                
+                echo "Restoring packages..."
+                dotnet restore
+                
+                echo "Building function..."
+                dotnet build --configuration Release
+                
+                echo "Publishing function..."
+                dotnet publish --configuration Release --output $(System.DefaultWorkingDirectory)/publish_output --self-contained false
+                
+                echo "Build completed successfully!"
 
           - task: Bash@3
             displayName: "Verify publish output"
@@ -72,6 +68,14 @@ stages:
                 ls -la $(System.DefaultWorkingDirectory)/publish_output/
                 echo "Looking for metadata files:"
                 find $(System.DefaultWorkingDirectory)/publish_output/ -name "*.metadata" -o -name "worker.config.json" -o -name "host.json"
+                echo "Checking for executable:"
+                ls -la $(System.DefaultWorkingDirectory)/publish_output/wucols-proxy*
+                echo "Checking .azurefunctions directory:"
+                ls -la $(System.DefaultWorkingDirectory)/publish_output/.azurefunctions/ || echo "No .azurefunctions directory found"
+                echo "Checking worker.config.json content:"
+                cat $(System.DefaultWorkingDirectory)/publish_output/worker.config.json
+                echo "Checking functions.metadata content:"
+                cat $(System.DefaultWorkingDirectory)/publish_output/functions.metadata
 
           - task: ArchiveFiles@2
             displayName: "Archive files"
