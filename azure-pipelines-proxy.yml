@@ -72,6 +72,10 @@ stages:
                 ls -la $(System.DefaultWorkingDirectory)/publish_output/wucols-proxy*
                 echo "Checking .azurefunctions directory:"
                 ls -la $(System.DefaultWorkingDirectory)/publish_output/.azurefunctions/ || echo "No .azurefunctions directory found"
+                echo "Checking worker.config.json content:"
+                cat $(System.DefaultWorkingDirectory)/publish_output/worker.config.json
+                echo "Checking functions.metadata content:"
+                cat $(System.DefaultWorkingDirectory)/publish_output/functions.metadata
 
           - task: ArchiveFiles@2
             displayName: "Archive files"
