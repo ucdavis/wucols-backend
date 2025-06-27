@@ -17,7 +17,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: "577c37bd-eb66-4e1d-96dd-7b0a3de40e77"
+  azureSubscription: "UC Davis CAES Production"
 
   # Function app name
   functionAppName: "wucols-export"
