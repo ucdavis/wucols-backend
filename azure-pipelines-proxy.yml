@@ -58,6 +58,7 @@ stages:
             displayName: Publish
             inputs:
               command: "publish"
+              publishWebProjects: false
               projects: |
                 $(workingDirectory)/*.csproj
               arguments: --configuration Release --output $(System.DefaultWorkingDirectory)/publish_output --no-build
